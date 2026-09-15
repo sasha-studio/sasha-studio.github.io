@@ -106,6 +106,38 @@ export const projects = [
     video: null,
   },
   {
+    slug: "english-kingdom-wardrobe",
+    title: "English Kingdom Wardrobe",
+    subtitle: "A modular costume library for expressive game characters.",
+    category: "Characters",
+    year: "Production asset study",
+    theme: "wardrobe",
+    cover: "/media/english-kingdom-wardrobe/top.webp",
+    coverAlt:
+      "A contact sheet of colourful clothing and costume icons for English Kingdom characters.",
+    featured: false,
+    mediaDisclosure: "Production UI artwork from the English Kingdom project",
+    services: ["Character design", "Costume systems", "Game UI assets"],
+    description:
+      "A modular wardrobe library for English Kingdom, organised so a character can move from a simple villager look to a complete ranger, wizard, or armoured silhouette.",
+    challenge:
+      "Make a large clothing catalogue easy to scan while preserving a shared storybook style across tops, bottoms, hats, gloves, neckwear, and footwear.",
+    approach:
+      "The icon library is grouped by equipment slot and named consistently for implementation. Distinct silhouettes and colour accents make each piece readable at small UI sizes and ready for character combinations.",
+    outcome:
+      "A production-ready visual foundation for character customisation. Character screenshots will be added here next to show complete outfits in context.",
+    palette: ["#172449", "#4b6ca8", "#c98a52", "#8d5c72", "#e7d4a3"],
+    gallery: [
+      { src: "/media/english-kingdom-wardrobe/top.webp", title: "01 / Tops & coats", alt: "English Kingdom tops and coat clothing icons" },
+      { src: "/media/english-kingdom-wardrobe/hat.webp", title: "02 / Hats & headwear", alt: "English Kingdom hat and headwear icons" },
+      { src: "/media/english-kingdom-wardrobe/bottom.webp", title: "03 / Bottoms", alt: "English Kingdom trousers and bottom clothing icons" },
+      { src: "/media/english-kingdom-wardrobe/feet.webp", title: "04 / Footwear", alt: "English Kingdom footwear icons" },
+      { src: "/media/english-kingdom-wardrobe/gloves.webp", title: "05 / Gloves", alt: "English Kingdom glove icons" },
+      { src: "/media/english-kingdom-wardrobe/neck.webp", title: "06 / Neckwear", alt: "English Kingdom scarf and neckwear icons" },
+    ],
+    video: null,
+  },
+  {
     slug: "adventure-island",
     title: "Adventure Island",
     subtitle: "A bright world map for a story-led island adventure.",
