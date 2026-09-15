@@ -71,7 +71,7 @@ export default function Ballpit({ paused, onUnavailable }) {
           (Math.random() - 0.5) * 1.5,
           (Math.random() - 0.5) * 0.45,
         ),
-        radius: 0.18 + Math.random() * 0.16,
+        radius: 0.09 + Math.random() * 0.08,
       };
     });
     const transform = new Object3D();
