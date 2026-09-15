@@ -106,6 +106,33 @@ export const projects = [
     video: null,
   },
   {
+    slug: "english-kingdom-drops",
+    title: "English Kingdom Drops",
+    subtitle: "Monster loot with a little story in every icon.",
+    category: "Game UI",
+    year: "Production asset study",
+    theme: "drops",
+    cover: "/media/english-kingdom-drops/drops.webp",
+    coverAlt:
+      "A contact sheet of colourful monster drops, treasure, and collectible item icons.",
+    featured: false,
+    mediaDisclosure: "Production UI artwork from the English Kingdom project",
+    services: ["Item icon design", "Loot readability", "Game UI assets"],
+    description:
+      "A collectible drop library for English Kingdom, giving each monster and treasure reward a distinct silhouette, material, and bit of personality.",
+    challenge:
+      "Make loot readable at a glance while keeping the catalogue playful enough to reward curiosity and memorable enough to support a growing adventure world.",
+    approach:
+      "Natural materials, monster parts, treasure, and utility items are drawn as a consistent icon family. Shared lighting and rich colour accents help players recognise value without losing the storybook charm.",
+    outcome:
+      "A clear item language for reward screens, inventory moments, and enemy drops. The library is ready to expand with in-game screenshots and loot-flow examples.",
+    palette: ["#172449", "#4f74b2", "#e6ad4f", "#c86c43", "#8a5c9a"],
+    gallery: [
+      { src: "/media/english-kingdom-drops/drops.webp", title: "01 / Monster drops & treasure", alt: "English Kingdom monster drop and treasure item icons" },
+    ],
+    video: null,
+  },
+  {
     slug: "english-kingdom-wardrobe",
     title: "English Kingdom Wardrobe",
     subtitle: "A modular costume library for expressive game characters.",
