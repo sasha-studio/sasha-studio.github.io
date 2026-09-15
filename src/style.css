@@ -286,7 +286,7 @@ body .not-found h1 {
 }
 .ballpit-fallback i {
   position: absolute;
-  width: clamp(70px, 9vw, 150px);
+  width: clamp(14px, 2.2vw, 32px);
   aspect-ratio: 1;
   border-radius: 50%;
   bottom: -4%;
@@ -298,8 +298,8 @@ body .not-found h1 {
     #805635 85%
   );
   box-shadow:
-    inset -12px -18px 25px #11152e55,
-    0 20px 40px #05091988;
+    inset -4px -6px 9px #11152e55,
+    0 6px 12px #05091966;
 }
 .ballpit-fallback i:nth-child(2n) {
   background: radial-gradient(
@@ -332,22 +332,22 @@ body .not-found h1 {
 .ballpit-fallback i:nth-child(5) {
   left: 82%;
   bottom: 24%;
-  width: 8vw;
+  width: clamp(12px, 1.8vw, 26px);
 }
 .ballpit-fallback i:nth-child(6) {
   left: 60%;
   bottom: 34%;
-  width: 5vw;
+  width: clamp(10px, 1.5vw, 21px);
 }
 .ballpit-fallback i:nth-child(7) {
   left: 92%;
   bottom: 51%;
-  width: 4vw;
+  width: clamp(9px, 1.3vw, 18px);
 }
 .ballpit-fallback i:nth-child(8) {
   left: 74%;
   bottom: 65%;
-  width: 3vw;
+  width: clamp(8px, 1.1vw, 16px);
 }
 .ballpit-fallback i:nth-child(9) {
   left: 44%;
