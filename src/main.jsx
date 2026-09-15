@@ -156,7 +156,6 @@ function Home() {
   return (
     <>
       <section className="hero">
-        <GameBackground />
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow hero-kicker">
@@ -599,6 +598,7 @@ function App() {
         >
           Skip to content
         </a>
+        <GameBackground />
         <div id="top">
           <Navigation />
           <main id="main" tabIndex={-1}>

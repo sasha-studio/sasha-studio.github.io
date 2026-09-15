@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght,SOFT,WONK@0,400,50,1;0,500,50,1;0,600,50,1;1,400,50,1;1,500,50,1&display=swap");
 .game-background {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: -3;
+  z-index: 2;
   background: radial-gradient(
     ellipse at 78% 35%,
     #42416a,
@@ -13,7 +13,9 @@
 }
 .ballpit-canvas {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: auto;
+  right: auto;
   width: 100%;
   height: 100%;
 }
@@ -21,19 +23,50 @@
   display: none;
 }
 .ballpit-canvas {
-  left: 38%;
-  width: 62%;
-  mask-image: linear-gradient(90deg, transparent, #000 12%);
+  left: 0;
+  width: 100%;
+  mask-image: none;
 }
 .hero {
-  background: #10172c;
+  background: transparent;
+  position: relative;
+  z-index: 3;
 }
-@media (max-width: 700px) {
-  .ballpit-canvas {
-    left: 0;
-    width: 100%;
-    mask-image: none;
-  }
+#top {
+  position: relative;
+  z-index: auto;
+}
+.navigation,
+.discipline-strip,
+.work-section,
+.about-section,
+.process-section,
+.case-study,
+.contact-section,
+.not-found {
+  position: relative;
+  z-index: 3;
+}
+.discipline-strip,
+.work-section,
+.process-section,
+.case-study,
+.not-found {
+  background: var(--paper);
+}
+.work-section::before,
+.process-section::before,
+.case-study::before,
+.not-found::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--paper);
 }
 .ballpit-fallback {
   position: absolute;
@@ -294,7 +327,7 @@ img {
   position: relative;
   min-height: 665px;
   color: var(--paper);
-  background: var(--night);
+  background: transparent;
   isolation: isolate;
   overflow: hidden;
 }

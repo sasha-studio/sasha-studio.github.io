@@ -22,7 +22,7 @@ export default function Ballpit({ paused, onUnavailable }) {
   const controller = useRef(null);
   useEffect(() => {
     const canvas = canvasRef.current;
-    const host = canvas.closest(".hero");
+    const host = canvas.parentElement;
     let renderer;
     try {
       renderer = new WebGLRenderer({
@@ -54,7 +54,7 @@ export default function Ballpit({ paused, onUnavailable }) {
       clearcoat: 1,
       clearcoatRoughness: 0.15,
     });
-    const count = mobile ? 28 : 58;
+    const count = mobile ? 38 : 82;
     const mesh = new InstancedMesh(geometry, material, count);
     mesh.frustumCulled = false;
     scene.add(mesh, new AmbientLight(0xffffff, 1.4));
@@ -66,8 +66,12 @@ export default function Ballpit({ paused, onUnavailable }) {
       mesh.setColorAt(index, new Color(palette[index % palette.length]));
       return {
         position: new Vector3(),
-        velocity: new Vector3((Math.random() - 0.5) * 2, 0, 0),
-        radius: 0.65 + Math.random() * 0.65,
+        velocity: new Vector3(
+          (Math.random() - 0.5) * 1.5,
+          (Math.random() - 0.5) * 1.5,
+          (Math.random() - 0.5) * 0.45,
+        ),
+        radius: 0.26 + Math.random() * 0.24,
       };
     });
     const transform = new Object3D();
@@ -105,8 +109,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     function step() {
       const dt = 1 / 60;
       balls.forEach((ball, index) => {
-        ball.velocity.y -= 8 * dt;
-        ball.velocity.multiplyScalar(0.9975);
+        ball.velocity.multiplyScalar(0.999);
         ball.position.addScaledVector(ball.velocity, dt);
         for (let j = index + 1; j < count; j++) {
           const other = balls[j];
@@ -189,7 +192,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     balls.forEach((ball) =>
       ball.position.set(
         (Math.random() * 2 - 1) * halfWidth,
-        (Math.random() * 1.5 - 0.5) * halfHeight,
+        (Math.random() * 2 - 1) * halfHeight,
         (Math.random() * 2 - 1) * 1.6,
       ),
     );
