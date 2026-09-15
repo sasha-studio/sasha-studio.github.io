@@ -111,9 +111,9 @@ export default function Ballpit({ paused, onUnavailable }) {
     }
     function step() {
       const dt = 1 / 60;
-      scrollKick *= 0.93;
+      scrollKick *= 0.8;
       balls.forEach((ball, index) => {
-        ball.velocity.multiplyScalar(0.999);
+        ball.velocity.multiplyScalar(0.975);
         ball.velocity.y += scrollKick;
         ball.position.addScaledVector(ball.velocity, dt);
         for (let j = index + 1; j < count; j++) {
@@ -176,7 +176,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     function tick(time) {
       accumulator += Math.min((time - (previous || time)) / 1000, 0.05);
       previous = time;
-      clickBurst *= 0.92;
+      clickBurst *= 0.82;
       while (accumulator >= 1 / 60) {
         step();
         accumulator -= 1 / 60;
