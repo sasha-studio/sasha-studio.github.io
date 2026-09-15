@@ -192,7 +192,6 @@ export default function Ballpit({ paused, onUnavailable }) {
         frame = requestAnimationFrame(tick);
     }
     function move(event) {
-      if (event.pointerType === "touch") return;
       const rect = canvas.getBoundingClientRect();
       pointer.set(
         (((event.clientX - rect.left) / rect.width) * 2 - 1) * halfWidth,
@@ -205,9 +204,11 @@ export default function Ballpit({ paused, onUnavailable }) {
       pointerActive = false;
     }
     function click(event) {
-      if (event.pointerType === "touch") return;
       move(event);
       clickBurst = 1;
+    }
+    function release(event) {
+      if (event.pointerType === "touch") pointerActive = false;
     }
     function scroll() {
       const current = window.scrollY;
@@ -237,6 +238,8 @@ export default function Ballpit({ paused, onUnavailable }) {
     sizeObserver.observe(host);
     window.addEventListener("pointermove", move, { passive: true });
     window.addEventListener("pointerdown", click, { passive: true });
+    window.addEventListener("pointerup", release, { passive: true });
+    window.addEventListener("pointercancel", release, { passive: true });
     window.addEventListener("blur", leave);
     window.addEventListener("scroll", scroll, { passive: true });
     document.addEventListener("visibilitychange", sync);
@@ -252,6 +255,8 @@ export default function Ballpit({ paused, onUnavailable }) {
       sizeObserver.disconnect();
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerdown", click);
+      window.removeEventListener("pointerup", release);
+      window.removeEventListener("pointercancel", release);
       window.removeEventListener("blur", leave);
       window.removeEventListener("scroll", scroll);
       document.removeEventListener("visibilitychange", sync);
