@@ -18,7 +18,6 @@ export default function GameBackground() {
   const [reduced, setReduced] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
-  const [paused, setPaused] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const fail = useCallback(() => setUnavailable(true), []);
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function GameBackground() {
     <>
       <div
         className="game-background"
-        data-state={staticMode ? "static" : paused ? "paused" : "running"}
+        data-state={staticMode ? "static" : "running"}
       >
         <div className="ballpit-fallback" aria-hidden="true">
           {Array.from({ length: 9 }, (_, index) => (
@@ -42,25 +41,9 @@ export default function GameBackground() {
         {!staticMode && (
           <BackgroundBoundary onUnavailable={fail}>
             <Suspense fallback={null}>
-              <Ballpit paused={paused} onUnavailable={fail} />
+              <Ballpit onUnavailable={fail} />
             </Suspense>
           </BackgroundBoundary>
-        )}
-      </div>
-      <div className="game-controls">
-        <span>
-          {staticMode
-            ? "A LITTLE PLAYFUL SPIRIT"
-            : "A LITTLE PLAY / MOVE YOUR CURSOR"}
-        </span>
-        {!staticMode && (
-          <button
-            type="button"
-            aria-pressed={paused}
-            onClick={() => setPaused((value) => !value)}
-          >
-            {paused ? "Resume animation" : "Pause animation"}
-          </button>
         )}
       </div>
     </>
