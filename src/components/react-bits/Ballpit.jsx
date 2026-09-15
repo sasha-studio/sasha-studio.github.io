@@ -136,12 +136,15 @@ export default function Ballpit({ paused, onUnavailable }) {
         }
         if (pointerActive) {
           difference.subVectors(ball.position, pointer);
+          // Cursor interaction is screen-space: depth should not make a
+          // visible sphere feel unresponsive.
+          difference.z = 0;
           const distance = difference.length();
-          if (distance < ball.radius + 1.6 && distance > 0.001) {
+          if (distance < ball.radius + 2.1 && distance > 0.001) {
             difference.divideScalar(distance);
             ball.velocity.addScaledVector(
               difference,
-              (ball.radius + 1.6 - distance) * 0.42,
+              (ball.radius + 2.1 - distance) * 0.7,
             );
           }
         }
