@@ -61,7 +61,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     const light = new DirectionalLight(0xffe1ae, 3);
     light.position.set(-4, 8, 10);
     scene.add(light);
-    const palette = ["#edc887", "#a491d0", "#8ab6d5", "#f2ddbb", "#6464a5"];
+    const palette = ["#f5b942", "#8f6ee8", "#39b9d4", "#e57b65", "#536ad8"];
     const balls = Array.from({ length: count }, (_, index) => {
       mesh.setColorAt(index, new Color(palette[index % palette.length]));
       return {
@@ -71,7 +71,7 @@ export default function Ballpit({ paused, onUnavailable }) {
           (Math.random() - 0.5) * 1.5,
           (Math.random() - 0.5) * 0.45,
         ),
-        radius: 0.09 + Math.random() * 0.08,
+        radius: 0.065 + Math.random() * 0.055,
       };
     });
     const transform = new Object3D();

@@ -158,6 +158,13 @@ body .paper-copy h3,
 body .paper-copy h3 em {
   color: #fff6e4;
 }
+body .button,
+body .filters button,
+body .text-link,
+body .nav-contact {
+  position: relative;
+  z-index: 6;
+}
 body .discipline-strip > span,
 body .discipline-strip > div,
 body .section-title > p,
