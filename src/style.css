@@ -27,6 +27,118 @@
 .contact-section {
   background: rgb(16 23 44 / 86%);
 }
+
+/* Midnight editorial theme: the animated scene is the common visual thread,
+   while copy and cards stay calm, contrasty, and intentionally layered. */
+body {
+  background: #0f152b;
+}
+.discipline-strip,
+.work-section,
+.process-section,
+.case-study,
+.not-found,
+.about-section {
+  color: #f6f1e8;
+  background: rgb(15 21 43 / 88%);
+  border-color: #ffffff18;
+}
+.discipline-strip {
+  background: rgb(34 31 66 / 86%);
+}
+.discipline-strip > span,
+.discipline-strip > div,
+.section-title > p,
+.about-copy > p:not(.eyebrow),
+.process-grid p,
+.concept-note,
+.media-disclosure {
+  color: #c4c3d4;
+}
+.work-section h2,
+.process-section h2,
+.about-copy h2,
+.case-study h1,
+.case-study h2,
+.case-study h3,
+.not-found h1 {
+  color: #f8f3e8;
+}
+.work-section h2 em,
+.process-section h2 em,
+.about-copy h2 em,
+.case-study h2 em,
+.not-found h1 em {
+  color: #d7b775;
+}
+.work-section .eyebrow,
+.process-heading > .eyebrow,
+.about-copy > .eyebrow,
+.case-heading .eyebrow,
+.case-intro > .eyebrow {
+  color: #d7b775;
+}
+.project-card {
+  background: rgb(21 28 56 / 96%);
+  box-shadow: 0 18px 55px #05081766;
+}
+.project-meta {
+  background: rgb(21 28 56 / 96%);
+  color: #f8f3e8;
+}
+.project-meta p,
+.paper-copy p,
+.paper-copy .text-link,
+.services small {
+  color: #c4c3d4;
+}
+.paper-feature {
+  background: rgb(50 46 86 / 96%);
+  box-shadow: 0 18px 55px #05081755;
+}
+.paper-copy h3,
+.paper-copy h3 em {
+  color: #f8f3e8;
+}
+.about-seal {
+  border-color: #0f152b;
+}
+.process-number {
+  border-color: #ffffff26;
+  color: #d7b775;
+}
+.contact-section {
+  color: #f8f3e8;
+}
+body .discipline-strip,
+body .work-section,
+body .process-section,
+body .case-study,
+body .not-found,
+body .about-section {
+  background: rgb(15 21 43 / 88%);
+}
+body .discipline-strip {
+  background: rgb(34 31 66 / 86%);
+}
+body .contact-section {
+  background: rgb(16 23 44 / 86%);
+}
+body .project-card,
+body .project-meta {
+  background: rgb(21 28 56 / 96%);
+}
+body .paper-feature {
+  background: rgb(50 46 86 / 96%);
+}
+body .paper-copy > p,
+body .paper-copy > .text-link {
+  color: #d8d4e4;
+}
+body .paper-copy h3,
+body .paper-copy h3 em {
+  color: #fff6e4;
+}
 .ballpit-canvas {
   position: absolute;
   top: 0;
