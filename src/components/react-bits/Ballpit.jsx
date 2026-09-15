@@ -78,6 +78,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     const difference = new Vector3();
     const pointer = new Vector3();
     let pointerActive = false;
+    let clickBurst = 0;
     let halfWidth = 10,
       halfHeight = 8;
     let frame = 0,
@@ -140,6 +141,17 @@ export default function Ballpit({ paused, onUnavailable }) {
             );
           }
         }
+        if (clickBurst > 0) {
+          difference.subVectors(ball.position, pointer);
+          const distance = difference.length();
+          if (distance > 0.001 && distance < 6) {
+            difference.divideScalar(distance);
+            ball.velocity.addScaledVector(
+              difference,
+              ((6 - distance) / 6) * clickBurst * 0.42,
+            );
+          }
+        }
         for (const [axis, bound] of [
           ["x", halfWidth],
           ["y", halfHeight],
@@ -157,6 +169,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     function tick(time) {
       accumulator += Math.min((time - (previous || time)) / 1000, 0.05);
       previous = time;
+      clickBurst *= 0.92;
       while (accumulator >= 1 / 60) {
         step();
         accumulator -= 1 / 60;
@@ -184,6 +197,11 @@ export default function Ballpit({ paused, onUnavailable }) {
     function leave() {
       pointerActive = false;
     }
+    function click(event) {
+      if (event.pointerType === "touch") return;
+      move(event);
+      clickBurst = 1;
+    }
     function contextLost(event) {
       event.preventDefault();
       onUnavailable();
@@ -204,8 +222,9 @@ export default function Ballpit({ paused, onUnavailable }) {
     observer.observe(canvas);
     const sizeObserver = new ResizeObserver(resize);
     sizeObserver.observe(host);
-    host.addEventListener("pointermove", move, { passive: true });
-    host.addEventListener("pointerleave", leave);
+    window.addEventListener("pointermove", move, { passive: true });
+    window.addEventListener("pointerdown", click, { passive: true });
+    window.addEventListener("blur", leave);
     document.addEventListener("visibilitychange", sync);
     canvas.addEventListener("webglcontextlost", contextLost);
     controller.current = (value) => {
@@ -217,8 +236,9 @@ export default function Ballpit({ paused, onUnavailable }) {
       cancelAnimationFrame(frame);
       observer.disconnect();
       sizeObserver.disconnect();
-      host.removeEventListener("pointermove", move);
-      host.removeEventListener("pointerleave", leave);
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerdown", click);
+      window.removeEventListener("blur", leave);
       document.removeEventListener("visibilitychange", sync);
       canvas.removeEventListener("webglcontextlost", contextLost);
       geometry.dispose();
