@@ -67,9 +67,9 @@ export default function Ballpit({ paused, onUnavailable }) {
       return {
         position: new Vector3(),
         velocity: new Vector3(
-          (Math.random() - 0.5) * 1.5,
-          (Math.random() - 0.5) * 1.5,
-          (Math.random() - 0.5) * 0.45,
+          (Math.random() - 0.5) * 0.85,
+          (Math.random() - 0.5) * 0.85,
+          (Math.random() - 0.5) * 0.28,
         ),
         radius: 0.052 + Math.random() * 0.044,
       };
@@ -141,7 +141,7 @@ export default function Ballpit({ paused, onUnavailable }) {
             difference.divideScalar(distance);
             ball.velocity.addScaledVector(
               difference,
-              (ball.radius + 1.6 - distance) * 1.3,
+              (ball.radius + 1.6 - distance) * 0.8,
             );
           }
         }
@@ -152,7 +152,7 @@ export default function Ballpit({ paused, onUnavailable }) {
             difference.divideScalar(distance);
             ball.velocity.addScaledVector(
               difference,
-              ((6 - distance) / 6) * clickBurst * 0.42,
+              ((6 - distance) / 6) * clickBurst * 0.25,
             );
           }
         }
@@ -167,7 +167,7 @@ export default function Ballpit({ paused, onUnavailable }) {
             ball.velocity[axis] *= -0.72;
           }
         }
-        ball.velocity.clampLength(0, 16);
+        ball.velocity.clampLength(0, 8);
       });
     }
     function tick(time) {
@@ -210,7 +210,7 @@ export default function Ballpit({ paused, onUnavailable }) {
       const current = window.scrollY;
       const delta = Math.max(-60, Math.min(60, current - previousScroll));
       previousScroll = current;
-      scrollKick += delta * 0.0009;
+      scrollKick += delta * 0.0005;
     }
     function contextLost(event) {
       event.preventDefault();
