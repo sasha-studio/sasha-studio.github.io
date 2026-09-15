@@ -137,7 +137,11 @@ export const projects = [
       { src: "/media/adventure-island/Path to the result of a desert background.webp", title: "07 / Desert journey keyframe", alt: "Tall desert journey environment concept" },
       { src: "/media/adventure-island/Road to the result of a forest background.webp", title: "08 / Forest journey keyframe", alt: "Tall forest journey environment concept" },
     ],
-    video: null,
+    video: {
+      src: "/media/adventure-island/adventure-island-walkthrough.mp4",
+      type: "video/mp4",
+      label: "Adventure Island visual walkthrough",
+    },
   },
   {
     slug: "paper-stories",

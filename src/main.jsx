@@ -501,6 +501,7 @@ function Project() {
                 playsInline
                 preload="metadata"
                 poster={project.cover}
+                aria-label={project.video.label || `${project.title} project film`}
               >
                 <source
                   src={project.video.src}
