@@ -389,7 +389,7 @@ function Lightbox({ item, project, onClose }) {
   return (
     <dialog
       ref={ref}
-      className="lightbox"
+      className={`lightbox ${project.theme}`}
       onCancel={onClose}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();

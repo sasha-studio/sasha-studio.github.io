@@ -1909,6 +1909,43 @@ figure {
   font-size: 12px;
   margin-top: 15px;
 }
+
+/* Character asset sheets keep their full composition on both the card and the lightbox. */
+.cover > .project-image.wardrobe,
+.case-cover > .project-image.wardrobe,
+.gallery-grid button > .project-image.wardrobe {
+  object-fit: contain;
+  object-position: center;
+  background: #172449;
+}
+.cover > .project-image.wardrobe {
+  padding: 12px;
+}
+.case-cover > .project-image.wardrobe {
+  padding: clamp(14px, 2.5vw, 30px);
+}
+.gallery-grid button > .project-image.wardrobe {
+  padding: 10px;
+}
+.lightbox.wardrobe {
+  background: #0d1630;
+  border: 1px solid rgba(234, 196, 110, 0.72);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(234, 196, 110, 0.14);
+  color: #f7f0e2;
+}
+.lightbox.wardrobe > .project-image {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  object-position: center;
+  padding: 16px;
+  border: 1px solid rgba(234, 196, 110, 0.48);
+  border-radius: 10px;
+  background: #172449;
+}
+.lightbox.wardrobe p {
+  color: #f0d38d;
+}
 .close {
   position: absolute;
   top: 4px;
