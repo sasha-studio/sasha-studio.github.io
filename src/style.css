@@ -1946,6 +1946,43 @@ figure {
 .lightbox.wardrobe p {
   color: #f0d38d;
 }
+
+/* Use the same cinematic treatment for every image-based case study. */
+.case-cover {
+  background: #172449;
+}
+.case-cover > .project-image {
+  object-fit: contain;
+  object-position: center;
+  background: #172449;
+  padding: clamp(10px, 1.8vw, 22px);
+}
+.gallery-grid button {
+  background: #172449;
+}
+.gallery-grid button > .project-image {
+  object-fit: contain;
+  object-position: center;
+  background: #172449;
+  padding: 10px;
+}
+.lightbox {
+  background: #0d1630;
+  color: #f7f0e2;
+  border-color: rgba(234, 196, 110, 0.72);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(234, 196, 110, 0.14);
+}
+.lightbox > .project-image {
+  max-height: 78vh;
+  object-fit: contain;
+  background: #172449;
+  padding: 16px;
+  border: 1px solid rgba(234, 196, 110, 0.48);
+  border-radius: 10px;
+}
+.lightbox p {
+  color: #f0d38d;
+}
 .close {
   position: absolute;
   top: 4px;
