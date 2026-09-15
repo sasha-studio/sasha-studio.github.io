@@ -11,6 +11,22 @@
   );
   pointer-events: none;
 }
+
+/* Site-wide Ballpit remains visible through calm editorial surfaces. */
+.discipline-strip,
+.work-section,
+.process-section,
+.case-study,
+.not-found,
+.about-section {
+  background: rgb(250 247 240 / 86%);
+}
+.discipline-strip {
+  background: rgb(238 234 244 / 84%);
+}
+.contact-section {
+  background: rgb(16 23 44 / 86%);
+}
 .ballpit-canvas {
   position: absolute;
   top: 0;
@@ -18,6 +34,7 @@
   right: auto;
   width: 100%;
   height: 100%;
+  opacity: 0.52;
 }
 .game-background:has(.ballpit-canvas) .ballpit-fallback {
   display: none;
@@ -67,6 +84,28 @@
   width: 100vw;
   transform: translateX(-50%);
   background: var(--paper);
+}
+/* Let the site-wide scene continue behind editorial copy. Artwork cards keep
+   their own opaque surfaces, so images remain the visual foreground. */
+.discipline-strip,
+.work-section,
+.process-section,
+.case-study,
+.not-found,
+.about-section {
+  background: rgb(250 247 240 / 86%);
+}
+.discipline-strip {
+  background: rgb(238 234 244 / 84%);
+}
+.contact-section {
+  background: rgb(16 23 44 / 86%);
+}
+.work-section::before,
+.process-section::before,
+.case-study::before,
+.not-found::before {
+  display: none;
 }
 .ballpit-fallback {
   position: absolute;
@@ -2572,4 +2611,20 @@ figure {
   .media-disclosure {
     font-size: 10px;
   }
+}
+
+/* Keep the moving scene visible through the long-form page surfaces. */
+.discipline-strip,
+.work-section,
+.process-section,
+.case-study,
+.not-found,
+.about-section {
+  background: rgb(250 247 240 / 86%);
+}
+.discipline-strip {
+  background: rgb(238 234 244 / 84%);
+}
+.contact-section {
+  background: rgb(16 23 44 / 86%);
 }
