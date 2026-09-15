@@ -1,4 +1,148 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght,SOFT,WONK@0,400,50,1;0,500,50,1;0,600,50,1;1,400,50,1;1,500,50,1&display=swap");
+.game-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: radial-gradient(
+    ellipse at 78% 35%,
+    #42416a,
+    #171d35 58%,
+    #10172c
+  );
+  pointer-events: none;
+}
+.ballpit-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.game-background:has(.ballpit-canvas) .ballpit-fallback {
+  display: none;
+}
+.ballpit-canvas {
+  left: 38%;
+  width: 62%;
+  mask-image: linear-gradient(90deg, transparent, #000 12%);
+}
+.hero {
+  background: #10172c;
+}
+@media (max-width: 700px) {
+  .ballpit-canvas {
+    left: 0;
+    width: 100%;
+    mask-image: none;
+  }
+}
+.ballpit-fallback {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ballpit-fallback i {
+  position: absolute;
+  width: clamp(70px, 9vw, 150px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  bottom: -4%;
+  left: 52%;
+  background: radial-gradient(
+    circle at 30% 25%,
+    #fff3d8,
+    #edc887 35%,
+    #805635 85%
+  );
+  box-shadow:
+    inset -12px -18px 25px #11152e55,
+    0 20px 40px #05091988;
+}
+.ballpit-fallback i:nth-child(2n) {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #e9e3f1,
+    #a491d0 35%,
+    #454473 85%
+  );
+}
+.ballpit-fallback i:nth-child(3n) {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #e0f4ff,
+    #8ab6d5 35%,
+    #365373 85%
+  );
+}
+.ballpit-fallback i:nth-child(2) {
+  left: 63%;
+  bottom: 7%;
+}
+.ballpit-fallback i:nth-child(3) {
+  left: 75%;
+  bottom: -3%;
+}
+.ballpit-fallback i:nth-child(4) {
+  left: 89%;
+  bottom: 4%;
+}
+.ballpit-fallback i:nth-child(5) {
+  left: 82%;
+  bottom: 24%;
+  width: 8vw;
+}
+.ballpit-fallback i:nth-child(6) {
+  left: 60%;
+  bottom: 34%;
+  width: 5vw;
+}
+.ballpit-fallback i:nth-child(7) {
+  left: 92%;
+  bottom: 51%;
+  width: 4vw;
+}
+.ballpit-fallback i:nth-child(8) {
+  left: 74%;
+  bottom: 65%;
+  width: 3vw;
+}
+.ballpit-fallback i:nth-child(9) {
+  left: 44%;
+  bottom: -5%;
+}
+.game-controls {
+  position: absolute;
+  right: 6%;
+  top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  z-index: 2;
+  color: #eee9f7;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+.game-controls button {
+  background: #151b32b8;
+  border: 1px solid #b7b0d36b;
+  border-radius: 20px;
+  padding: 10px 14px;
+  color: #fff4dc;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.game-controls button:hover {
+  background: #454064;
+}
+@media (max-width: 700px) {
+  .game-controls {
+    top: auto;
+    bottom: 65px;
+    right: 6%;
+  }
+  .game-controls > span {
+    display: none;
+  }
+}
 :root {
   font-family: "DM Sans", Arial, sans-serif;
   color: #272b43;

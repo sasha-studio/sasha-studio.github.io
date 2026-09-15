@@ -30,7 +30,7 @@ Categories and counts are driven by `src/data.js`. Game projects lead the homepa
 - TiltedCard: spring-based pointer tilt (1.3 degrees for the featured world, 3 degrees for other covers).
 - Touch devices keep static cards. Reduced-motion users get visible static text and sections with no tilt or smooth scrolling.
 - Sources, adaptation notes, and the upstream license are in `src/components/react-bits/`.
-- Illustration assets are delivered as WebP, approximately 505 KiB combined. No canvas or WebGL background is required.
+- Illustration assets are delivered as WebP, approximately 505 KiB combined. The hero uses a lazily loaded Three.js Ballpit adapted from React Bits. It pauses offscreen/in hidden tabs and offers a pause button. Reduced-motion preferences and unavailable WebGL use static decorative spheres. Touch scrolling is preserved; mobile uses fewer spheres and capped pixel density.
 
 ## Routes and hosting
 

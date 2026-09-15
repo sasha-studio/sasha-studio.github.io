@@ -15,6 +15,7 @@ import { Spark, Icon } from "./components/Icons";
 import BlurText from "./components/react-bits/BlurText";
 import FadeContent from "./components/react-bits/FadeContent";
 import TiltedCard from "./components/react-bits/TiltedCard";
+import GameBackground from "./components/GameBackground";
 import "./style.css";
 
 function Navigation() {
@@ -155,12 +156,7 @@ function Home() {
   return (
     <>
       <section className="hero">
-        <img
-          className="hero-image"
-          src="/media/moonlit-kingdom.webp"
-          alt=""
-          fetchPriority="high"
-        />
+        <GameBackground />
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow hero-kicker">
@@ -197,9 +193,6 @@ function Home() {
             SCROLL TO EXPLORE <Icon name="down" />
           </span>
         </div>
-        <span className="hero-art-label">
-          ILLUSTRATIVE CONCEPT / THE MOONLIT KINGDOM
-        </span>
       </section>
       <div className="discipline-strip">
         <span>Imagined with heart.</span>
