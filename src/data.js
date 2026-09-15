@@ -106,6 +106,40 @@ export const projects = [
     video: null,
   },
   {
+    slug: "adventure-island",
+    title: "Adventure Island",
+    subtitle: "A bright world map for a story-led island adventure.",
+    category: "Game worlds",
+    year: "World-building study",
+    theme: "adventure-island",
+    cover: "/media/adventure-island/Big Island background image.webp",
+    coverAlt:
+      "Colourful island adventure environment with a winding path through a tropical world.",
+    featured: false,
+    mediaDisclosure: "Portfolio artwork supplied by Sasha Makarov",
+    services: ["World building", "Environment design", "Level flow"],
+    description:
+      "Adventure Island is a playful visual system for a journey across distinct regions, from sunlit beaches to dense forests and a glowing volcanic finale.",
+    challenge:
+      "Give a large, multi-region adventure a clear sense of progression while keeping every location inviting, readable, and full of discovery.",
+    approach:
+      "A hand-painted map language connects the island, lettered destinations, and level backgrounds. Warm greens and ocean blues establish the world, while each region receives its own colour mood and landmarks.",
+    outcome:
+      "A flexible world-building direction for an adventure game, with a clear map-to-level relationship and enough visual variety to make every stop feel like a new chapter.",
+    palette: ["#173f59", "#2d836f", "#e7b85d", "#d77955", "#6a4e86"],
+    gallery: [
+      { src: "/media/adventure-island/Map-Letter Island.webp", title: "01 / Island map & route language", alt: "Lettered illustrated island map showing destinations and paths" },
+      { src: "/media/adventure-island/Island background image with text.webp", title: "02 / World map presentation", alt: "Island world presentation artwork with location labels" },
+      { src: "/media/adventure-island/Environment Background Redesign.webp", title: "03 / Environment redesign", alt: "Colourful environment redesign for the island adventure" },
+      { src: "/media/adventure-island/2.V of the background-Continue_Forest.webp", title: "04 / Forest level background", alt: "Forest level background concept with a path through the trees" },
+      { src: "/media/adventure-island/2.V of the background-Continue_Desert.webp", title: "05 / Desert level background", alt: "Desert level background concept for Adventure Island" },
+      { src: "/media/adventure-island/2.V of the background-Continue_Volcano.webp", title: "06 / Volcano level background", alt: "Volcanic level background concept for Adventure Island" },
+      { src: "/media/adventure-island/Path to the result of a desert background.webp", title: "07 / Desert journey keyframe", alt: "Tall desert journey environment concept" },
+      { src: "/media/adventure-island/Road to the result of a forest background.webp", title: "08 / Forest journey keyframe", alt: "Tall forest journey environment concept" },
+    ],
+    video: null,
+  },
+  {
     slug: "paper-stories",
     title: "Stories, on Paper",
     subtitle: "The same imagination. A different canvas.",

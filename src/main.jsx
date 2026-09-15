@@ -273,8 +273,8 @@ function Home() {
           </FadeContent>
         )}
         <p className="concept-note">
-          <Spark /> Presentation concepts with AI-generated sample art and
-          illustrative layouts. Original project work will be added here.
+          <Spark /> Presentation concepts and supplied project artwork, gathered
+          into a growing visual library.
         </p>
       </section>
       <section className="about-section" id="about">
@@ -463,10 +463,10 @@ function Project() {
           <Artwork project={project} image={project.cover} eager />
         </div>
         <p className="media-disclosure">
-          Illustrative presentation concept ·{" "}
-          {project.cover
-            ? "AI-generated sample artwork"
-            : "Original interface and layout study"}
+          {project.mediaDisclosure ||
+            (project.cover
+              ? "Illustrative presentation concept · AI-generated sample artwork"
+              : "Original interface and layout study")}
         </p>
         <section className="case-intro">
           <span className="eyebrow">01 / THE STORY</span>
