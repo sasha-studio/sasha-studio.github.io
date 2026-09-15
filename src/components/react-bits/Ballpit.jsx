@@ -84,6 +84,8 @@ export default function Ballpit({ paused, onUnavailable }) {
     let frame = 0,
       previous = 0,
       accumulator = 0;
+    let previousScroll = window.scrollY;
+    let scrollKick = 0;
     let visible = false,
       suspended = paused,
       disposed = false;
@@ -109,8 +111,10 @@ export default function Ballpit({ paused, onUnavailable }) {
     }
     function step() {
       const dt = 1 / 60;
+      scrollKick *= 0.93;
       balls.forEach((ball, index) => {
         ball.velocity.multiplyScalar(0.999);
+        ball.velocity.y += scrollKick;
         ball.position.addScaledVector(ball.velocity, dt);
         for (let j = index + 1; j < count; j++) {
           const other = balls[j];
@@ -202,6 +206,12 @@ export default function Ballpit({ paused, onUnavailable }) {
       move(event);
       clickBurst = 1;
     }
+    function scroll() {
+      const current = window.scrollY;
+      const delta = Math.max(-60, Math.min(60, current - previousScroll));
+      previousScroll = current;
+      scrollKick += delta * 0.0009;
+    }
     function contextLost(event) {
       event.preventDefault();
       onUnavailable();
@@ -225,6 +235,7 @@ export default function Ballpit({ paused, onUnavailable }) {
     window.addEventListener("pointermove", move, { passive: true });
     window.addEventListener("pointerdown", click, { passive: true });
     window.addEventListener("blur", leave);
+    window.addEventListener("scroll", scroll, { passive: true });
     document.addEventListener("visibilitychange", sync);
     canvas.addEventListener("webglcontextlost", contextLost);
     controller.current = (value) => {
@@ -239,6 +250,7 @@ export default function Ballpit({ paused, onUnavailable }) {
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerdown", click);
       window.removeEventListener("blur", leave);
+      window.removeEventListener("scroll", scroll);
       document.removeEventListener("visibilitychange", sync);
       canvas.removeEventListener("webglcontextlost", contextLost);
       geometry.dispose();
