@@ -28,6 +28,25 @@
   background: rgb(16 23 44 / 86%);
 }
 
+/* The animated blue scene is the primary page background. Panels are reserved
+   for actual cards, artwork, media, and controls. */
+body .discipline-strip,
+body .work-section,
+body .about-section,
+body .process-section,
+body .case-study,
+body .not-found,
+body .contact-section {
+  background: transparent !important;
+  border-color: #ffffff18;
+}
+body .work-section::before,
+body .process-section::before,
+body .case-study::before,
+body .not-found::before {
+  display: none;
+}
+
 /* Midnight editorial theme: the animated scene is the common visual thread,
    while copy and cards stay calm, contrasty, and intentionally layered. */
 body {
