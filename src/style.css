@@ -158,6 +158,40 @@ body .paper-copy h3,
 body .paper-copy h3 em {
   color: #fff6e4;
 }
+body .discipline-strip > span,
+body .discipline-strip > div,
+body .section-title > p,
+body .about-copy > p:not(.eyebrow),
+body .process-grid p,
+body .concept-note,
+body .media-disclosure,
+body .case-heading > div > p:last-child,
+body .case-heading ul,
+body .case-columns p {
+  color: #e1deeb;
+  text-shadow: 0 2px 10px #070b1dcc;
+}
+body .discipline-strip > span {
+  color: #fff0cf;
+}
+body .discipline-strip > div,
+body .work-section .eyebrow,
+body .process-heading > .eyebrow,
+body .about-copy > .eyebrow,
+body .case-heading .eyebrow,
+body .case-intro > .eyebrow {
+  color: #f0ca78;
+  text-shadow: 0 2px 10px #070b1dcc;
+}
+body .work-section h2,
+body .process-section h2,
+body .about-copy h2,
+body .case-study h1,
+body .case-study h2,
+body .case-study h3,
+body .not-found h1 {
+  text-shadow: 0 3px 18px #070b1dcc;
+}
 .ballpit-canvas {
   position: absolute;
   top: 0;
