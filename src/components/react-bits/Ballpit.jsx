@@ -54,7 +54,7 @@ export default function Ballpit({ paused, onUnavailable }) {
       clearcoat: 1,
       clearcoatRoughness: 0.15,
     });
-    const count = mobile ? 38 : 82;
+    const count = mobile ? 30 : 62;
     const mesh = new InstancedMesh(geometry, material, count);
     mesh.frustumCulled = false;
     scene.add(mesh, new AmbientLight(0xffffff, 1.4));
