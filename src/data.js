@@ -160,19 +160,19 @@ export const projects = [
   },
   {
     slug: "adventure-island",
-    title: "Letter Island",
-    subtitle: "A bright world map for a story-led island adventure.",
+    title: "Adventure Island",
+    subtitle: "A colourful world map for a story-led learning adventure.",
     category: "Game worlds",
     year: "World-building study",
     theme: "adventure-island",
-    cover: "/media/adventure-island/Map-Letter Island.webp",
+    cover: "/media/adventure-island/adventure-island-cover.webp",
     coverAlt:
-      "Colourful illustrated Letter Island map with snowy, forest, city, desert, and volcanic regions connected by a winding route.",
+      "Adventure Island cover art featuring a colourful multi-region map, wooden signposts, and a guide owl.",
     featured: false,
     mediaDisclosure: "Portfolio artwork supplied by Sasha Makarov",
     services: ["World building", "Environment design", "Level flow"],
     description:
-      "Letter Island is a playful visual system for a journey across distinct regions, from sunlit beaches to dense forests and a glowing volcanic finale.",
+      "Adventure Island is a playful visual system for a learning journey across distinct regions, from sunlit beaches to dense forests and a glowing volcanic finale.",
     challenge:
       "Give a large, multi-region adventure a clear sense of progression while keeping every location inviting, readable, and full of discovery.",
     approach:
@@ -181,7 +181,7 @@ export const projects = [
       "A flexible world-building direction for an adventure game, with a clear map-to-level relationship and enough visual variety to make every stop feel like a new chapter.",
     palette: ["#173f59", "#2d836f", "#e7b85d", "#d77955", "#6a4e86"],
     gallery: [
-      { src: "/media/adventure-island/Map-Letter Island.webp", title: "01 / Island map & route language", alt: "Lettered illustrated island map showing destinations and paths" },
+      { src: "/media/adventure-island/Map-Letter Island.webp", title: "01 / Island map & route language", alt: "Illustrated Adventure Island map showing destinations and paths" },
       { src: "/media/adventure-island/Island background image with text.webp", title: "02 / World map presentation", alt: "Island world presentation artwork with location labels" },
       { src: "/media/adventure-island/Environment Background Redesign.webp", title: "03 / Environment redesign", alt: "Colourful environment redesign for the island adventure" },
       { src: "/media/adventure-island/2.V of the background-Continue_Forest.webp", title: "04 / Forest level background", alt: "Forest level background concept with a path through the trees" },
@@ -193,7 +193,7 @@ export const projects = [
     video: {
       src: "/media/adventure-island/adventure-island-walkthrough.mp4",
       type: "video/mp4",
-      label: "Letter Island visual walkthrough",
+      label: "Adventure Island visual walkthrough",
     },
   },
   {

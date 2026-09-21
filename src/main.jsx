@@ -272,10 +272,10 @@ function Home() {
             <ProjectCard
               project={letterIsland}
               featured="primary"
-              displayTitle="Letter Island"
-              cover="/media/adventure-island/Map-Letter Island.webp"
-              coverAlt="A complete colourful map of Letter Island with its biomes and routes."
-              captionEyebrow="LETTER ISLAND / WORLD DESIGN"
+              displayTitle="Adventure Island"
+              cover="/media/adventure-island/adventure-island-cover.webp"
+              coverAlt="Adventure Island cover art with a colourful map, signposts, and a guide owl."
+              captionEyebrow="ADVENTURE ISLAND / WORLD DESIGN"
               captionText="World building · Environments · Level flow"
             />
             <ProjectCard
