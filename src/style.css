@@ -3442,14 +3442,43 @@ body .not-found h1 em {
 
 .cover > .project-image {
   backface-visibility: hidden;
-  transform: translate3d(0, 0, 0) scale(1);
-  transition: transform 280ms cubic-bezier(0.2, 0.75, 0.3, 1);
-  will-change: transform;
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
 .project-card:hover .cover > .project-image,
 .project-card:focus-visible .cover > .project-image {
-  transform: translate3d(0, 0, 0) scale(1.025);
+  transform: none;
+}
+
+.project-card:hover .project-open,
+.project-card:focus-visible .project-open {
+  color: #0a0a0f;
+  background: #00f0ff;
+  box-shadow: none;
+  transform: none;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  width: auto;
+  max-width: 100%;
+}
+
+.hero-description {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.hero-actions {
+  justify-content: center;
 }
 
 .hero-shade {

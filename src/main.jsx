@@ -121,6 +121,7 @@ function ProjectCard({ project, featured = false }) {
         glowRadius={20}
         glowIntensity={0.72}
         coneSpread={32}
+        fillOpacity={0}
         colors={["#00f0ff", "#ff00a0", "#39ff14"]}
       >
         <TiltedCard amplitude={featured ? 1.3 : 3}>
