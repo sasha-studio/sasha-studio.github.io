@@ -213,7 +213,9 @@ function Home() {
             assets.
           </p>
           <p className="hero-disciplines">
-            Game Art · Environment Design · UI · Character Design · 2D Animation
+            {["Game Visual Design", "2D Game Art", "Environment Design", "Character Design", "Game UI", "2D Animation"].map((skill) => (
+              <span className="hero-skill-tag" key={skill}>{skill}</span>
+            ))}
           </p>
           <div className="hero-actions">
             <Link className="button cyan" to="/#work">
@@ -221,6 +223,9 @@ function Home() {
             </Link>
             <Link className="button magenta" to="/#resume">
               Resume <Icon name="down" />
+            </Link>
+            <Link className="button cyan" to="/#contact">
+              Contact <Icon name="diagonal" />
             </Link>
           </div>
         </div>
@@ -362,6 +367,14 @@ function Home() {
                     <small>Games, presentations, print</small>
                   </span>
                 </div>
+              </div>
+              <div className="toolkit">
+                <p className="eyebrow">TOOLS &amp; PRACTICE</p>
+                <ul className="toolkit-list">
+                  {["Digital Illustration", "Illustrator", "Photoshop", "Figma", "Procreate", "Spine", "AI-Assisted Workflow"].map((tool) => (
+                    <li key={tool}>{tool}</li>
+                  ))}
+                </ul>
               </div>
               <Link to="/#contact" className="text-link">
                 Let’s imagine something together <Icon name="diagonal" />
