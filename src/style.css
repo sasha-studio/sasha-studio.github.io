@@ -3653,6 +3653,26 @@ body .not-found h1 em {
     font-size: 9px;
   }
 }
+
+/* Let image cards sit in the animated night backdrop with a subtle glass edge. */
+.case-cover,
+.gallery-grid button,
+.featured-work .showcase-secondary .cover {
+  border: 1px solid rgb(213 229 255 / 15%);
+  background: rgb(36 49 83 / 24%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  backdrop-filter: blur(18px) saturate(125%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 9%),
+    0 12px 32px rgb(0 0 0 / 16%);
+}
+
+.case-cover > .project-image,
+.case-cover > .project-image.wardrobe,
+.gallery-grid button > .project-image,
+.gallery-grid button > .project-image.wardrobe,
+.featured-work .showcase-secondary .cover > .project-image {
+  background: transparent;
 }
 
 .work-section {
@@ -3703,7 +3723,7 @@ body .not-found h1 em {
 .featured-work .showcase-secondary .cover > .project-image {
   object-fit: contain;
   object-position: center;
-  background: #172449;
+  background: transparent;
   padding: 10px;
 }
 
