@@ -21,7 +21,8 @@ export default function ConstellationBackground({ reduced = false }) {
     const mobile = window.matchMedia("(max-width: 700px)").matches;
     const count = reduced ? (mobile ? 15 : 24) : mobile ? 23 : 39;
     const connectionDistance = mobile ? 148 : 202;
-    const pointerRadius = mobile ? 96 : 138;
+    const pointerRadius = mobile ? 118 : 178;
+    const pointerLinkDistance = mobile ? 170 : 245;
     const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
 
     const createParticles = () => {
@@ -62,8 +63,8 @@ export default function ConstellationBackground({ reduced = false }) {
           const distance = Math.hypot(dx, dy);
           if (distance > 0 && distance < pointerRadius) {
             const force = (pointerRadius - distance) / pointerRadius;
-            particle.vx += (dx / distance) * force * 0.055;
-            particle.vy += (dy / distance) * force * 0.055;
+            particle.vx += (dx / distance) * force * 0.085;
+            particle.vy += (dy / distance) * force * 0.085;
           }
         }
 
@@ -106,6 +107,44 @@ export default function ConstellationBackground({ reduced = false }) {
           context.stroke();
         }
       }
+
+      if (!reduced && pointer.active) {
+        particles.forEach((particle) => {
+          const distance = Math.hypot(particle.x - pointer.x, particle.y - pointer.y);
+          if (distance >= pointerLinkDistance) return;
+          const opacity = (1 - distance / pointerLinkDistance) * 0.48;
+          const gradient = context.createLinearGradient(
+            pointer.x,
+            pointer.y,
+            particle.x,
+            particle.y,
+          );
+          gradient.addColorStop(0, `rgba(235, 199, 121, ${opacity})`);
+          gradient.addColorStop(1, `rgba(94, 179, 207, ${opacity * 0.35})`);
+          context.beginPath();
+          context.moveTo(pointer.x, pointer.y);
+          context.lineTo(particle.x, particle.y);
+          context.strokeStyle = gradient;
+          context.lineWidth = 0.9;
+          context.stroke();
+        });
+
+        const glow = context.createRadialGradient(
+          pointer.x,
+          pointer.y,
+          0,
+          pointer.x,
+          pointer.y,
+          mobile ? 18 : 24,
+        );
+        glow.addColorStop(0, "rgba(235, 199, 121, 0.5)");
+        glow.addColorStop(0.18, "rgba(235, 199, 121, 0.2)");
+        glow.addColorStop(1, "rgba(235, 199, 121, 0)");
+        context.beginPath();
+        context.arc(pointer.x, pointer.y, mobile ? 18 : 24, 0, Math.PI * 2);
+        context.fillStyle = glow;
+        context.fill();
+      }
     };
 
     const animate = () => {
@@ -113,12 +152,12 @@ export default function ConstellationBackground({ reduced = false }) {
       frame = requestAnimationFrame(animate);
     };
     const movePointer = (event) => {
-      if (event.pointerType === "touch" && event.buttons === 0) return;
       pointer.x = event.clientX;
       pointer.y = event.clientY;
       pointer.active = true;
     };
-    const releasePointer = () => {
+    const releasePointer = (event) => {
+      if (event?.pointerType === "mouse") return;
       pointer.active = false;
       pointer.x = -1000;
       pointer.y = -1000;
