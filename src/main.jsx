@@ -249,8 +249,8 @@ function Home() {
               project={englishKingdom}
               featured="secondary"
               displayTitle="English Kingdom"
-              captionEyebrow="CHARACTER ART / ENGLISH KINGDOM"
-              captionText="Costumes · Character identity · Game UI"
+              captionEyebrow="GAMEPLAY & VISUAL DESIGN / ENGLISH KINGDOM"
+              captionText="World design · Character systems · Game UI"
             />
           </div>
         )}
