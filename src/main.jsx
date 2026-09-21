@@ -16,6 +16,7 @@ import BlurText from "./components/react-bits/BlurText";
 import FadeContent from "./components/react-bits/FadeContent";
 import TiltedCard from "./components/react-bits/TiltedCard";
 import GameBackground from "./components/GameBackground";
+import HeroAurora from "./components/HeroAurora";
 import "./style.css";
 
 function Navigation() {
@@ -159,6 +160,7 @@ function Home() {
     <>
       <section className="hero">
         <div className="hero-shade" />
+        <HeroAurora />
         <div className="hero-content">
           <p className="eyebrow hero-kicker">
             HELLO, I’M
