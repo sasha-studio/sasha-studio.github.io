@@ -181,9 +181,6 @@ function ProjectCard({
           <Link to={`/projects/${project.slug}`} className="project-card">
             <div className="cover">
               <Artwork project={project} image={cover} alt={coverAlt} />
-              <span className="project-open">
-                <Icon name="diagonal" />
-              </span>
             </div>
             <div className="project-meta">
               <div className="project-meta-copy">
