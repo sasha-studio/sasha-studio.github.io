@@ -63,8 +63,8 @@ export default function ConstellationBackground({ reduced = false }) {
           const distance = Math.hypot(dx, dy);
           if (distance > 0 && distance < pointerRadius) {
             const force = (pointerRadius - distance) / pointerRadius;
-            particle.vx += (dx / distance) * force * 0.085;
-            particle.vy += (dy / distance) * force * 0.085;
+            particle.vx += (dx / distance) * force * 0.11;
+            particle.vy += (dy / distance) * force * 0.11;
           }
         }
 
