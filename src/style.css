@@ -3423,7 +3423,33 @@ body .not-found h1 em {
 
 .project-border-glow:hover {
   border-color: rgb(0 240 255 / 55%);
-  box-shadow: 0 0 24px rgb(0 240 255 / 10%);
+  box-shadow: none;
+}
+
+.project-border-glow {
+  transition: border-color 180ms ease;
+}
+
+.project-card {
+  box-shadow: none;
+  transition: none;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  box-shadow: none;
+}
+
+.cover > .project-image {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform 280ms cubic-bezier(0.2, 0.75, 0.3, 1);
+  will-change: transform;
+}
+
+.project-card:hover .cover > .project-image,
+.project-card:focus-visible .cover > .project-image {
+  transform: translate3d(0, 0, 0) scale(1.025);
 }
 
 .hero-shade {

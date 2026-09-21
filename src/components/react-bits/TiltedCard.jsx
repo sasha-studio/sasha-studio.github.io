@@ -2,7 +2,7 @@ import React from "react";
 // Adapted from DavidHDev/react-bits, TiltedCard. See LICENSE.md and SOURCES.md.
 import { useRef } from "react";
 import { motion, useSpring, useReducedMotion } from "motion/react";
-const spring = { damping: 30, stiffness: 130, mass: 1.3 };
+const spring = { damping: 28, stiffness: 220, mass: 0.8 };
 
 export default function TiltedCard({
   children,

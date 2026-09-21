@@ -73,48 +73,35 @@ const BorderGlow = ({
   fillOpacity = 0.5,
 }) => {
   const cardRef = useRef(null);
-
-  const getCenterOfElement = useCallback((el) => {
-    const { width, height } = el.getBoundingClientRect();
-    return [width / 2, height / 2];
-  }, []);
-
-  const getEdgeProximity = useCallback((el, x, y) => {
-    const [cx, cy] = getCenterOfElement(el);
-    const dx = x - cx;
-    const dy = y - cy;
-    let kx = Infinity;
-    let ky = Infinity;
-    if (dx !== 0) kx = cx / Math.abs(dx);
-    if (dy !== 0) ky = cy / Math.abs(dy);
-    return Math.min(Math.max(1 / Math.min(kx, ky), 0), 1);
-  }, [getCenterOfElement]);
-
-  const getCursorAngle = useCallback((el, x, y) => {
-    const [cx, cy] = getCenterOfElement(el);
-    const dx = x - cx;
-    const dy = y - cy;
-    if (dx === 0 && dy === 0) return 0;
-    const radians = Math.atan2(dy, dx);
-    let degrees = radians * (180 / Math.PI) + 90;
-    if (degrees < 0) degrees += 360;
-    return degrees;
-  }, [getCenterOfElement]);
+  const frameRef = useRef(0);
+  const pointerRef = useRef({ x: 0, y: 0 });
 
   const handlePointerMove = useCallback((e) => {
-    const card = cardRef.current;
-    if (!card) return;
+    pointerRef.current = { x: e.clientX, y: e.clientY };
+    if (frameRef.current) return;
 
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = 0;
+      const card = cardRef.current;
+      if (!card) return;
 
-    const edge = getEdgeProximity(card, x, y);
-    const angle = getCursorAngle(card, x, y);
+      const rect = card.getBoundingClientRect();
+      const x = pointerRef.current.x - rect.left;
+      const y = pointerRef.current.y - rect.top;
+      const dx = x - rect.width / 2;
+      const dy = y - rect.height / 2;
+      const edgeX = dx === 0 ? Infinity : (rect.width / 2) / Math.abs(dx);
+      const edgeY = dy === 0 ? Infinity : (rect.height / 2) / Math.abs(dy);
+      const proximity = Math.min(Math.max(1 / Math.min(edgeX, edgeY), 0), 1);
+      let angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      if (angle < 0) angle += 360;
 
-    card.style.setProperty('--edge-proximity', `${(edge * 100).toFixed(3)}`);
-    card.style.setProperty('--cursor-angle', `${angle.toFixed(3)}deg`);
-  }, [getEdgeProximity, getCursorAngle]);
+      card.style.setProperty('--edge-proximity', `${(proximity * 100).toFixed(2)}`);
+      card.style.setProperty('--cursor-angle', `${angle.toFixed(2)}deg`);
+    });
+  }, []);
+
+  useEffect(() => () => cancelAnimationFrame(frameRef.current), []);
 
   useEffect(() => {
     if (!animated || !cardRef.current) return;
