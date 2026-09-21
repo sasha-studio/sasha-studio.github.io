@@ -9,5 +9,8 @@ Adapted from the JavaScript + CSS sources inspected on 2026-09-15:
 - [TiltedCard](https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/TiltedCard/TiltedCard.jsx): pointer-driven spring rotation. Adapted to accept existing card children and preserve semantic links. No tooltip or mobile warning; tilt disabled for touch and reduced motion.
 
 - [Ballpit](https://reactbits.dev/backgrounds/ballpit): adapted from the source supplied by the user on 2026-09-15. Three.js instanced spheres with sphere collisions, gravity, and cursor repulsion. Reworked lifecycle, fixed-step physics, capped pixel density, passive mouse tracking, offscreen/tab suspension, pause control, and static reduced-motion/WebGL fallback. The original effect credits Kevin Levron.
+- [Aurora](https://reactbits.dev/backgrounds/aurora): adapted from the JavaScript + CSS source supplied by the user on 2026-09-21. OGL shader colours, speed, density, resize handling, WebGL fallback, and scroll visibility were tuned for the Sasha Makarov portfolio.
 
-The upstream license is preserved in LICENSE.md. These are local adaptations, not a package claiming to be the React Bits library. Motion, GSAP, and Three.js are the runtime dependencies.
+The constellation canvas is adapted from `ParticleCanvas.tsx` in the Kirill Makarov Dev portfolio supplied as the visual reference. Its point network, cursor repulsion, mobile density, touch input, and reduced-motion behavior were retuned for this site.
+
+The upstream license is preserved in LICENSE.md. These are local adaptations, not a package claiming to be the React Bits library. Motion, GSAP, Three.js, and OGL are the runtime dependencies.
