@@ -2,9 +2,9 @@
 import { useEffect, useRef } from "react";
 
 const PALETTE = [
-  [235, 199, 121],
-  [156, 133, 210],
-  [94, 179, 207],
+  [0, 240, 255],
+  [255, 0, 160],
+  [57, 255, 20],
 ];
 
 export default function ConstellationBackground({ reduced = false }) {
@@ -97,8 +97,8 @@ export default function ConstellationBackground({ reduced = false }) {
           if (distance >= connectionDistance) continue;
           const opacity = (1 - distance / connectionDistance) * 0.31;
           const gradient = context.createLinearGradient(start.x, start.y, end.x, end.y);
-          gradient.addColorStop(0, `rgba(235, 199, 121, ${opacity})`);
-          gradient.addColorStop(1, `rgba(156, 133, 210, ${opacity * 0.78})`);
+          gradient.addColorStop(0, `rgba(0, 240, 255, ${opacity})`);
+          gradient.addColorStop(1, `rgba(255, 0, 160, ${opacity * 0.78})`);
           context.beginPath();
           context.moveTo(start.x, start.y);
           context.lineTo(end.x, end.y);
@@ -119,8 +119,8 @@ export default function ConstellationBackground({ reduced = false }) {
             particle.x,
             particle.y,
           );
-          gradient.addColorStop(0, `rgba(235, 199, 121, ${opacity})`);
-          gradient.addColorStop(1, `rgba(94, 179, 207, ${opacity * 0.35})`);
+          gradient.addColorStop(0, `rgba(0, 240, 255, ${opacity})`);
+          gradient.addColorStop(1, `rgba(57, 255, 20, ${opacity * 0.35})`);
           context.beginPath();
           context.moveTo(pointer.x, pointer.y);
           context.lineTo(particle.x, particle.y);
@@ -137,9 +137,9 @@ export default function ConstellationBackground({ reduced = false }) {
           pointer.y,
           mobile ? 18 : 24,
         );
-        glow.addColorStop(0, "rgba(235, 199, 121, 0.5)");
-        glow.addColorStop(0.18, "rgba(235, 199, 121, 0.2)");
-        glow.addColorStop(1, "rgba(235, 199, 121, 0)");
+        glow.addColorStop(0, "rgba(0, 240, 255, 0.5)");
+        glow.addColorStop(0.18, "rgba(0, 240, 255, 0.2)");
+        glow.addColorStop(1, "rgba(0, 240, 255, 0)");
         context.beginPath();
         context.arc(pointer.x, pointer.y, mobile ? 18 : 24, 0, Math.PI * 2);
         context.fillStyle = glow;

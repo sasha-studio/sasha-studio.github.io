@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght,SOFT,WONK@0,400,50,1;0,500,50,1;0,600,50,1;1,400,50,1;1,500,50,1&display=swap");
 .game-background {
   position: fixed;
   inset: 0;
   z-index: 2;
   overflow: hidden;
-  background: #000;
+  background: #0a0a0f;
   pointer-events: none;
 }
 .constellation-canvas {
@@ -406,18 +405,28 @@ body .not-found h1 {
   }
 }
 :root {
-  font-family: "DM Sans", Arial, sans-serif;
-  color: #f6f1e8;
-  background: #000;
+  font-family: "Rajdhani", Arial, sans-serif;
+  color: #e0e0e0;
+  background: #0a0a0f;
   font-synthesis: none;
-  --paper: #f6f1e8;
-  --ink: #f6f1e8;
-  --night: #000;
-  --gold: #edc887;
-  --muted: #68687a;
-  --line: #e2ded6;
-  --lavender: #e9e3f1;
-  --serif: "Fraunces", Georgia, serif;
+  --paper: #e0e0e0;
+  --ink: #0a0a0f;
+  --night: #0a0a0f;
+  --gold: #00f0ff;
+  --muted: #8a8a9a;
+  --line: #1e1e2e;
+  --lavender: #12121a;
+  --cyan: #00f0ff;
+  --magenta: #ff00a0;
+  --neon-green: #39ff14;
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #8a8a9a;
+  --border-color: #1e1e2e;
+  --serif: "Orbitron", sans-serif;
+  --sans: "Rajdhani", sans-serif;
+  --mono: "JetBrains Mono", monospace;
 }
 * {
   box-sizing: border-box;
@@ -3069,5 +3078,376 @@ body .not-found::before {
   }
   .hero-description {
     max-width: 340px;
+  }
+}
+
+/* Kirill portfolio theme: near-black canvas, neon accents, and technical type. */
+:root {
+  color-scheme: dark;
+  --paper: #e0e0e0;
+  --ink: #0a0a0f;
+  --night: #0a0a0f;
+  --gold: #00f0ff;
+  --muted: #8a8a9a;
+  --line: #1e1e2e;
+  --lavender: #12121a;
+  --cyan: #00f0ff;
+  --magenta: #ff00a0;
+  --neon-green: #39ff14;
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #8a8a9a;
+  --border-color: #1e1e2e;
+  --serif: "Orbitron", sans-serif;
+  --sans: "Rajdhani", sans-serif;
+  --mono: "JetBrains Mono", monospace;
+}
+
+html,
+body,
+#root,
+#top,
+.game-background {
+  background-color: #0a0a0f !important;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+p,
+small,
+span,
+li,
+a {
+  font-family: "Rajdhani", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.navigation .logo > span,
+.button,
+.filters button,
+.nav-contact,
+.case-study .back-link,
+.project-number,
+.eyebrow,
+.cover-tag {
+  font-family: "Orbitron", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+body {
+  color: #e0e0e0;
+  background: #0a0a0f;
+  font-size: 17px;
+}
+
+::selection {
+  color: #0a0a0f;
+  background: #00f0ff;
+}
+
+:where(a, button, [tabindex]):focus-visible,
+.case-study .back-link:focus-visible {
+  outline: 2px solid #00f0ff !important;
+  outline-offset: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #00f0ff !important;
+}
+
+.navigation {
+  background: rgb(10 10 15 / 88%);
+  border-bottom-color: #1e1e2e;
+  backdrop-filter: blur(14px);
+}
+
+.navigation .logo > span {
+  color: #e0e0e0;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+}
+
+.navigation nav a {
+  color: #8a8a9a;
+  transition: color 220ms ease, text-shadow 220ms ease;
+}
+
+.navigation nav a:hover,
+.navigation nav a.current {
+  color: #00f0ff;
+  text-shadow: 0 0 14px rgb(0 240 255 / 35%);
+}
+
+.navigation nav .nav-contact {
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid rgb(57 255 20 / 44%);
+  border-radius: 999px;
+  color: #39ff14;
+  background: rgb(57 255 20 / 6%);
+  transition: color 220ms ease, background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.navigation nav .nav-contact:hover,
+.navigation nav .nav-contact.current {
+  color: #0a0a0f;
+  background: #39ff14;
+  box-shadow: 0 0 20px rgb(57 255 20 / 24%);
+  transform: translateY(-1px);
+}
+
+.button {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  box-shadow: none;
+  transition: color 220ms ease, background 220ms ease, border-color 220ms ease,
+    box-shadow 220ms ease, transform 220ms ease;
+}
+
+.button.cyan {
+  color: #00f0ff;
+  border-color: #00f0ff;
+  background: rgb(0 240 255 / 8%);
+}
+
+.button.magenta {
+  color: #ff00a0;
+  border-color: #ff00a0;
+  background: rgb(255 0 160 / 8%);
+}
+
+.button.green {
+  color: #39ff14;
+  border-color: #39ff14;
+  background: rgb(57 255 20 / 8%);
+}
+
+.button.cyan:hover,
+.button.cyan:focus-visible {
+  color: #0a0a0f;
+  border-color: #00f0ff;
+  background: #00f0ff;
+  box-shadow: 0 0 24px rgb(0 240 255 / 30%);
+}
+
+.button.magenta:hover,
+.button.magenta:focus-visible {
+  color: #0a0a0f;
+  border-color: #ff00a0;
+  background: #ff00a0;
+  box-shadow: 0 0 24px rgb(255 0 160 / 28%);
+}
+
+.button.green:hover,
+.button.green:focus-visible {
+  color: #0a0a0f;
+  border-color: #39ff14;
+  background: #39ff14;
+  box-shadow: 0 0 24px rgb(57 255 20 / 26%);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active,
+.navigation nav .nav-contact:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.hero .text-link {
+  color: #ff00a0;
+  font-family: "Orbitron", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 220ms ease, transform 220ms ease, text-shadow 220ms ease;
+}
+
+.hero .text-link:hover {
+  color: #ff00a0;
+  text-shadow: 0 0 14px rgb(255 0 160 / 42%);
+  transform: translateY(-2px);
+}
+
+.filters button {
+  min-height: 44px;
+  border: 1px solid #1e1e2e;
+  border-radius: 999px;
+  color: #a6a6b4;
+  background: rgb(18 18 26 / 54%);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease,
+    box-shadow 200ms ease, transform 200ms ease;
+}
+
+.filters button:hover {
+  color: #00f0ff;
+  border-color: rgb(0 240 255 / 72%);
+  background: rgb(0 240 255 / 8%);
+  transform: translateY(-1px);
+}
+
+.filters button.active,
+.filters button.active:hover {
+  color: #0a0a0f;
+  border-color: #00f0ff;
+  background: #00f0ff;
+  box-shadow: 0 0 18px rgb(0 240 255 / 20%);
+}
+
+.project-card,
+.project-meta {
+  background: rgb(18 18 26 / 94%);
+}
+
+.project-card {
+  transition: box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  box-shadow: 0 0 28px rgb(0 240 255 / 12%);
+}
+
+.project-open,
+.enlarge {
+  color: #0a0a0f;
+  background: #00f0ff;
+  box-shadow: 0 0 18px rgb(0 240 255 / 22%);
+  transition: color 200ms ease, background 200ms ease, box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.project-card:hover .project-open,
+.gallery-grid button:hover .enlarge {
+  color: #0a0a0f;
+  background: #ff00a0;
+  box-shadow: 0 0 22px rgb(255 0 160 / 32%);
+}
+
+.case-study .back-link {
+  color: #00f0ff;
+  border-color: rgb(0 240 255 / 55%);
+  background: rgb(18 18 26 / 88%);
+  box-shadow: 0 0 16px rgb(0 240 255 / 8%);
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease,
+    box-shadow 200ms ease, transform 200ms ease;
+}
+
+.case-study .back-link:hover {
+  color: #0a0a0f;
+  border-color: #00f0ff;
+  background: #00f0ff;
+  box-shadow: 0 0 22px rgb(0 240 255 / 26%);
+  transform: translateX(-3px);
+}
+
+.close:hover {
+  color: #0a0a0f;
+  background: #ff00a0;
+}
+
+.hero-kicker,
+.work-section .eyebrow,
+.process-heading > .eyebrow,
+.about-copy > .eyebrow,
+.case-heading .eyebrow,
+.case-intro > .eyebrow {
+  color: #00f0ff;
+  text-shadow: 0 0 16px rgb(0 240 255 / 20%);
+}
+
+.hero-role,
+.section-title h2 em,
+.process-section h2 em,
+.about-copy h2 em,
+.case-study h2 em,
+.not-found h1 em {
+  color: #ff00a0;
+}
+
+.logo > .spark,
+.hero-kicker > span,
+.hero-bottom .spark,
+.discipline-strip .spark {
+  color: #39ff14;
+}
+
+.hero-kicker > span {
+  background: #39ff14;
+  box-shadow: 0 0 14px rgb(57 255 20 / 58%);
+}
+
+body .work-section .eyebrow,
+body .process-heading > .eyebrow,
+body .about-copy > .eyebrow,
+body .case-heading .eyebrow,
+body .case-intro > .eyebrow,
+body .discipline-strip > div {
+  color: #00f0ff;
+  text-shadow: 0 0 14px rgb(0 240 255 / 18%);
+}
+
+body .work-section h2 em,
+body .process-section h2 em,
+body .about-copy h2 em,
+body .case-study h2 em,
+body .not-found h1 em {
+  color: #ff00a0;
+}
+
+.project-border-glow {
+  border-color: rgb(0 240 255 / 22%);
+}
+
+.project-border-glow:hover {
+  border-color: rgb(0 240 255 / 55%);
+  box-shadow: 0 0 24px rgb(0 240 255 / 10%);
+}
+
+.hero-shade {
+  background:
+    linear-gradient(90deg, rgb(10 10 15 / 78%) 0%, rgb(10 10 15 / 44%) 43%, transparent 78%),
+    linear-gradient(0deg, rgb(10 10 15 / 66%), transparent 38%);
+}
+
+body .hero-aurora {
+  opacity: 0.48;
+}
+
+@media (max-width: 540px) {
+  .hero h1 {
+    font-size: clamp(30px, 8.8vw, 48px);
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

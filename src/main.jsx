@@ -79,7 +79,7 @@ function Contact() {
       </h2>
       <p>Let’s give your next story a little character.</p>
       {profile.email ? (
-        <a className="button gold" href={`mailto:${profile.email}`}>
+        <a className="button green" href={`mailto:${profile.email}`}>
           Let’s create together <Icon name="diagonal" />
         </a>
       ) : (
@@ -115,13 +115,13 @@ function ProjectCard({ project, featured = false }) {
       <BorderGlow
         className="project-border-glow"
         edgeSensitivity={24}
-        glowColor="205 80 68"
-        backgroundColor="#0b1020"
+        glowColor="186 100 50"
+        backgroundColor="#0a0a0f"
         borderRadius={12}
         glowRadius={20}
         glowIntensity={0.72}
         coneSpread={32}
-        colors={["#6487ff", "#55d5d0", "#e5bd72"]}
+        colors={["#00f0ff", "#ff00a0", "#39ff14"]}
       >
         <TiltedCard amplitude={featured ? 1.3 : 3}>
           <Link to={`/projects/${project.slug}`} className="project-card">
@@ -187,10 +187,10 @@ function Home() {
             concept to production.
           </p>
           <div className="hero-actions">
-            <Link className="button gold" to="/#work">
+            <Link className="button cyan" to="/#work">
               View Work <Icon name="diagonal" />
             </Link>
-            <Link className="text-link" to="/#resume">
+            <Link className="button magenta" to="/#resume">
               Resume <Icon name="down" />
             </Link>
           </div>
@@ -445,7 +445,7 @@ function Project() {
           <br />
           <em>still unwritten.</em>
         </h1>
-        <Link className="button gold" to="/">
+        <Link className="button cyan" to="/">
           Back to the portfolio <Icon />
         </Link>
       </section>

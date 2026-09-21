@@ -27,7 +27,7 @@ export default function HeroAurora() {
       <AuroraBoundary>
         <Suspense fallback={null}>
           <Aurora
-            colorStops={["#4458a8", "#8064b4", "#c59451"]}
+            colorStops={["#00f0ff", "#ff00a0", "#00f0ff"]}
             amplitude={0.52}
             blend={0.72}
             speed={0.14}
