@@ -834,6 +834,26 @@ img {
 .project-card-wrap.featured {
   grid-column: 1/-1;
 }
+.project-border-glow {
+  width: 100%;
+  height: 100%;
+  border-color: rgb(218 226 255 / 18%);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.project-border-glow:hover {
+  border-color: rgb(218 226 255 / 32%);
+}
+.project-border-glow > .border-glow-inner {
+  min-width: 0;
+  height: 100%;
+  overflow: visible;
+}
+.project-border-glow .tilted-card,
+.project-border-glow .tilted-card-inner {
+  height: 100%;
+}
 .tilted-card {
   perspective: 1200px;
 }

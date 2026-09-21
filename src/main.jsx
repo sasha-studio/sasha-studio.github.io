@@ -13,6 +13,7 @@ import { profile, projects, categories } from "./data";
 import Artwork from "./components/Artwork";
 import { Spark, Icon } from "./components/Icons";
 import BlurText from "./components/react-bits/BlurText";
+import BorderGlow from "./components/react-bits/BorderGlow";
 import FadeContent from "./components/react-bits/FadeContent";
 import TiltedCard from "./components/react-bits/TiltedCard";
 import GameBackground from "./components/GameBackground";
@@ -111,37 +112,49 @@ function Contact() {
 function ProjectCard({ project, featured = false }) {
   return (
     <FadeContent className={`project-card-wrap ${featured ? "featured" : ""}`}>
-      <TiltedCard amplitude={featured ? 1.3 : 3}>
-        <Link to={`/projects/${project.slug}`} className="project-card">
-          <div className="cover">
-            <Artwork project={project} image={project.cover} />
-            <span className="cover-tag">{project.category}</span>
-            <span className="project-open">
-              <Icon name="diagonal" />
-            </span>
-            {featured && (
-              <div className="featured-caption">
-                <span className="eyebrow">
-                  A WORLD WAITING TO BE DISCOVERED
+      <BorderGlow
+        className="project-border-glow"
+        edgeSensitivity={24}
+        glowColor="205 80 68"
+        backgroundColor="#0b1020"
+        borderRadius={12}
+        glowRadius={20}
+        glowIntensity={0.72}
+        coneSpread={32}
+        colors={["#6487ff", "#55d5d0", "#e5bd72"]}
+      >
+        <TiltedCard amplitude={featured ? 1.3 : 3}>
+          <Link to={`/projects/${project.slug}`} className="project-card">
+            <div className="cover">
+              <Artwork project={project} image={project.cover} />
+              <span className="cover-tag">{project.category}</span>
+              <span className="project-open">
+                <Icon name="diagonal" />
+              </span>
+              {featured && (
+                <div className="featured-caption">
+                  <span className="eyebrow">
+                    A WORLD WAITING TO BE DISCOVERED
+                  </span>
+                  <h3>{project.title}</h3>
+                  <p>Environment design · Colour & lighting · Storytelling</p>
+                </div>
+              )}
+            </div>
+            {!featured && (
+              <div className="project-meta">
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.subtitle}</p>
+                </div>
+                <span className="project-number">
+                  0{projects.indexOf(project) + 1}
                 </span>
-                <h3>{project.title}</h3>
-                <p>Environment design · Colour & lighting · Storytelling</p>
               </div>
             )}
-          </div>
-          {!featured && (
-            <div className="project-meta">
-              <div>
-                <h3>{project.title}</h3>
-                <p>{project.subtitle}</p>
-              </div>
-              <span className="project-number">
-                0{projects.indexOf(project) + 1}
-              </span>
-            </div>
-          )}
-        </Link>
-      </TiltedCard>
+          </Link>
+        </TiltedCard>
+      </BorderGlow>
     </FadeContent>
   );
 }
