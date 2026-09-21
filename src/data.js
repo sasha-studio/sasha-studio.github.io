@@ -106,36 +106,9 @@ export const projects = [
     video: null,
   },
   {
-    slug: "english-kingdom-drops",
-    title: "English Kingdom Drops",
-    subtitle: "Monster loot with a little story in every icon.",
-    category: "Game UI",
-    year: "Production asset study",
-    theme: "drops",
-    cover: "/media/english-kingdom-drops/drops.webp",
-    coverAlt:
-      "A contact sheet of colourful monster drops, treasure, and collectible item icons.",
-    featured: false,
-    mediaDisclosure: "Production UI artwork from the English Kingdom project",
-    services: ["Item icon design", "Loot readability", "Game UI assets"],
-    description:
-      "A collectible drop library for English Kingdom, giving each monster and treasure reward a distinct silhouette, material, and bit of personality.",
-    challenge:
-      "Make loot readable at a glance while keeping the catalogue playful enough to reward curiosity and memorable enough to support a growing adventure world.",
-    approach:
-      "Natural materials, monster parts, treasure, and utility items are drawn as a consistent icon family. Shared lighting and rich colour accents help players recognise value without losing the storybook charm.",
-    outcome:
-      "A clear item language for reward screens, inventory moments, and enemy drops. The library is ready to expand with in-game screenshots and loot-flow examples.",
-    palette: ["#172449", "#4f74b2", "#e6ad4f", "#c86c43", "#8a5c9a"],
-    gallery: [
-      { src: "/media/english-kingdom-drops/drops.webp", title: "01 / Monster drops & treasure", alt: "English Kingdom monster drop and treasure item icons" },
-    ],
-    video: null,
-  },
-  {
     slug: "english-kingdom-wardrobe",
-    title: "English Kingdom Wardrobe",
-    subtitle: "A modular costume library for expressive game characters.",
+    title: "English Kingdom",
+    subtitle: "A growing visual library for a story-led game world.",
     category: "Characters",
     year: "Production asset study",
     theme: "wardrobe",
@@ -144,15 +117,15 @@ export const projects = [
       "A contact sheet of colourful clothing and costume icons for English Kingdom characters.",
     featured: false,
     mediaDisclosure: "Production UI artwork from the English Kingdom project",
-    services: ["Character design", "Costume systems", "Game UI assets"],
+    services: ["Character design", "Costume systems", "Monster drops", "Game UI assets"],
     description:
-      "A modular wardrobe library for English Kingdom, organised so a character can move from a simple villager look to a complete ranger, wizard, or armoured silhouette.",
+      "A collection of production artwork for English Kingdom, spanning character customisation and collectible monster drops.",
     challenge:
-      "Make a large clothing catalogue easy to scan while preserving a shared storybook style across tops, bottoms, hats, gloves, neckwear, and footwear.",
+      "Build clear, cohesive asset families that feel at home in one playful world, while keeping clothing and collectible rewards easy to recognise.",
     approach:
-      "The icon library is grouped by equipment slot and named consistently for implementation. Distinct silhouettes and colour accents make each piece readable at small UI sizes and ready for character combinations.",
+      "Clothing is organised by equipment slot, while monster drops use distinct silhouettes, materials, and colour accents. Both libraries keep a consistent storybook finish and remain readable at game UI scale.",
     outcome:
-      "A production-ready visual foundation for character customisation. Character screenshots will be added here next to show complete outfits in context.",
+      "A flexible visual library for character customisation and monster rewards, ready to grow with in-game character views and loot-flow examples.",
     palette: ["#172449", "#4b6ca8", "#c98a52", "#8d5c72", "#e7d4a3"],
     gallery: [
       { src: "/media/english-kingdom-wardrobe/top.webp", title: "01 / Tops & coats", alt: "English Kingdom tops and coat clothing icons" },
@@ -161,6 +134,25 @@ export const projects = [
       { src: "/media/english-kingdom-wardrobe/feet.webp", title: "04 / Footwear", alt: "English Kingdom footwear icons" },
       { src: "/media/english-kingdom-wardrobe/gloves.webp", title: "05 / Gloves", alt: "English Kingdom glove icons" },
       { src: "/media/english-kingdom-wardrobe/neck.webp", title: "06 / Neckwear", alt: "English Kingdom scarf and neckwear icons" },
+    ],
+    assetCategories: [
+      {
+        title: "Wardrobe",
+        gallery: [
+          { src: "/media/english-kingdom-wardrobe/top.webp", title: "01 / Tops & coats", alt: "English Kingdom tops and coat clothing icons" },
+          { src: "/media/english-kingdom-wardrobe/hat.webp", title: "02 / Hats & headwear", alt: "English Kingdom hat and headwear icons" },
+          { src: "/media/english-kingdom-wardrobe/bottom.webp", title: "03 / Bottoms", alt: "English Kingdom trousers and bottom icons" },
+          { src: "/media/english-kingdom-wardrobe/feet.webp", title: "04 / Footwear", alt: "English Kingdom footwear icons" },
+          { src: "/media/english-kingdom-wardrobe/gloves.webp", title: "05 / Gloves", alt: "English Kingdom glove icons" },
+          { src: "/media/english-kingdom-wardrobe/neck.webp", title: "06 / Neckwear", alt: "English Kingdom scarf and neckwear icons" },
+        ],
+      },
+      {
+        title: "Drops",
+        gallery: [
+          { src: "/media/english-kingdom-drops/drops.webp", title: "01 / Monster drops & treasure", alt: "English Kingdom monster drop and treasure item icons" },
+        ],
+      },
     ],
     video: null,
   },

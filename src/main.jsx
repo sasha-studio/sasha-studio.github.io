@@ -415,11 +415,13 @@ function Project() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
   const [selected, setSelected] = useState(null);
+  const [activeAssetCategory, setActiveAssetCategory] = useState("");
   useEffect(() => {
     document.title = project
       ? `${project.title} — Sasha Makarov`
       : "Project not found — Sasha Makarov";
     setSelected(null);
+    setActiveAssetCategory("");
   }, [slug, project]);
   if (!project)
     return (
@@ -437,6 +439,11 @@ function Project() {
       </section>
     );
   const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const assetCategories = project.assetCategories || [];
+  const currentAssetCategory =
+    assetCategories.find((category) => category.title === activeAssetCategory) ||
+    assetCategories[0];
+  const galleryItems = currentAssetCategory?.gallery || project.gallery;
   return (
     <>
       <article className="case-study page-width">
@@ -533,10 +540,28 @@ function Project() {
               <br />
               <em>in every detail.</em>
             </h2>
-            <span className="eyebrow">03 / GALLERY & ASSETS</span>
+            <span className="eyebrow">
+              {assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
+            </span>
           </div>
+          {assetCategories.length > 1 && (
+            <div className="asset-category-tabs" aria-label="English Kingdom asset categories">
+              {assetCategories.map((category) => (
+                <button
+                  key={category.title}
+                  type="button"
+                  aria-pressed={currentAssetCategory?.title === category.title}
+                  className={currentAssetCategory?.title === category.title ? "active" : ""}
+                  onClick={() => setActiveAssetCategory(category.title)}
+                >
+                  {category.title}
+                  <span>{String(category.gallery.length).padStart(2, "0")}</span>
+                </button>
+              ))}
+            </div>
+          )}
           <div className="gallery-grid">
-            {project.gallery.map((item) => (
+            {galleryItems.map((item) => (
               <FadeContent key={item.title}>
                 <figure>
                   <button

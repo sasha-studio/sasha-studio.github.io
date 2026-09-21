@@ -1878,6 +1878,40 @@ footer .icon {
   grid-template-columns: 1fr 1fr;
   gap: 25px;
 }
+.asset-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: -2px 0 24px;
+}
+.asset-category-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 17px;
+  border: 1px solid rgba(234, 196, 110, 0.34);
+  border-radius: 999px;
+  background: rgba(13, 22, 48, 0.78);
+  color: #d8daea;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.asset-category-tabs button span {
+  color: #a8afc7;
+  font-size: 10px;
+}
+.asset-category-tabs button:hover,
+.asset-category-tabs button.active {
+  border-color: #f0d38d;
+  background: rgba(35, 49, 89, 0.92);
+  color: #f0d38d;
+}
+.asset-category-tabs button:focus-visible {
+  outline: 2px solid #60eaf4;
+  outline-offset: 3px;
+}
 figure {
   margin: 0;
 }
