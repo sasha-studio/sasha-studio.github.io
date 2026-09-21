@@ -166,19 +166,19 @@ export const projects = [
   },
   {
     slug: "adventure-island",
-    title: "Adventure Island",
+    title: "Letter Island",
     subtitle: "A bright world map for a story-led island adventure.",
     category: "Game worlds",
     year: "World-building study",
     theme: "adventure-island",
-    cover: "/media/adventure-island/Big Island background image.webp",
+    cover: "/media/adventure-island/Map-Letter Island.webp",
     coverAlt:
-      "Colourful island adventure environment with a winding path through a tropical world.",
+      "Colourful illustrated Letter Island map with snowy, forest, city, desert, and volcanic regions connected by a winding route.",
     featured: false,
     mediaDisclosure: "Portfolio artwork supplied by Sasha Makarov",
     services: ["World building", "Environment design", "Level flow"],
     description:
-      "Adventure Island is a playful visual system for a journey across distinct regions, from sunlit beaches to dense forests and a glowing volcanic finale.",
+      "Letter Island is a playful visual system for a journey across distinct regions, from sunlit beaches to dense forests and a glowing volcanic finale.",
     challenge:
       "Give a large, multi-region adventure a clear sense of progression while keeping every location inviting, readable, and full of discovery.",
     approach:
@@ -199,7 +199,7 @@ export const projects = [
     video: {
       src: "/media/adventure-island/adventure-island-walkthrough.mp4",
       type: "video/mp4",
-      label: "Adventure Island visual walkthrough",
+      label: "Letter Island visual walkthrough",
     },
   },
   {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   HashRouter,
@@ -6,6 +6,7 @@ import {
   Route,
   Routes,
   useLocation,
+  useNavigate,
   useParams,
 } from "react-router";
 import { MotionConfig } from "motion/react";
@@ -54,8 +55,17 @@ function Navigation() {
 }
 function ScrollManager() {
   const { pathname, hash } = useLocation();
-  useEffect(() => {
+  const navigate = useNavigate();
+  const firstLocation = useRef(true);
+  useLayoutEffect(() => {
     const frame = requestAnimationFrame(() => {
+      const first = firstLocation.current;
+      firstLocation.current = false;
+      if (first && pathname === "/") {
+        if (hash) navigate("/", { replace: true });
+        window.scrollTo({ top: 0, behavior: "instant" });
+        return;
+      }
       if (hash) document.getElementById(hash.slice(1))?.scrollIntoView();
       else {
         window.scrollTo({ top: 0, behavior: "instant" });
@@ -63,7 +73,7 @@ function ScrollManager() {
       }
     });
     return () => cancelAnimationFrame(frame);
-  }, [pathname, hash]);
+  }, [pathname, hash, navigate]);
   return null;
 }
 function Contact() {
@@ -109,9 +119,19 @@ function Contact() {
     </section>
   );
 }
-function ProjectCard({ project, featured = false }) {
+function ProjectCard({
+  project,
+  featured = "",
+  displayTitle = project.title,
+  cover = project.cover,
+  coverAlt = project.coverAlt,
+  captionEyebrow,
+  captionText,
+}) {
   return (
-    <FadeContent className={`project-card-wrap ${featured ? "featured" : ""}`}>
+    <FadeContent
+      className={`project-card-wrap${featured ? ` featured showcase-${featured}` : ""}`}
+    >
       <BorderGlow
         className="project-border-glow"
         edgeSensitivity={24}
@@ -127,18 +147,16 @@ function ProjectCard({ project, featured = false }) {
         <TiltedCard amplitude={featured ? 1.3 : 3}>
           <Link to={`/projects/${project.slug}`} className="project-card">
             <div className="cover">
-              <Artwork project={project} image={project.cover} />
+              <Artwork project={project} image={cover} alt={coverAlt} />
               <span className="cover-tag">{project.category}</span>
               <span className="project-open">
                 <Icon name="diagonal" />
               </span>
               {featured && (
                 <div className="featured-caption">
-                  <span className="eyebrow">
-                    A WORLD WAITING TO BE DISCOVERED
-                  </span>
-                  <h3>{project.title}</h3>
-                  <p>Environment design · Colour & lighting · Storytelling</p>
+                  <span className="eyebrow">{captionEyebrow || project.category}</span>
+                  <h3>{displayTitle}</h3>
+                  <p>{captionText || project.subtitle}</p>
                 </div>
               )}
             </div>
@@ -164,11 +182,17 @@ function Home() {
   useEffect(() => {
     document.title = "Sasha Makarov — Game Art & Visual Design";
   }, []);
-  const visible = projects.filter((p) =>
-    filter === "All work"
-      ? p.category !== "Graphic design"
-      : p.category === filter,
+  const letterIsland = projects.find((p) => p.slug === "adventure-island");
+  const englishKingdom = projects.find(
+    (p) => p.slug === "english-kingdom-wardrobe",
   );
+  const featuredSlugs = new Set([letterIsland.slug, englishKingdom.slug]);
+  const visible = projects.filter((p) => {
+    if (filter === "All work") {
+      return p.category !== "Graphic design" && !featuredSlugs.has(p.slug);
+    }
+    return p.category === filter;
+  });
   const paper = projects.find((p) => p.category === "Graphic design");
   return (
     <>
@@ -184,8 +208,12 @@ function Home() {
           </h1>
           <p className="hero-role">Game Visual Designer</p>
           <p className="hero-description">
-            Creating game worlds, environments, characters and interfaces from
-            concept to production.
+            I turn early-stage ideas into complete visual game experiences —
+            from worlds and environments to characters, UI and production-ready
+            assets.
+          </p>
+          <p className="hero-disciplines">
+            Game Art · Environment Design · UI · Character Design · 2D Animation
           </p>
           <div className="hero-actions">
             <Link className="button cyan" to="/#work">
@@ -196,42 +224,34 @@ function Home() {
             </Link>
           </div>
         </div>
-        <div className="hero-bottom">
-          <span>
-            <Spark /> A LITTLE CURIOSITY GOES A LONG WAY.
-          </span>
-          <span>
-            SCROLL TO EXPLORE <Icon name="down" />
-          </span>
-        </div>
       </section>
-      <div className="discipline-strip">
-        <span>Imagined with heart.</span>
-        <div>
-          Game worlds <Spark /> Character design <Spark /> Game UI <Spark />{" "}
-          Visual storytelling
-        </div>
-      </div>
       <section id="work" className="work-section page-width">
         <FadeContent>
-          <div className="section-title">
-            <div>
-              <p className="eyebrow">THE PORTFOLIO / SELECTED CONCEPTS</p>
-              <h2>
-                A few worlds
-                <br />
-                <em>worth getting lost in.</em>
-              </h2>
-            </div>
-            <p>
-              Characters with a story.
-              <br />
-              Places with a feeling.
-              <br />
-              Design with a little magic.
-            </p>
-          </div>
+          <p className="eyebrow selected-work-title">SELECTED WORK</p>
         </FadeContent>
+        {filter === "All work" && (
+          <div className="featured-work" aria-label="Featured projects">
+            <ProjectCard
+              project={letterIsland}
+              featured="primary"
+              displayTitle="Letter Island"
+              cover="/media/adventure-island/Map-Letter Island.webp"
+              coverAlt="A complete colourful map of Letter Island with its biomes and routes."
+              captionEyebrow="LETTER ISLAND / WORLD DESIGN"
+              captionText="World building · Environments · Level flow"
+            />
+            <ProjectCard
+              project={englishKingdom}
+              featured="secondary"
+              displayTitle="English Kingdom"
+              captionEyebrow="CHARACTER ART / ENGLISH KINGDOM"
+              captionText="Costumes · Character identity · Game UI"
+            />
+          </div>
+        )}
+        <div className="work-collection-heading">
+          <p className="eyebrow">SELECTED ART &amp; MOTION</p>
+        </div>
         <div className="filters" aria-label="Filter projects">
           {categories.map((f) => (
             <button
@@ -256,7 +276,6 @@ function Home() {
             <ProjectCard
               key={p.slug}
               project={p}
-              featured={p.featured && filter === "All work"}
             />
           ))}
         </div>
@@ -349,40 +368,6 @@ function Home() {
               </Link>
             </div>
           </FadeContent>
-        </div>
-      </section>
-      <section className="process-section page-width">
-        <FadeContent>
-          <div className="process-heading">
-            <p className="eyebrow">FROM A SPARK TO A STORY</p>
-            <h2>
-              A little method
-              <br />
-              <em>behind the magic.</em>
-            </h2>
-          </div>
-        </FadeContent>
-        <div className="process-grid">
-          {[
-            {
-              title: "Find the heart",
-              body: "Start with a feeling, a story, and the people it’s for.",
-            },
-            {
-              title: "Explore the possibilities",
-              body: "Sketch, play with shapes, and find the right visual language.",
-            },
-            {
-              title: "Bring it to life",
-              body: "Refine the colour, the details, and the moments that matter.",
-            },
-          ].map((s, i) => (
-            <FadeContent key={s.title} delay={i * 0.08}>
-              <span className="process-number">0{i + 1}</span>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </FadeContent>
-          ))}
         </div>
       </section>
       <Contact />
