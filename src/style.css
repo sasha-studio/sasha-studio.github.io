@@ -2932,3 +2932,91 @@ figure {
 .contact-section {
   background: rgb(16 23 44 / 86%);
 }
+
+/* Artist introduction and compact portfolio navigation. */
+.navigation .logo {
+  gap: 0;
+}
+.navigation .logo > span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.navigation nav .nav-contact {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: inherit;
+}
+.navigation nav .nav-contact:hover,
+.navigation nav .nav-contact.current {
+  color: var(--gold);
+}
+.hero-kicker {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+}
+.hero-role {
+  margin-top: 12px;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.5vw, 34px);
+}
+.hero-description {
+  max-width: 560px;
+}
+.hero-actions .text-link .icon {
+  width: 17px;
+  height: 17px;
+}
+.resume-anchor {
+  position: absolute;
+  top: -18px;
+}
+.about-grid {
+  position: relative;
+  scroll-margin-top: 30px;
+}
+@media (max-width: 760px) {
+  .navigation nav {
+    gap: 14px;
+  }
+}
+@media (max-width: 540px) {
+  .navigation {
+    padding-inline: 5%;
+  }
+  .navigation .logo > span {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .navigation nav {
+    gap: 6px;
+  }
+  .navigation nav a {
+    font-size: 9px;
+  }
+  .navigation nav > a:first-child {
+    font-size: inherit;
+  }
+  .navigation nav > a:first-child:after {
+    content: none;
+  }
+  .navigation nav .nav-contact {
+    display: flex;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 10.5vw, 56px);
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+  .hero-role {
+    margin-top: 10px;
+    font-size: 23px;
+  }
+  .hero-description {
+    max-width: 340px;
+  }
+}

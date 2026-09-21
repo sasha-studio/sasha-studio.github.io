@@ -23,26 +23,28 @@ function Navigation() {
   return (
     <header className="navigation">
       <Link to="/" className="logo" aria-label="Sasha Makarov home">
-        <Spark />
         <span>
-          Sasha Makarov<small>ART & IMAGINATION</small>
+          SASHA MAKAROV
         </span>
       </Link>
       <nav aria-label="Main navigation">
         <Link
-          aria-label="Selected work"
+          aria-label="Work"
           className={
             pathname.includes("projects") || hash === "#work" ? "current" : ""
           }
           to="/#work"
         >
-          Selected work
+          Work
         </Link>
         <Link className={hash === "#about" ? "current" : ""} to="/#about">
-          About me
+          About
+        </Link>
+        <Link className={hash === "#resume" ? "current" : ""} to="/#resume">
+          Resume
         </Link>
         <Link className="nav-contact" to="/#contact">
-          Let’s create <Icon name="diagonal" />
+          Contact
         </Link>
       </nav>
     </header>
@@ -159,28 +161,22 @@ function Home() {
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow hero-kicker">
-            <span />
-            GAME ARTIST & VISUAL DESIGNER
+            HELLO, I’M
           </p>
           <h1>
-            <BlurText text="Small details." />
-            <br />
-            <BlurText text="Extraordinary" delay={100} />
-            <br />
-            <em>
-              <BlurText text="worlds." />
-            </em>
-            <Spark />
+            <BlurText text="SASHA MAKAROV" />
           </h1>
+          <p className="hero-role">Game Visual Designer</p>
           <p className="hero-description">
-            Hi, I’m <strong>Sasha.</strong> {profile.intro}
+            Creating game worlds, environments, characters and interfaces from
+            concept to production.
           </p>
           <div className="hero-actions">
             <Link className="button gold" to="/#work">
-              Discover my work <Icon name="diagonal" />
+              View Work <Icon name="diagonal" />
             </Link>
-            <Link className="text-link" to="/#about">
-              Meet the artist <span>→</span>
+            <Link className="text-link" to="/#resume">
+              Resume <Icon name="down" />
             </Link>
           </div>
         </div>
@@ -279,6 +275,7 @@ function Home() {
       </section>
       <section className="about-section" id="about">
         <div className="page-width about-grid">
+          <span id="resume" className="resume-anchor" aria-hidden="true" />
           <FadeContent>
             <div className="about-art">
               <div className="sketch-card">
