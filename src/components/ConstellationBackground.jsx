@@ -19,9 +19,9 @@ export default function ConstellationBackground({ reduced = false }) {
     let particles = [];
     const pointer = { x: -1000, y: -1000, active: false };
     const mobile = window.matchMedia("(max-width: 700px)").matches;
-    const count = reduced ? (mobile ? 15 : 24) : mobile ? 22 : 38;
-    const connectionDistance = mobile ? 115 : 155;
-    const pointerRadius = mobile ? 78 : 110;
+    const count = reduced ? (mobile ? 15 : 24) : mobile ? 23 : 39;
+    const connectionDistance = mobile ? 148 : 202;
+    const pointerRadius = mobile ? 96 : 138;
     const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
 
     const createParticles = () => {
@@ -35,7 +35,7 @@ export default function ConstellationBackground({ reduced = false }) {
           vy: driftY,
           driftX,
           driftY,
-          radius: Math.random() * 1.15 + 0.65,
+          radius: Math.random() * 1.45 + 0.9,
           color: PALETTE[index % PALETTE.length],
         };
       });
@@ -81,9 +81,9 @@ export default function ConstellationBackground({ reduced = false }) {
         const [red, green, blue] = particle.color;
         context.beginPath();
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        context.fillStyle = `rgba(${red}, ${green}, ${blue}, 0.72)`;
-        context.shadowColor = `rgba(${red}, ${green}, ${blue}, 0.45)`;
-        context.shadowBlur = 7;
+        context.fillStyle = `rgba(${red}, ${green}, ${blue}, 0.82)`;
+        context.shadowColor = `rgba(${red}, ${green}, ${blue}, 0.56)`;
+        context.shadowBlur = 9;
         context.fill();
         context.shadowBlur = 0;
       });
@@ -94,7 +94,7 @@ export default function ConstellationBackground({ reduced = false }) {
           const end = particles[second];
           const distance = Math.hypot(start.x - end.x, start.y - end.y);
           if (distance >= connectionDistance) continue;
-          const opacity = (1 - distance / connectionDistance) * 0.24;
+          const opacity = (1 - distance / connectionDistance) * 0.31;
           const gradient = context.createLinearGradient(start.x, start.y, end.x, end.y);
           gradient.addColorStop(0, `rgba(235, 199, 121, ${opacity})`);
           gradient.addColorStop(1, `rgba(156, 133, 210, ${opacity * 0.78})`);
@@ -102,7 +102,7 @@ export default function ConstellationBackground({ reduced = false }) {
           context.moveTo(start.x, start.y);
           context.lineTo(end.x, end.y);
           context.strokeStyle = gradient;
-          context.lineWidth = 0.65;
+          context.lineWidth = 0.8;
           context.stroke();
         }
       }
