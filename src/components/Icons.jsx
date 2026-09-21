@@ -27,6 +27,7 @@ export function Icon({ name = "arrow", className = "" }) {
       aria-hidden="true"
     >
       {name === "arrow" && <path d="M10 24h28M27 13l11 11-11 11" />}
+      {name === "arrow-left" && <path d="M38 24H10m11 11L10 24l11-11" />}
       {name === "diagonal" && <path d="M12 36 36 12M13 12h23v23" />}
       {name === "down" && <path d="M24 8v30M13 27l11 11 11-11" />}
       {name === "sun" && (

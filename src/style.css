@@ -3930,6 +3930,106 @@ body .video-placeholder > p {
   background: rgb(0 0 0 / 36%);
 }
 
+.project-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 52px 0 24px;
+}
+
+.project-pagination-link {
+  min-width: 0;
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 13px;
+  padding: 20px 24px;
+  border: 1px solid rgb(220 232 255 / 16%);
+  border-radius: 12px;
+  background: rgb(0 0 0 / 48%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+  color: #e0e0e0;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.project-pagination-direction {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #00f0ff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.project-pagination-direction .icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.project-pagination-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(19px, 2.4vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.next-project-link {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.project-pagination-link:hover,
+.project-pagination-link:focus-visible {
+  border-color: rgb(0 240 255 / 65%);
+  background: rgb(0 0 0 / 62%);
+  box-shadow:
+    0 0 24px rgb(0 240 255 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 9%);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+@media (max-width: 540px) {
+  .project-pagination {
+    gap: 10px;
+    margin: 36px 0 18px;
+  }
+
+  .project-pagination-link {
+    min-height: 98px;
+    gap: 10px;
+    padding: 15px 13px;
+  }
+
+  .project-pagination-direction {
+    gap: 5px;
+    font-size: 7px;
+    letter-spacing: 0.08em;
+  }
+
+  .project-pagination-direction .icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .project-pagination-title {
+    font-size: clamp(16px, 4.7vw, 20px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

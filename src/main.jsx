@@ -484,7 +484,9 @@ function Project() {
         </Link>
       </section>
     );
-  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const projectIndex = projects.indexOf(project);
+  const previous = projects[(projectIndex - 1 + projects.length) % projects.length];
+  const next = projects[(projectIndex + 1) % projects.length];
   const assetCategories = project.assetCategories || [];
   const currentAssetCategory =
     assetCategories.find((category) => category.title === activeAssetCategory) ||
@@ -634,13 +636,28 @@ function Project() {
           <span className="eyebrow">04 / THE DIRECTION</span>
           <h2>{project.outcome}</h2>
         </section>
-        <Link className="next-project" to={`/projects/${next.slug}`}>
-          <span className="eyebrow">TURN THE PAGE / NEXT PROJECT</span>
-          <span>
-            {next.title}
-            <Icon />
-          </span>
-        </Link>
+        <nav className="project-pagination" aria-label="Browse projects">
+          <Link
+            className="project-pagination-link previous-project"
+            to={`/projects/${previous.slug}`}
+            aria-label={`Previous project: ${previous.title}`}
+          >
+            <span className="project-pagination-direction">
+              <Icon name="arrow-left" /> Previous project
+            </span>
+            <span className="project-pagination-title">{previous.title}</span>
+          </Link>
+          <Link
+            className="project-pagination-link next-project-link"
+            to={`/projects/${next.slug}`}
+            aria-label={`Next project: ${next.title}`}
+          >
+            <span className="project-pagination-direction">
+              Next project <Icon name="arrow" />
+            </span>
+            <span className="project-pagination-title">{next.title}</span>
+          </Link>
+        </nav>
       </article>
       <Contact />
       {selected && (
