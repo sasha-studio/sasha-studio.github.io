@@ -181,29 +181,24 @@ function ProjectCard({
           <Link to={`/projects/${project.slug}`} className="project-card">
             <div className="cover">
               <Artwork project={project} image={cover} alt={coverAlt} />
-              <span className="cover-tag">{project.category}</span>
               <span className="project-open">
                 <Icon name="diagonal" />
               </span>
-              {featured && (
-                <div className="featured-caption">
-                  <span className="eyebrow">{captionEyebrow || project.category}</span>
-                  <h3>{displayTitle}</h3>
-                  <p>{captionText || project.subtitle}</p>
-                </div>
-              )}
             </div>
-            {!featured && (
-              <div className="project-meta">
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.subtitle}</p>
-                </div>
+            <div className="project-meta">
+              <div className="project-meta-copy">
+                <span className="project-meta-category">
+                  {featured ? captionEyebrow || project.category : project.category}
+                </span>
+                <h3>{featured ? displayTitle : project.title}</h3>
+                <p>{featured ? captionText || project.subtitle : project.subtitle}</p>
+              </div>
+              {!featured && (
                 <span className="project-number">
                   0{projects.indexOf(project) + 1}
                 </span>
-              </div>
-            )}
+              )}
+            </div>
           </Link>
         </TiltedCard>
       </BorderGlow>
