@@ -1333,42 +1333,77 @@ footer .icon {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 22px;
   margin: 27px auto 0;
 }
 .contact-social-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 48px;
-  padding: 0 17px;
-  border: 1px solid rgb(132 145 185 / 30%);
-  border-radius: 999px;
+  gap: 8px;
+  min-width: 64px;
+  padding: 0;
+  color: #858ba0;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+.contact-social-orb {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(132 145 185 / 16%);
+  border-radius: 50%;
   background: rgb(255 255 255 / 3%);
-  color: #d9deed;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
-}
-.contact-social-link > .icon:first-child {
-  width: 17px;
-  height: 17px;
-  color: #00f0ff;
-}
-.contact-social-link > .icon:last-child {
-  width: 13px;
-  height: 13px;
   color: #8b92a9;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+.contact-social-orb .icon {
+  width: 19px;
+  height: 19px;
+}
+.contact-social-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 .contact-social-link:hover,
 .contact-social-link:focus-visible {
-  border-color: #00f0ff;
-  background: rgb(0 240 255 / 8%);
   color: #00f0ff;
   outline: none;
+}
+.contact-social-link:hover .contact-social-orb,
+.contact-social-link:focus-visible .contact-social-orb {
+  border-color: rgb(0 240 255 / 78%);
+  background: rgb(0 240 255 / 9%);
+  color: #00f0ff;
+  box-shadow:
+    0 0 0 4px rgb(0 240 255 / 6%),
+    0 0 24px rgb(0 240 255 / 22%),
+    inset 0 0 16px rgb(0 240 255 / 7%);
+  transform: translateY(-2px);
+}
+.email-social-link:hover,
+.email-social-link:focus-visible {
+  color: #ed32bd;
+}
+.email-social-link:hover .contact-social-orb,
+.email-social-link:focus-visible .contact-social-orb {
+  border-color: rgb(237 50 189 / 78%);
+  background: rgb(237 50 189 / 9%);
+  color: #ed32bd;
+  box-shadow:
+    0 0 0 4px rgb(237 50 189 / 6%),
+    0 0 24px rgb(237 50 189 / 22%),
+    inset 0 0 16px rgb(237 50 189 / 7%);
 }
 .resume-download-unavailable:disabled {
   cursor: not-allowed;

@@ -102,14 +102,16 @@ function Contact() {
           target="_blank"
           rel="noreferrer"
         >
-          <Icon name="linkedin" />
-          LinkedIn
-          <Icon name="diagonal" />
+          <span className="contact-social-orb">
+            <Icon name="linkedin" />
+          </span>
+          <span className="contact-social-label">LinkedIn</span>
         </a>
-        <a className="contact-social-link" href={`mailto:${profile.email}`}>
-          <Icon name="mail" />
-          Email
-          <Icon name="diagonal" />
+        <a className="contact-social-link email-social-link" href={`mailto:${profile.email}`}>
+          <span className="contact-social-orb">
+            <Icon name="mail" />
+          </span>
+          <span className="contact-social-label">Email</span>
         </a>
         {profile.resume ? (
           <a className="button magenta" href={profile.resume} download>
