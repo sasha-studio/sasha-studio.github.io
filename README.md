@@ -11,14 +11,14 @@ Build with `npm run build`; inspect the production build with `npm run preview`.
 
 Edit `src/data.js`:
 
-- `profile`: name, introduction, biography, role, email. A contact link appears only when an email is provided.
+- `profile`: name, introduction, biography, role, email, LinkedIn URL, and optional resume file path. Resume downloads appear when a PDF is added under `public/media/` and `profile.resume` points to it.
 - `projects`: case studies with unique URL-safe slugs, descriptions, services, and media.
 - Put media under `public/media/`, referencing files as `/media/filename.webp`.
 - Add `cover: '/media/cover.webp'` to replace an illustrated cover.
 - Gallery entries accept `{ src: '/media/detail.webp', title: 'Packaging details' }`. Clicking opens an enlarged image dialog, with Escape and backdrop dismissal.
 - Set `video: { src: '/media/film.mp4', type: 'video/mp4', captions: '/media/film-en.vtt' }` to enable the video player. Captions are optional. With `video: null`, a coming-soon panel appears.
 
-The four initial projects are **illustrative concepts**, not claims of Sasha's client work. Two AI-generated sample illustrations support the environment and character directions. Game UI and editorial covers are editable HTML/CSS compositions. AI imagery is labelled on the homepage and relevant case studies. Replace draft copy and artwork with approved project content. Real project videos, screenshots, and contact details have not been supplied.
+The four initial projects are **illustrative concepts**, not claims of Sasha's client work. Two AI-generated sample illustrations support the environment and character directions. Game UI and editorial covers are editable HTML/CSS compositions. AI imagery is labelled on the homepage and relevant case studies. Replace draft copy and artwork with approved project content. Additional project videos and screenshots may be added as they become available. Sasha's email and LinkedIn are configured; add her resume PDF under `public/media/` and set `profile.resume` to enable the download button.
 
 Categories and counts are driven by `src/data.js`. Game projects lead the homepage; Graphic design appears in a separate feature and has its own filter. Keep at least one Graphic design project while using the current homepage layout.
 

@@ -3,7 +3,9 @@ export const profile = {
   name: "Sasha Makarov",
   studio: "Sasha Makarov",
   role: "Game artist & visual designer",
-  email: "",
+  email: "sasha.mak3d@gmail.com",
+  linkedin: "https://www.linkedin.com/in/sasha-makarov-8bb655140/",
+  resume: "",
   intro:
     "I design expressive characters, enchanting game worlds, and thoughtful visual experiences. A little imagination in every detail.",
   about:

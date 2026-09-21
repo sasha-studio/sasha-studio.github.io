@@ -1328,6 +1328,54 @@ footer .icon {
   width: 17px;
   height: 17px;
 }
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 27px auto 0;
+}
+.contact-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 17px;
+  border: 1px solid rgb(132 145 185 / 30%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 3%);
+  color: #d9deed;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.contact-social-link > .icon:first-child {
+  width: 17px;
+  height: 17px;
+  color: #00f0ff;
+}
+.contact-social-link > .icon:last-child {
+  width: 13px;
+  height: 13px;
+  color: #8b92a9;
+}
+.contact-social-link:hover,
+.contact-social-link:focus-visible {
+  border-color: #00f0ff;
+  background: rgb(0 240 255 / 8%);
+  color: #00f0ff;
+  outline: none;
+}
+.resume-download-unavailable:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+  transform: none;
+  box-shadow: none;
+}
 /* Original interface and editorial artwork. */
 .artwork {
   position: relative;

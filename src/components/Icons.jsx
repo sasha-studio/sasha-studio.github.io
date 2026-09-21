@@ -51,6 +51,19 @@ export function Icon({ name = "arrow", className = "" }) {
       )}
       {name === "play" && <path d="m18 11 21 13-21 13Z" fill="currentColor" />}
       {name === "close" && <path d="m13 13 22 22m0-22L13 35" />}
+      {name === "mail" && (
+        <>
+          <rect x="6" y="10" width="36" height="28" rx="3" />
+          <path d="m8 13 16 13 16-13" />
+        </>
+      )}
+      {name === "linkedin" && (
+        <g fill="currentColor" stroke="none">
+          <rect x="7" y="18" width="7" height="22" rx="1.5" />
+          <circle cx="10.5" cy="10.5" r="4" />
+          <path d="M19 18h7v3c1.7-2.3 4.1-3.8 7.3-3.8 6.4 0 9.7 4.1 9.7 11V40h-7V29.4c0-3.8-1.2-6-4.5-6-3.5 0-5.5 2.3-5.5 6.5V40h-7V18Z" />
+        </g>
+      )}
       {name === "book" && (
         <>
           <path d="M24 39V12c-6-5-13-5-19-3v26c7-2 13-1 19 4Zm0 0V12c6-5 13-5 19-3v26c-7-2-13-1-19 4Z" />

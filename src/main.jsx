@@ -89,12 +89,43 @@ function Contact() {
       </h2>
       <p>Let’s give your next story a little character.</p>
       {profile.email ? (
-        <a className="button green" href={`mailto:${profile.email}`}>
+        <a className="button cyan" href={`mailto:${profile.email}`}>
           Let’s create together <Icon name="diagonal" />
         </a>
       ) : (
         <span className="contact-note">Contact details coming soon</span>
       )}
+      <div className="contact-actions" aria-label="Contact and resume links">
+        <a
+          className="contact-social-link"
+          href={profile.linkedin}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon name="linkedin" />
+          LinkedIn
+          <Icon name="diagonal" />
+        </a>
+        <a className="contact-social-link" href={`mailto:${profile.email}`}>
+          <Icon name="mail" />
+          Email
+          <Icon name="diagonal" />
+        </a>
+        {profile.resume ? (
+          <a className="button magenta" href={profile.resume} download>
+            Download Resume <Icon name="down" />
+          </a>
+        ) : (
+          <button
+            className="button magenta resume-download-unavailable"
+            type="button"
+            disabled
+            title="Add Sasha’s resume PDF to enable this download."
+          >
+            Download Resume <Icon name="down" />
+          </button>
+        )}
+      </div>
       <footer>
         <Link to="/" className="footer-name">
           Sasha Makarov<span>Game art & visual design</span>
