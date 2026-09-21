@@ -75,9 +75,15 @@ const BorderGlow = ({
   const cardRef = useRef(null);
   const frameRef = useRef(0);
   const pointerRef = useRef({ x: 0, y: 0 });
+  const boundsRef = useRef(null);
+
+  const handlePointerEnter = useCallback(() => {
+    boundsRef.current = cardRef.current?.getBoundingClientRect() ?? null;
+  }, []);
 
   const handlePointerMove = useCallback((e) => {
-    pointerRef.current = { x: e.clientX, y: e.clientY };
+    pointerRef.current.x = e.clientX;
+    pointerRef.current.y = e.clientY;
     if (frameRef.current) return;
 
     frameRef.current = requestAnimationFrame(() => {
@@ -85,7 +91,8 @@ const BorderGlow = ({
       const card = cardRef.current;
       if (!card) return;
 
-      const rect = card.getBoundingClientRect();
+      const rect = boundsRef.current;
+      if (!rect || !rect.width || !rect.height) return;
       const x = pointerRef.current.x - rect.left;
       const y = pointerRef.current.y - rect.top;
       const dx = x - rect.width / 2;
@@ -130,6 +137,7 @@ const BorderGlow = ({
   return (
     <div
       ref={cardRef}
+      onPointerEnter={handlePointerEnter}
       onPointerMove={handlePointerMove}
       className={`border-glow-card${lightSurface ? ' border-glow-card--light' : ''} ${className}`}
       style={{

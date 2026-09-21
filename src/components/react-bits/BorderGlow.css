@@ -151,3 +151,34 @@
   overflow: auto;
   z-index: 1;
 }
+
+/* Keep the project-card hover glow to one lightweight animated gradient. */
+.project-border-glow::before {
+  inset: -1px;
+  border: 0;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--cursor-angle),
+    transparent 0deg 24deg,
+    #00f0ff 48deg,
+    #ff00a0 78deg,
+    #39ff14 105deg,
+    transparent 132deg 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+  mask-clip: content-box, border-box;
+  mask-composite: exclude;
+  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+  transition: none;
+}
+
+.project-border-glow:not(:hover):not(.sweep-active)::before {
+  transition: opacity 160ms ease-out;
+}
+
+.project-border-glow::after,
+.project-border-glow > .edge-light {
+  display: none;
+}
