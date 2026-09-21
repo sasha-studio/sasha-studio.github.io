@@ -3874,6 +3874,62 @@ body .hero-aurora {
   }
 }
 
+/* Dark glass surfaces keep the animated background present around artwork. */
+body .work-section .project-card,
+body .project-meta,
+body .paper-feature,
+body .case-cover,
+body .gallery-grid button,
+body .video-placeholder,
+body .lightbox,
+body .work-section .cover-tag {
+  border-color: rgb(220 232 255 / 16%);
+  background: rgb(0 0 0 / 48%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 7%),
+    0 12px 32px rgb(0 0 0 / 20%);
+}
+
+body .lightbox {
+  color: #e0e0e0;
+}
+
+body .lightbox.wardrobe {
+  background: rgb(0 0 0 / 58%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+}
+
+.asset-category-tabs button {
+  border-color: rgb(220 232 255 / 16%);
+  background: rgb(0 0 0 / 48%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+}
+
+body .lightbox p {
+  color: #bfc2cf;
+}
+
+body .work-section .cover-tag {
+  color: #e0e0e0;
+}
+
+body .video-placeholder {
+  background-image: none;
+  color: #e0e0e0;
+}
+
+body .video-placeholder > p {
+  color: #bfc2cf;
+}
+
+.featured-work .showcase-primary .cover > .project-image {
+  background: rgb(0 0 0 / 36%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
