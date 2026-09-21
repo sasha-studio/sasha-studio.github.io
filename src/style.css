@@ -3883,13 +3883,14 @@ body .gallery-grid button,
 body .video-placeholder,
 body .lightbox,
 body .work-section .cover-tag {
-  border-color: rgb(220 232 255 / 16%);
-  background: rgb(0 0 0 / 48%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  border-color: rgb(225 238 255 / 22%);
+  background: rgb(0 0 0 / 26%);
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  backdrop-filter: blur(12px) saturate(135%);
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 7%),
-    0 12px 32px rgb(0 0 0 / 20%);
+    inset 0 1px 0 rgb(255 255 255 / 11%),
+    inset 0 0 18px rgb(255 255 255 / 2%),
+    0 10px 28px rgb(0 0 0 / 15%);
 }
 
 body .lightbox {
@@ -3897,16 +3898,16 @@ body .lightbox {
 }
 
 body .lightbox.wardrobe {
-  background: rgb(0 0 0 / 58%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  background: rgb(0 0 0 / 40%);
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  backdrop-filter: blur(12px) saturate(135%);
 }
 
 .asset-category-tabs button {
-  border-color: rgb(220 232 255 / 16%);
-  background: rgb(0 0 0 / 48%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  border-color: rgb(220 232 255 / 20%);
+  background: rgb(0 0 0 / 26%);
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  backdrop-filter: blur(12px) saturate(135%);
 }
 
 body .lightbox p {
@@ -3927,7 +3928,7 @@ body .video-placeholder > p {
 }
 
 .featured-work .showcase-primary .cover > .project-image {
-  background: rgb(0 0 0 / 36%);
+  background: rgb(0 0 0 / 22%);
 }
 
 .project-pagination {
@@ -3945,11 +3946,11 @@ body .video-placeholder > p {
   justify-content: center;
   gap: 13px;
   padding: 20px 24px;
-  border: 1px solid rgb(220 232 255 / 16%);
+  border: 1px solid rgb(220 232 255 / 20%);
   border-radius: 12px;
-  background: rgb(0 0 0 / 48%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  background: rgb(0 0 0 / 26%);
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  backdrop-filter: blur(12px) saturate(135%);
   color: #e0e0e0;
   text-decoration: none;
   transition:
@@ -3994,7 +3995,7 @@ body .video-placeholder > p {
 .project-pagination-link:hover,
 .project-pagination-link:focus-visible {
   border-color: rgb(0 240 255 / 65%);
-  background: rgb(0 0 0 / 62%);
+  background: rgb(0 0 0 / 38%);
   box-shadow:
     0 0 24px rgb(0 240 255 / 10%),
     inset 0 1px 0 rgb(255 255 255 / 9%);
