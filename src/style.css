@@ -3489,8 +3489,11 @@ figure {
   box-shadow: 0 16px 44px rgb(0 0 0 / 22%);
 }
 .asset-showcase-artwork {
+  box-sizing: border-box;
   display: grid;
-  min-height: clamp(300px, 42vw, 590px);
+  height: clamp(300px, 42vw, 590px);
+  min-height: 0;
+  overflow: hidden;
   place-items: center;
   padding: clamp(18px, 3.5vw, 42px);
   background:
@@ -3501,7 +3504,11 @@ figure {
   position: relative;
   display: grid;
   width: 100%;
-  height: clamp(260px, 40vw, 540px);
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   place-items: center;
   padding: 0;
   border: 0;
@@ -3510,6 +3517,8 @@ figure {
 }
 .asset-showcase-artwork img {
   display: block;
+  width: auto;
+  height: auto;
   max-width: min(100%, 1380px);
   max-height: 100%;
   object-fit: contain;
@@ -3648,16 +3657,14 @@ figure {
   .asset-showcase { border-radius: 18px; }
   .asset-showcase-intro { align-items: flex-start; }
   .asset-showcase-intro > div > p { font-size: 12px; }
-  .asset-showcase-artwork { min-height: 270px; }
-  .asset-showcase-artwork > button { height: 250px; }
+  .asset-showcase-artwork { height: clamp(240px, 52vw, 380px); }
 }
 @media (max-width: 480px) {
   .asset-showcase { padding: 18px 14px; }
   .asset-showcase-total { font-size: 22px; }
   .asset-showcase-categories { margin: 20px -1px 22px; }
   .asset-showcase-meta { align-items: flex-end; }
-  .asset-showcase-artwork { min-height: 225px; padding: 12px; }
-  .asset-showcase-artwork > button { height: 205px; }
+  .asset-showcase-artwork { height: 225px; padding: 12px; }
   .asset-showcase-caption { min-height: 76px; padding: 13px; }
   .asset-showcase-caption .eyebrow { font-size: 8px; }
   .asset-showcase-caption h3 { font-size: 15px; }
