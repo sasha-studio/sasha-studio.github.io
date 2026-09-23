@@ -449,6 +449,137 @@ function Lightbox({ item, project, onClose }) {
     </dialog>
   );
 }
+function AssetShowcase({ categories, project, onOpen }) {
+  const [activeCategory, setActiveCategory] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const assetTrackRef = useRef(null);
+  const category = categories[activeCategory] || categories[0];
+  const items = category?.gallery || [];
+  const item = items[activeIndex];
+  const selectAsset = (index) => {
+    if (!items.length) return;
+    const nextIndex = (index + items.length) % items.length;
+    setActiveIndex(nextIndex);
+    window.requestAnimationFrame(() => {
+      const track = assetTrackRef.current;
+      const button = track?.querySelector(`[data-asset-index="${nextIndex}"]`);
+      if (!track || !button) return;
+      const targetLeft = button.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+      track.scrollTo({
+        left: targetLeft - (track.clientWidth - button.clientWidth) / 2,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+    });
+  };
+  const changeCategory = (index) => {
+    setActiveCategory(index);
+    setActiveIndex(0);
+    assetTrackRef.current?.scrollTo({ left: 0, behavior: "auto" });
+  };
+  const moveAsset = (direction) => selectAsset(activeIndex + direction);
+  const handleKeyDown = (event) => {
+    if (event.target instanceof HTMLButtonElement && event.target.closest(".asset-showcase-categories")) {
+      const tabs = [...(event.target.parentElement?.querySelectorAll("button") || [])];
+      const focusedCategory = tabs.indexOf(event.target);
+      let nextCategory = focusedCategory;
+      if (event.key === "ArrowLeft") nextCategory = (focusedCategory - 1 + categories.length) % categories.length;
+      else if (event.key === "ArrowRight") nextCategory = (focusedCategory + 1) % categories.length;
+      else if (event.key === "Home") nextCategory = 0;
+      else if (event.key === "End") nextCategory = categories.length - 1;
+      else return;
+      event.preventDefault();
+      changeCategory(nextCategory);
+      event.target.parentElement?.querySelectorAll("button")[nextCategory]?.focus();
+      return;
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveAsset(-1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveAsset(1);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      selectAsset(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      selectAsset(items.length - 1);
+    }
+  };
+  if (!item) return null;
+  return (
+    <div className="asset-showcase" onKeyDown={handleKeyDown}>
+      <div className="asset-showcase-intro">
+        <div>
+          <span className="eyebrow">A VISUAL SYSTEM, PIECE BY PIECE</span>
+          <p>{project.assetShowcase.intro}</p>
+        </div>
+        <span className="asset-showcase-total">{categories.reduce((sum, entry) => sum + entry.gallery.length, 0)} <i>ASSETS</i></span>
+      </div>
+      <div className="asset-showcase-categories" role="tablist" aria-label="Adventure Island asset collections">
+        {categories.map((entry, index) => (
+          <button
+            key={entry.title}
+            type="button"
+            role="tab"
+            aria-selected={activeCategory === index}
+            aria-controls="adventure-asset-viewer"
+            className={activeCategory === index ? "active" : ""}
+            onClick={() => changeCategory(index)}
+          >
+            <span>{entry.title}</span>
+            <small>{String(entry.gallery.length).padStart(2, "0")}</small>
+          </button>
+        ))}
+      </div>
+      <div className="asset-showcase-meta">
+        <div>
+          <span className="eyebrow">{category.title.toUpperCase()}</span>
+          <p>{category.description}</p>
+        </div>
+        <span className="asset-showcase-count">{String(activeIndex + 1).padStart(2, "0")} <i>/</i> {String(items.length).padStart(2, "0")}</span>
+      </div>
+      <div className="asset-showcase-viewer" id="adventure-asset-viewer" role="tabpanel" aria-live="polite">
+        <div className="asset-showcase-artwork">
+          <button type="button" onClick={() => onOpen(item)} aria-label={`Open ${item.title} at full size`}>
+            <img key={item.src} src={item.src} alt={item.alt} loading="eager" decoding="async" />
+            <span className="asset-showcase-zoom"><Icon name="diagonal" /> View full size</span>
+          </button>
+        </div>
+        <div className="asset-showcase-caption">
+          <div>
+            <span className="eyebrow">{category.title} / {String(activeIndex + 1).padStart(2, "0")}</span>
+            <h3>{item.title}</h3>
+          </div>
+          <div className="asset-showcase-controls">
+            <button type="button" onClick={() => moveAsset(-1)} aria-label="Previous asset"><Icon name="arrow-left" /></button>
+            <button type="button" onClick={() => moveAsset(1)} aria-label="Next asset"><Icon name="arrow" /></button>
+          </div>
+        </div>
+      </div>
+      <div className="asset-showcase-rail-heading">
+        <span className="eyebrow">EXPLORE THIS COLLECTION</span>
+        <span>Swipe, scroll, or use the arrows</span>
+      </div>
+      <div className="asset-showcase-rail" ref={assetTrackRef} aria-label={`${category.title} assets`}>
+        {items.map((asset, index) => (
+          <button
+            type="button"
+            key={asset.title}
+            data-asset-index={index}
+            className={activeIndex === index ? "active" : ""}
+            aria-pressed={activeIndex === index}
+            aria-label={`Show ${asset.title}`}
+            onClick={() => selectAsset(index)}
+          >
+            <span className="asset-showcase-thumb"><img src={asset.src} alt="" loading="lazy" decoding="async" /></span>
+            <span className="asset-showcase-thumb-title">{asset.title}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 function Project() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
@@ -685,14 +816,32 @@ function Project() {
         <section className="case-gallery">
           <div className="section-title">
             <h2>
-              There’s a story
-              <br />
-              <em>in every detail.</em>
+              {project.assetShowcase ? (
+                <>
+                  A world in
+                  <br />
+                  <em>every layer.</em>
+                </>
+              ) : (
+                <>
+                  There’s a story
+                  <br />
+                  <em>in every detail.</em>
+                </>
+              )}
             </h2>
             <span className="eyebrow">
-              {project.letterShowcase ? "04 / GALLERY & ASSETS" : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
+              {project.assetShowcase ? "04 / WORLD & INTERFACE EXPLORER" : project.letterShowcase ? "04 / GALLERY & ASSETS" : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
             </span>
           </div>
+          {project.assetShowcase ? (
+            <AssetShowcase
+              categories={project.assetShowcase.categories}
+              project={project}
+              onOpen={setSelected}
+            />
+          ) : (
+          <>
           {assetCategories.length > 1 && (
             <div className="asset-category-tabs" aria-label="English Kingdom asset categories">
               {assetCategories.map((category) => (
@@ -732,6 +881,8 @@ function Project() {
               </FadeContent>
             ))}
           </div>
+          </>
+          )}
         </section>
         <section className="case-intro">
           <span className="eyebrow">{project.letterShowcase ? "05 / THE DIRECTION" : "04 / THE DIRECTION"}</span>

@@ -18,6 +18,11 @@ export const categories = [
   "Game UI",
   "Graphic design",
 ];
+const babyGameAsset = (index, title, alt) => ({
+  src: `/media/adventure-island/baby-game/asset-${String(index).padStart(2, "0")}.webp`,
+  title,
+  alt,
+});
 export const projects = [
   {
     slug: "moonlit-kingdom",
@@ -223,6 +228,91 @@ export const projects = [
       { src: "/media/adventure-island/Path to the result of a desert background.webp", title: "07 / Desert journey keyframe", alt: "Tall desert journey environment concept" },
       { src: "/media/adventure-island/Road to the result of a forest background.webp", title: "08 / Forest journey keyframe", alt: "Tall forest journey environment concept" },
     ],
+    assetShowcase: {
+      intro:
+        "A growing visual system for the game: explore the world and level art, then move through the book, feedback, and interface pieces one at a time.",
+      categories: [
+        {
+          title: "World & levels",
+          description: "Maps, destinations, and playable environments",
+          gallery: [
+            { src: "/media/adventure-island/Map-Letter Island.webp", title: "Island map & route language", alt: "Illustrated Adventure Island map showing destinations and paths" },
+            { src: "/media/adventure-island/Island background image with text.webp", title: "World map presentation", alt: "Island world presentation artwork with location labels" },
+            { src: "/media/adventure-island/Environment Background Redesign.webp", title: "Environment redesign", alt: "Colourful environment redesign for the island adventure" },
+            { src: "/media/adventure-island/2.V of the background-Continue_Forest.webp", title: "Forest level background", alt: "Forest level background concept with a path through the trees" },
+            { src: "/media/adventure-island/2.V of the background-Continue_Desert.webp", title: "Desert level background", alt: "Desert level background concept for Adventure Island" },
+            { src: "/media/adventure-island/2.V of the background-Continue_Volcano.webp", title: "Volcano level background", alt: "Volcanic level background concept for Adventure Island" },
+            { src: "/media/adventure-island/Path to the result of a desert background.webp", title: "Desert journey keyframe", alt: "Tall desert journey environment concept" },
+            { src: "/media/adventure-island/Road to the result of a forest background.webp", title: "Forest journey keyframe", alt: "Tall forest journey environment concept" },
+            babyGameAsset(9, "Adventure Island logo", "Adventure Island title logo with a compass emblem"),
+            babyGameAsset(10, "Map direction study", "Early hand-drawn island map and route planning board"),
+            babyGameAsset(12, "Map variations", "A visual sheet of colorful island map variations and destination paths"),
+            babyGameAsset(13, "Island map presentation", "Island map and world presentation variations"),
+            babyGameAsset(17, "Level scenes overview", "A collection of Adventure Island gameplay level scenes"),
+          ],
+        },
+        {
+          title: "Book & game screens",
+          description: "The in-game book and its screen families",
+          gallery: [
+            babyGameAsset(14, "Book interface overview", "A visual overview of the game book and interface screens"),
+            babyGameAsset(16, "Character & quest book", "Open game book showing character collection and active quests"),
+            babyGameAsset(22, "Inventory grid", "Item slots arranged in a framed inventory panel"),
+            babyGameAsset(26, "Character inventory panel", "Tall character equipment and inventory panel"),
+            babyGameAsset(29, "Reward book", "Decorative book interface with collectible rewards"),
+            babyGameAsset(34, "Open book screen", "Open book screen design for the game interface"),
+          ],
+        },
+        {
+          title: "Dialogue & feedback",
+          description: "Character conversations, wins, losses, and responses",
+          gallery: [
+            babyGameAsset(1, "Speech bubble", "Small pale speech bubble with a trailing bubble"),
+            babyGameAsset(3, "Leaf-framed dialogue", "Pale dialogue panel framed with green leaves"),
+            babyGameAsset(4, "Game over panel", "Decorative game over result panel with score and actions"),
+            babyGameAsset(5, "Victory panel · purple", "Purple victory result panel with stars and score"),
+            babyGameAsset(6, "Victory panel · blue", "Blue victory result panel with stars and score"),
+            babyGameAsset(7, "Game over panel · light", "Light game over result panel with score and actions"),
+            babyGameAsset(11, "Character dialogue bubble", "Rounded character speech bubble with a small tail"),
+            babyGameAsset(15, "Dog dialogue screen", "A guide character speaking from a decorative dialogue panel"),
+            babyGameAsset(24, "Dialogue cloud", "Small cloudy dialogue frame"),
+            babyGameAsset(28, "Leafy dialogue panel", "Wide pale dialogue panel decorated with leaves"),
+          ],
+        },
+        {
+          title: "Panels & controls",
+          description: "Reusable frames, buttons, and interface building blocks",
+          gallery: [
+            babyGameAsset(2, "Wide wooden panel", "Wide empty wooden interface panel"),
+            babyGameAsset(8, "Progress bar", "Green progress bar in a wooden frame"),
+            babyGameAsset(18, "Square panel frame", "Large square wooden panel frame"),
+            babyGameAsset(19, "Wide panel frame", "Wide wooden panel frame"),
+            babyGameAsset(20, "Slim panel", "Slim wooden interface bar"),
+            babyGameAsset(21, "Compact panel", "Compact horizontal wooden interface bar"),
+            babyGameAsset(23, "Small inventory slots", "A compact group of item slots with corner markers"),
+            babyGameAsset(25, "Item slot set", "A set of empty item slots and small interface pieces"),
+            babyGameAsset(33, "Collection grid panel", "Collection panel with a grid of item buttons"),
+          ],
+        },
+        {
+          title: "Items & states",
+          description: "Collectibles and locked or unlocked item cards",
+          gallery: [
+            babyGameAsset(27, "Item card states", "A set of collectible cards shown in locked and unlocked states"),
+            babyGameAsset(30, "Locked item card", "Dark locked collectible card"),
+            babyGameAsset(31, "Open item card", "Light collectible card with a highlighted corner"),
+            babyGameAsset(32, "Lock icon", "Padlock symbol for a locked collection item"),
+          ],
+        },
+        {
+          title: "Complete panel atlas",
+          description: "The full panel reference sheet, preserved as one large overview",
+          gallery: [
+            babyGameAsset(35, "Group 6695 · complete panel atlas", "Complete interface panel atlas reference sheet"),
+          ],
+        },
+      ],
+    },
     video: {
       src: "/media/adventure-island/adventure-island-walkthrough.mp4",
       type: "video/mp4",

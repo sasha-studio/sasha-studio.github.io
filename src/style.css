@@ -3365,6 +3365,312 @@ figure {
     scroll-behavior: auto;
   }
 }
+
+/* Adventure Island asset explorer: one focused preview, with the full library in a navigable rail. */
+.asset-showcase {
+  --asset-accent: #55eaf3;
+  position: relative;
+  overflow: hidden;
+  margin-top: 28px;
+  padding: clamp(20px, 4vw, 48px);
+  border: 1px solid rgb(85 234 243 / 18%);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgb(0 224 255 / 8%), transparent 38%),
+    radial-gradient(ellipse at 92% 72%, rgb(174 53 255 / 7%), transparent 36%),
+    linear-gradient(145deg, rgb(12 16 34 / 80%), rgb(5 7 17 / 91%));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 5%), 0 24px 68px rgb(0 0 0 / 19%);
+  backdrop-filter: blur(14px);
+}
+.asset-showcase-intro,
+.asset-showcase-meta,
+.asset-showcase-caption,
+.asset-showcase-rail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.asset-showcase-intro > div > .eyebrow,
+.asset-showcase-meta .eyebrow,
+.asset-showcase-caption .eyebrow,
+.asset-showcase-rail-heading .eyebrow {
+  color: var(--asset-accent);
+}
+.asset-showcase-intro > div > p {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: #aeb7ca;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.asset-showcase-total {
+  color: #f3f4fa;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.asset-showcase-total i {
+  color: #919bb0;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: .18em;
+}
+.asset-showcase-categories {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  margin: 28px 0 30px;
+  padding: 3px 2px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(85 234 243 / 30%) transparent;
+}
+.asset-showcase-categories button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 46px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 999px;
+  background: rgb(3 5 13 / 53%);
+  color: #c6cbd8;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 170ms ease, color 170ms ease, background 170ms ease;
+}
+.asset-showcase-categories button small {
+  color: #7f8a9f;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+.asset-showcase-categories button:hover,
+.asset-showcase-categories button.active {
+  border-color: rgb(85 234 243 / 62%);
+  background: rgb(21 62 75 / 36%);
+  color: #effcff;
+}
+.asset-showcase-categories button.active small {
+  color: var(--asset-accent);
+}
+.asset-showcase button:focus-visible {
+  outline: 2px solid var(--asset-accent);
+  outline-offset: 3px;
+}
+.asset-showcase-meta {
+  margin-bottom: 14px;
+}
+.asset-showcase-meta p {
+  margin: 6px 0 0;
+  color: #929caf;
+  font-size: 12px;
+}
+.asset-showcase-count {
+  color: #f1f4fb;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+.asset-showcase-count i {
+  color: #68748b;
+  font-style: normal;
+}
+.asset-showcase-viewer {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 9%);
+  border-radius: 17px;
+  background: rgb(4 6 15 / 50%);
+  box-shadow: 0 16px 44px rgb(0 0 0 / 22%);
+}
+.asset-showcase-artwork {
+  display: grid;
+  min-height: clamp(300px, 42vw, 590px);
+  place-items: center;
+  padding: clamp(18px, 3.5vw, 42px);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgb(21 58 73 / 23%), transparent 56%),
+    linear-gradient(145deg, rgb(255 255 255 / 2%), transparent 62%);
+}
+.asset-showcase-artwork > button {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: clamp(260px, 40vw, 540px);
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.asset-showcase-artwork img {
+  display: block;
+  max-width: min(100%, 1380px);
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 24px rgb(0 0 0 / 28%));
+  animation: asset-preview-in 220ms ease both;
+}
+@keyframes asset-preview-in {
+  from { opacity: .55; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.asset-showcase-zoom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 999px;
+  background: rgb(7 10 20 / 80%);
+  color: #e8edf8;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 170ms ease;
+}
+.asset-showcase-artwork > button:hover .asset-showcase-zoom,
+.asset-showcase-artwork > button:focus-visible .asset-showcase-zoom {
+  opacity: 1;
+}
+.asset-showcase-zoom .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--asset-accent);
+}
+.asset-showcase-caption {
+  min-height: 88px;
+  padding: 16px 22px;
+  border-top: 1px solid rgb(255 255 255 / 8%);
+  background: rgb(0 0 0 / 17%);
+}
+.asset-showcase-caption h3 {
+  margin: 6px 0 0;
+  color: #f0f2f8;
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 600;
+}
+.asset-showcase-controls {
+  display: flex;
+  gap: 8px;
+}
+.asset-showcase-controls button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgb(85 234 243 / 28%);
+  border-radius: 50%;
+  background: rgb(10 19 31 / 75%);
+  color: #76edf4;
+  cursor: pointer;
+  transition: border-color 170ms ease, background 170ms ease;
+}
+.asset-showcase-controls button:hover {
+  border-color: rgb(85 234 243 / 74%);
+  background: rgb(23 64 76 / 65%);
+}
+.asset-showcase-controls .icon {
+  width: 16px;
+  height: 16px;
+}
+.asset-showcase-rail-heading {
+  margin: 26px 0 12px;
+}
+.asset-showcase-rail-heading > span:last-child {
+  color: #7e899e;
+  font-size: 10px;
+}
+.asset-showcase-rail {
+  display: flex;
+  gap: 11px;
+  overflow-x: auto;
+  padding: 3px 2px 12px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(85 234 243 / 30%) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.asset-showcase-rail > button {
+  display: grid;
+  flex: 0 0 145px;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 12px;
+  background: rgb(5 7 16 / 68%);
+  color: #aeb7ca;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+}
+.asset-showcase-rail > button:hover,
+.asset-showcase-rail > button.active {
+  border-color: rgb(85 234 243 / 60%);
+  background: rgb(17 37 48 / 72%);
+  color: #f3fbff;
+}
+.asset-showcase-thumb {
+  display: grid;
+  height: 78px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 7px;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgb(36 59 76 / 35%), transparent 72%),
+    #080b15;
+}
+.asset-showcase-thumb img {
+  display: block;
+  max-width: 92%;
+  max-height: 90%;
+  object-fit: contain;
+}
+.asset-showcase-thumb-title {
+  display: -webkit-box;
+  min-height: 32px;
+  overflow: hidden;
+  font-size: 10px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+@media (max-width: 720px) {
+  .asset-showcase { border-radius: 18px; }
+  .asset-showcase-intro { align-items: flex-start; }
+  .asset-showcase-intro > div > p { font-size: 12px; }
+  .asset-showcase-artwork { min-height: 270px; }
+  .asset-showcase-artwork > button { height: 250px; }
+}
+@media (max-width: 480px) {
+  .asset-showcase { padding: 18px 14px; }
+  .asset-showcase-total { font-size: 22px; }
+  .asset-showcase-categories { margin: 20px -1px 22px; }
+  .asset-showcase-meta { align-items: flex-end; }
+  .asset-showcase-artwork { min-height: 225px; padding: 12px; }
+  .asset-showcase-artwork > button { height: 205px; }
+  .asset-showcase-caption { min-height: 76px; padding: 13px; }
+  .asset-showcase-caption .eyebrow { font-size: 8px; }
+  .asset-showcase-caption h3 { font-size: 15px; }
+  .asset-showcase-controls { gap: 6px; }
+  .asset-showcase-controls button { width: 40px; height: 40px; }
+  .asset-showcase-rail > button { flex-basis: 126px; }
+  .asset-showcase-rail-heading > span:last-child { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .asset-showcase-artwork img { animation: none; }
+  .asset-showcase-categories,
+  .asset-showcase-rail { scroll-behavior: auto; }
+}
 /* Final readability pass. */
 @media (max-width: 540px) {
   .hero-image {
