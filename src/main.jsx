@@ -454,12 +454,15 @@ function Project() {
   const project = projects.find((p) => p.slug === slug);
   const [selected, setSelected] = useState(null);
   const [activeAssetCategory, setActiveAssetCategory] = useState("");
+  const [activeLetter, setActiveLetter] = useState("A");
+  const letterTrackRef = useRef(null);
   useEffect(() => {
     document.title = project
       ? `${project.title} — Sasha Makarov`
       : "Project not found — Sasha Makarov";
     setSelected(null);
     setActiveAssetCategory("");
+    setActiveLetter("A");
   }, [slug, project]);
   if (!project)
     return (
@@ -484,6 +487,42 @@ function Project() {
     assetCategories.find((category) => category.title === activeAssetCategory) ||
     assetCategories[0];
   const galleryItems = currentAssetCategory?.gallery || project.gallery;
+  const letters = project.letterShowcase?.characters || [];
+  const currentLetterIndex = Math.max(0, letters.findIndex((item) => item.letter === activeLetter));
+  const currentLetter = letters[currentLetterIndex];
+  const chooseLetter = (letter) => {
+    setActiveLetter(letter);
+    window.requestAnimationFrame(() => {
+      const track = letterTrackRef.current;
+      const button = track?.querySelector(`[data-letter-key="${letter}"]`);
+      if (!track || !button) return;
+      const left = button.offsetLeft - (track.clientWidth - button.clientWidth) / 2;
+      track.scrollTo({
+        left,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+    });
+  };
+  const moveLetter = (direction) => {
+    if (!letters.length) return;
+    const nextIndex = (currentLetterIndex + direction + letters.length) % letters.length;
+    chooseLetter(letters[nextIndex].letter);
+  };
+  const handleLetterKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveLetter(-1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveLetter(1);
+    } else if (event.key === "Home" && letters.length) {
+      event.preventDefault();
+      chooseLetter(letters[0].letter);
+    } else if (event.key === "End" && letters.length) {
+      event.preventDefault();
+      chooseLetter(letters[letters.length - 1].letter);
+    }
+  };
   return (
     <>
       <article className="case-study page-width">
@@ -535,31 +574,58 @@ function Project() {
               <div>
                 <span className="eyebrow">02 / CHARACTER DESIGN</span>
                 <h2 id="letter-showcase-title">
-                  Meet the cast
+                  Meet the letters
                   <br />
-                  <em>behind every letter.</em>
+                  <em>A to Z.</em>
                 </h2>
                 <p>{project.letterShowcase.intro}</p>
               </div>
-              <figure className="letter-guide-card">
+              {currentLetter && <figure className="letter-feature-card" aria-live="polite">
                 <img
-                  src={project.letterShowcase.guide.src}
-                  alt={project.letterShowcase.guide.alt}
+                  key={currentLetter.letter}
+                  src={currentLetter.src}
+                  alt={currentLetter.alt}
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><span>THE GUIDE</span> One curious owl, many little adventures.</figcaption>
-              </figure>
+                <figcaption>
+                  <span>LETTER CHARACTER</span>
+                  <strong>{currentLetter.letter}</strong>
+                  <small>{String(currentLetterIndex + 1).padStart(2, "0")} / {String(letters.length).padStart(2, "0")}</small>
+                </figcaption>
+              </figure>}
             </div>
-            <div className="letter-cast" aria-label="Selected Letter Island characters">
-              {project.letterShowcase.characters.map((character) => (
-                <figure className="letter-character" key={character.letter}>
-                  <div className="letter-character-art">
-                    <img src={character.src} alt={character.alt} loading="lazy" decoding="async" />
-                  </div>
-                  <figcaption>{character.letter}</figcaption>
-                </figure>
-              ))}
+            <div className="letter-keyboard-header">
+              <div>
+                <span className="eyebrow">THE ALPHABET</span>
+                <p>Choose a key to explore each character.</p>
+              </div>
+              <div className="letter-keyboard-controls">
+                <span>{String(currentLetterIndex + 1).padStart(2, "0")} <i>/</i> {String(letters.length).padStart(2, "0")}</span>
+                <button type="button" onClick={() => moveLetter(-1)} aria-label="Previous letter">
+                  <Icon name="arrow-left" />
+                </button>
+                <button type="button" onClick={() => moveLetter(1)} aria-label="Next letter">
+                  <Icon name="arrow" />
+                </button>
+              </div>
+            </div>
+            <div className="letter-keyboard" aria-label="Scrollable alphabet, A to Z">
+              <div className="letter-key-track" ref={letterTrackRef} onKeyDown={handleLetterKeyDown}>
+                {letters.map((character) => (
+                  <button
+                    className={`letter-key${character.letter === activeLetter ? " active" : ""}`}
+                    key={character.letter}
+                    type="button"
+                    data-letter-key={character.letter}
+                    aria-label={`Show letter ${character.letter}`}
+                    aria-pressed={character.letter === activeLetter}
+                    onClick={() => chooseLetter(character.letter)}
+                  >
+                    {character.letter}
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="letter-showcase-footer">
               <img
