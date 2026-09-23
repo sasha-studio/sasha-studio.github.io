@@ -529,6 +529,49 @@ function Project() {
             </div>
           </div>
         </section>
+        {project.letterShowcase && (
+          <section className="letter-showcase" aria-labelledby="letter-showcase-title">
+            <div className="letter-showcase-heading">
+              <div>
+                <span className="eyebrow">02 / CHARACTER DESIGN</span>
+                <h2 id="letter-showcase-title">
+                  Meet the cast
+                  <br />
+                  <em>behind every letter.</em>
+                </h2>
+                <p>{project.letterShowcase.intro}</p>
+              </div>
+              <figure className="letter-guide-card">
+                <img
+                  src={project.letterShowcase.guide.src}
+                  alt={project.letterShowcase.guide.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><span>THE GUIDE</span> One curious owl, many little adventures.</figcaption>
+              </figure>
+            </div>
+            <div className="letter-cast" aria-label="Selected Letter Island characters">
+              {project.letterShowcase.characters.map((character) => (
+                <figure className="letter-character" key={character.letter}>
+                  <div className="letter-character-art">
+                    <img src={character.src} alt={character.alt} loading="lazy" decoding="async" />
+                  </div>
+                  <figcaption>{character.letter}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="letter-showcase-footer">
+              <img
+                src={project.letterShowcase.wordmark}
+                alt="Letter Island"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>ONE WORLD · A WHOLE ALPHABET OF PERSONALITIES</span>
+            </div>
+          </section>
+        )}
         <FadeContent>
           <section className="case-video">
             <div className="section-title">
@@ -537,7 +580,7 @@ function Project() {
                 <br />
                 <em>to the story.</em>
               </h2>
-              <span className="eyebrow">02 / IN MOTION</span>
+              <span className="eyebrow">{project.letterShowcase ? "03 / IN MOTION" : "02 / IN MOTION"}</span>
             </div>
             {project.video ? (
               <video
@@ -581,7 +624,7 @@ function Project() {
               <em>in every detail.</em>
             </h2>
             <span className="eyebrow">
-              {assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
+              {project.letterShowcase ? "04 / GALLERY & ASSETS" : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
             </span>
           </div>
           {assetCategories.length > 1 && (
@@ -625,7 +668,7 @@ function Project() {
           </div>
         </section>
         <section className="case-intro">
-          <span className="eyebrow">04 / THE DIRECTION</span>
+          <span className="eyebrow">{project.letterShowcase ? "05 / THE DIRECTION" : "04 / THE DIRECTION"}</span>
           <h2>{project.outcome}</h2>
         </section>
         <nav className="project-pagination" aria-label="Browse projects">

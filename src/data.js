@@ -177,6 +177,23 @@ export const projects = [
       "Give a large, multi-region adventure a clear sense of progression while keeping every location inviting, readable, and full of discovery.",
     approach:
       "A hand-painted map language connects the island, lettered destinations, and level backgrounds. Warm greens and ocean blues establish the world, while each region receives its own colour mood and landmarks.",
+    letterShowcase: {
+      wordmark: "/media/adventure-island/letters/letter-island-wordmark.webp",
+      guide: {
+        src: "/media/adventure-island/letters/owl-guide.webp",
+        alt: "A collection of expressive owl guide characters in different outfits",
+      },
+      intro:
+        "Inside the world, letters become characters. A bright cast, playful costumes, and a curious owl guide turn the alphabet into part of the adventure.",
+      characters: [
+        { letter: "A", src: "/media/adventure-island/letters/character-a.webp", alt: "Blue-haired letter A character" },
+        { letter: "B", src: "/media/adventure-island/letters/character-b.webp", alt: "Green letter B character in a red cap" },
+        { letter: "C", src: "/media/adventure-island/letters/character-c.webp", alt: "Orange letter C character wearing a cowboy hat" },
+        { letter: "G", src: "/media/adventure-island/letters/character-g.webp", alt: "Purple letter G character with bright accessories" },
+        { letter: "M", src: "/media/adventure-island/letters/character-m.webp", alt: "Blue letter M character" },
+        { letter: "S", src: "/media/adventure-island/letters/character-s.webp", alt: "Teal letter S character with orange hair" },
+      ],
+    },
     outcome:
       "A flexible world-building direction for an adventure game, with a clear map-to-level relationship and enough visual variety to make every stop feel like a new chapter.",
     palette: ["#173f59", "#2d836f", "#e7b85d", "#d77955", "#6a4e86"],
