@@ -1,5 +1,5 @@
 # 00-cover
 
-Files below are ordered by their numeric prefix.
+Images, sorted by filename (numbered prefixes indicate their intended order).
 
-01-adventure-island-cover.webp
+- `01-adventure-island-cover.webp`

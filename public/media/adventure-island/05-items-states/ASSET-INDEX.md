@@ -1,8 +1,5 @@
 # 05-items-states
 
-Files below are ordered by their numeric prefix.
+Images, sorted by filename (numbered prefixes indicate their intended order).
 
-01-item-card-states.webp
-02-locked-item-card.webp
-03-open-item-card.webp
-04-lock-icon.webp
+No images are currently assigned here. The item card and lock assets were moved to `../02-book-game-screens/`.
