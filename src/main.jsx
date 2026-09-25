@@ -265,7 +265,7 @@ function Home() {
               project={letterIsland}
               featured="primary"
               displayTitle="Adventure Island"
-              cover="/media/adventure-island/adventure-island-cover.webp"
+              cover="/media/adventure-island/00-cover/01-adventure-island-cover.webp"
               coverAlt="Adventure Island cover art with a colourful map, signposts, and a guide owl."
               captionEyebrow="ADVENTURE ISLAND / WORLD DESIGN"
               captionText="World building · Environments · Level flow"
