@@ -516,14 +516,14 @@ function AssetShowcase({ categories, project, onOpen }) {
         </div>
         <span className="asset-showcase-total">{categories.reduce((sum, entry) => sum + entry.gallery.length, 0)} <i>ASSETS</i></span>
       </div>
-      <div className="asset-showcase-categories" role="tablist" aria-label="Adventure Island asset collections">
+      <div className="asset-showcase-categories" role="tablist" aria-label={`${project.title} asset collections`}>
         {categories.map((entry, index) => (
           <button
             key={entry.title}
             type="button"
             role="tab"
             aria-selected={activeCategory === index}
-            aria-controls="adventure-asset-viewer"
+            aria-controls={`${project.slug}-asset-viewer`}
             className={activeCategory === index ? "active" : ""}
             onClick={() => changeCategory(index)}
           >
@@ -539,7 +539,7 @@ function AssetShowcase({ categories, project, onOpen }) {
         </div>
         <span className="asset-showcase-count">{String(activeIndex + 1).padStart(2, "0")} <i>/</i> {String(items.length).padStart(2, "0")}</span>
       </div>
-      <div className="asset-showcase-viewer" id="adventure-asset-viewer" role="tabpanel" aria-live="polite">
+      <div className="asset-showcase-viewer" id={`${project.slug}-asset-viewer`} role="tabpanel" aria-live="polite">
         <div className="asset-showcase-artwork">
           <button type="button" onClick={() => onOpen(item)} aria-label={`Open ${item.title} at full size`}>
             <img key={item.src} src={item.src} alt={item.alt} loading="eager" decoding="async" />
@@ -831,7 +831,7 @@ function Project() {
               )}
             </h2>
             <span className="eyebrow">
-              {project.assetShowcase ? "04 / WORLD & INTERFACE EXPLORER" : project.letterShowcase ? "04 / GALLERY & ASSETS" : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
+              {project.assetShowcase ? (project.title === "Adventure Island" ? "04 / WORLD & INTERFACE EXPLORER" : "03 / ASSET EXPLORER") : project.letterShowcase ? "04 / GALLERY & ASSETS" : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
             </span>
           </div>
           {project.assetShowcase ? (

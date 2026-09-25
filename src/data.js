@@ -171,39 +171,37 @@ export const projects = [
     outcome:
       "A flexible visual library for character customisation and monster rewards, ready to grow with in-game character views and loot-flow examples.",
     palette: ["#172449", "#4b6ca8", "#c98a52", "#8d5c72", "#e7d4a3"],
-    gallery: [
-      { src: "/media/english-kingdom/01-wardrobe/01-tops-coats.webp", title: "01 / Tops & coats", alt: "English Kingdom tops and coat clothing icons" },
-      { src: "/media/english-kingdom/01-wardrobe/02-hats-headwear.webp", title: "02 / Hats & headwear", alt: "English Kingdom hat and headwear icons" },
-      { src: "/media/english-kingdom/01-wardrobe/03-bottoms.webp", title: "03 / Bottoms", alt: "English Kingdom trousers and bottom clothing icons" },
-      { src: "/media/english-kingdom/01-wardrobe/04-footwear.webp", title: "04 / Footwear", alt: "English Kingdom footwear icons" },
-      { src: "/media/english-kingdom/01-wardrobe/05-gloves.webp", title: "05 / Gloves", alt: "English Kingdom glove icons" },
-      { src: "/media/english-kingdom/01-wardrobe/06-neckwear.webp", title: "06 / Neckwear", alt: "English Kingdom scarf and neckwear icons" },
-    ],
-    assetCategories: [
-      {
-        title: "Wardrobe",
-        gallery: [
-          { src: "/media/english-kingdom/01-wardrobe/01-tops-coats.webp", title: "01 / Tops & coats", alt: "English Kingdom tops and coat clothing icons" },
-          { src: "/media/english-kingdom/01-wardrobe/02-hats-headwear.webp", title: "02 / Hats & headwear", alt: "English Kingdom hat and headwear icons" },
-          { src: "/media/english-kingdom/01-wardrobe/03-bottoms.webp", title: "03 / Bottoms", alt: "English Kingdom trousers and bottom icons" },
-          { src: "/media/english-kingdom/01-wardrobe/04-footwear.webp", title: "04 / Footwear", alt: "English Kingdom footwear icons" },
-          { src: "/media/english-kingdom/01-wardrobe/05-gloves.webp", title: "05 / Gloves", alt: "English Kingdom glove icons" },
-          { src: "/media/english-kingdom/01-wardrobe/06-neckwear.webp", title: "06 / Neckwear", alt: "English Kingdom scarf and neckwear icons" },
-        ],
-      },
-      {
-        title: "Drops",
-        gallery: [
-          { src: "/media/english-kingdom/02-monster-drops/01-monster-drops-treasure.webp", title: "01 / Monster drops & treasure", alt: "English Kingdom monster drop and treasure item icons" },
-        ],
-      },
-      {
-        title: "Project overview",
-        gallery: [
-          { src: "/media/english-kingdom/03-project-overview/01-english-kingdom-project-overview.webp", title: "01 / English Kingdom project overview", alt: "English Kingdom project overview showing gameplay, character equipment, and visual direction" },
-        ],
-      },
-    ],
+    assetShowcase: {
+      intro: "Browse English Kingdom’s visual library one focused preview at a time, from the wardrobe collection to monster drops and the project overview.",
+      categories: [
+        {
+          title: "Wardrobe",
+          description: "Equipment icons, organised by character slot",
+          gallery: [
+            { src: "/media/english-kingdom/01-wardrobe/01-tops-coats.webp", title: "Tops & coats", alt: "English Kingdom tops and coat clothing icons" },
+            { src: "/media/english-kingdom/01-wardrobe/02-hats-headwear.webp", title: "Hats & headwear", alt: "English Kingdom hat and headwear icons" },
+            { src: "/media/english-kingdom/01-wardrobe/03-bottoms.webp", title: "Bottoms", alt: "English Kingdom trousers and bottom clothing icons" },
+            { src: "/media/english-kingdom/01-wardrobe/04-footwear.webp", title: "Footwear", alt: "English Kingdom footwear icons" },
+            { src: "/media/english-kingdom/01-wardrobe/05-gloves.webp", title: "Gloves", alt: "English Kingdom glove icons" },
+            { src: "/media/english-kingdom/01-wardrobe/06-neckwear.webp", title: "Neckwear", alt: "English Kingdom scarf and neckwear icons" },
+          ],
+        },
+        {
+          title: "Drops",
+          description: "Collectible rewards and monster drops",
+          gallery: [
+            { src: "/media/english-kingdom/02-monster-drops/01-monster-drops-treasure.webp", title: "Monster drops & treasure", alt: "English Kingdom monster drop and treasure item icons" },
+          ],
+        },
+        {
+          title: "Project overview",
+          description: "Gameplay, character equipment, and visual direction",
+          gallery: [
+            { src: "/media/english-kingdom/03-project-overview/01-english-kingdom-project-overview.webp", title: "English Kingdom project overview", alt: "English Kingdom project overview showing gameplay, character equipment, and visual direction" },
+          ],
+        },
+      ],
+    },
     video: null,
   },
   {
