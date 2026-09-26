@@ -304,9 +304,9 @@ export const projects = [
       ],
     },
     video: {
-      src: "/media/adventure-island/adventure-island-walkthrough.mp4",
+      src: "/media/adventure-island/adventure-island-showreel.mp4",
       type: "video/mp4",
-      label: "Adventure Island visual walkthrough",
+      label: "Adventure Island portfolio showreel",
     },
   },
   {

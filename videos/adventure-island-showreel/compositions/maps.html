@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"></head><body><template>
+<style>
+@font-face{font-family:Fraunces;src:url("assets/fonts/fraunces-latin-500.woff2") format("woff2");font-style:normal;font-weight:500}
+@font-face{font-family:"DM Sans";src:url("assets/fonts/dm-sans-latin-400.woff2") format("woff2");font-style:normal;font-weight:400}
+#root{position:absolute;inset:0;overflow:hidden;background:#10172c;color:#faf7f0;font-family:"DM Sans",sans-serif}
+.ambient{position:absolute;inset:0;background:radial-gradient(ellipse at 78% 18%,rgba(66,114,148,.2),transparent 38%),radial-gradient(ellipse at 16% 85%,rgba(91,74,128,.16),transparent 42%)}
+.chapter{position:absolute;inset:0;padding:78px 112px 82px;display:flex;flex-direction:column}
+.topline{display:flex;justify-content:space-between;align-items:center;z-index:5}.kicker{font-size:20px;letter-spacing:.18em;text-transform:uppercase;color:#edc887;font-weight:700}.index{font:600 17px "DM Sans",sans-serif;letter-spacing:.16em;color:#b9bfd0}
+h1{font-family:Fraunces,Georgia,serif;font-size:54px;line-height:1.05;font-weight:500;letter-spacing:-.025em;margin:28px 0 24px;z-index:5;color:#faf7f0}
+.stage{position:relative;flex:1;min-height:0;display:grid;place-items:center}
+.beat{position:absolute;inset:0;display:grid;place-items:center;opacity:0;visibility:hidden}
+.art-image{width:100%;height:100%;max-width:1580px;max-height:700px;object-fit:contain;filter:drop-shadow(0 26px 50px rgba(0,0,0,.3));}
+.letter-wall{width:100%;height:100%;display:grid;grid-template-columns:repeat(6,1fr);align-items:center;justify-items:center;gap:10px;padding:10px 20px}
+.letter{height:100%;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;min-width:0}.letter img{width:100%;height:calc(100% - 45px);object-fit:contain;filter:drop-shadow(0 16px 18px rgba(0,0,0,.28))}.letter span{font-size:24px;font-weight:700;letter-spacing:.14em;color:#edc887}
+.wordmark{position:absolute;left:112px;top:144px;width:340px;max-height:90px;object-fit:contain;object-position:left center;z-index:4}
+.hero-cover{position:absolute;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 25px 50px rgba(0,0,0,.38))}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,23,44,.32),transparent 68%);pointer-events:none}.hero-logo{width:76%;height:76%;object-fit:contain;filter:drop-shadow(0 24px 42px rgba(0,0,0,.42))}
+.rule{height:1px;width:100%;background:linear-gradient(90deg,#edc887,rgba(237,200,135,.08));margin-top:22px}
+</style>
+<div data-hf-id="hf-3ibh" id="root" data-composition-id="chapter-maps" data-width="1920" data-height="1080" data-start="0" data-duration="12"><div data-hf-id="hf-9v4o" class="ambient"></div><section data-hf-id="hf-mmhv" class="chapter"><div data-hf-id="hf-o5lv" class="topline"><span data-hf-id="hf-fpj8" class="kicker">01 / ISLAND MAPS</span><span data-hf-id="hf-cysv" class="index">ADVENTURE ISLAND&#160;&#160; / &#160;&#160;02</span></div><h1 data-hf-id="hf-a0h1">A world to explore</h1><div data-hf-id="hf-tan6" class="stage"><div data-hf-id="hf-80nx" class="beat beat-0" data-beat="0" style="--beat-start:0s;--beat-duration:3.817s"><img data-hf-id="hf-632g" class="art-image" src="assets/adventure-island/maps/01-parchment-map.webp" alt=""></div>
+<div data-hf-id="hf-u45r" class="beat beat-1" data-beat="1" style="--beat-start:3.667s;--beat-duration:3.817s"><img data-hf-id="hf-xs4g" class="art-image" src="assets/adventure-island/maps/02-island-map-variation.webp" alt=""></div>
+<div data-hf-id="hf-0myp" class="beat beat-2" data-beat="2" style="--beat-start:7.333s;--beat-duration:3.817s"><img data-hf-id="hf-8249" class="art-image" src="assets/adventure-island/maps/03-map-assets-overview.webp" alt=""></div></div><div data-hf-id="hf-a46i" class="rule"></div></section></div>
+<script>window.__timelines=window.__timelines||{};const tl=gsap.timeline({paused:true});tl.fromTo(".beat-0",{autoAlpha:0,scale:.975,y:18},{autoAlpha:1,scale:1,y:0,duration:.65,ease:"power2.out"},0);tl.to(".beat-0",{autoAlpha:0,duration:.4,ease:"power1.in"},3.417);tl.fromTo(".beat-1",{autoAlpha:0,scale:.975,y:18},{autoAlpha:1,scale:1,y:0,duration:.65,ease:"power2.out"},3.667);tl.to(".beat-1",{autoAlpha:0,duration:.4,ease:"power1.in"},7.084);tl.fromTo(".beat-2",{autoAlpha:0,scale:.975,y:18},{autoAlpha:1,scale:1,y:0,duration:.65,ease:"power2.out"},7.333);window.__timelines["chapter-maps"]=tl;</script>
+</template></body></html>
