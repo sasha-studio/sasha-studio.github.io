@@ -1,70 +1,12 @@
 # Adventure Island · Elements
 
-Files are ordered by their numeric prefix.
+Only the newly supplied images from `New assets` are listed here. Files are numbered in viewer order.
 
 - `01-adventure-island-title-logo.webp` — Adventure Island title logo
-- `02-adventure-island-logo.webp` — Adventure Island logo study
-- `03-quest-book-overview.webp` — Quest book overview
-- `04-book-interface-overview.webp` — Book interface overview
-- `05-character-quest-book.webp` — Character & quest book
-- `06-item-card-states.webp` — Item card states
-- `07-locked-item-card.webp` — Locked item card
-- `08-open-item-card.webp` — Open item card
-- `09-lock-icon.webp` — Lock icon
-- `10-inventory-grid.webp` — Inventory grid
-- `11-character-inventory-panel.webp` — Character inventory panel
-- `12-reward-book.webp` — Reward book
-- `13-open-book-screen.webp` — Open book screen
-- `14-character-collection-screens.webp` — Character collection screens
-- `15-magic-book-item.webp` — Magic book item
-- `16-character-equipment-panels.webp` — Character equipment panels
-- `17-challenge-panels.webp` — Challenge panels
-- `18-game-over-panel.webp` — Game over panel
-- `19-victory-panel-purple.webp` — Victory panel · purple
-- `20-victory-panel-blue.webp` — Victory panel · blue
-- `21-game-over-panel-light.webp` — Game over panel · light
-- `22-dog-dialogue-panel.webp` — Dog dialogue panel
-- `23-victory-and-defeat-states.webp` — Victory & defeat states
-- `24-speech-bubble.webp` — Speech bubble
-- `25-leaf-framed-dialogue.webp` — Leaf-framed dialogue
-- `26-character-dialogue-bubble.webp` — Character dialogue bubble
-- `27-dog-dialogue-screen.webp` — Dog dialogue screen
-- `28-dialogue-cloud.webp` — Dialogue cloud
-- `29-leafy-dialogue-panel.webp` — Leafy dialogue panel
-- `30-wide-wooden-panel.webp` — Wide wooden panel
-- `31-progress-bar.webp` — Progress bar
-- `32-square-panel-frame.webp` — Square panel frame
-- `33-wide-panel-frame.webp` — Wide panel frame
-- `34-slim-panel.webp` — Slim panel
-- `35-compact-panel.webp` — Compact panel
-- `36-small-inventory-slots.webp` — Small inventory slots
-- `37-item-slot-set.webp` — Item slot set
-- `38-collection-grid-panel.webp` — Collection grid panel
-- `39-group-6695-panel-atlas.webp` — Group 6695 · complete panel atlas
-- `40-letter-island-wordmark.webp` — Letter Island wordmark
-- `41-letter-a.webp` — Letter A
-- `42-letter-b.webp` — Letter B
-- `43-letter-c.webp` — Letter C
-- `44-letter-d.webp` — Letter D
-- `45-letter-e.webp` — Letter E
-- `46-letter-f.webp` — Letter F
-- `47-letter-g.webp` — Letter G
-- `48-letter-h.webp` — Letter H
-- `49-letter-i.webp` — Letter I
-- `50-letter-j.webp` — Letter J
-- `51-letter-k.webp` — Letter K
-- `52-letter-l.webp` — Letter L
-- `53-letter-m.webp` — Letter M
-- `54-letter-n.webp` — Letter N
-- `55-letter-o.webp` — Letter O
-- `56-letter-p.webp` — Letter P
-- `57-letter-q.webp` — Letter Q
-- `58-letter-r.webp` — Letter R
-- `59-letter-s.webp` — Letter S
-- `60-letter-t.webp` — Letter T
-- `61-letter-u.webp` — Letter U
-- `62-letter-v.webp` — Letter V
-- `63-letter-w.webp` — Letter W
-- `64-letter-x.webp` — Letter X
-- `65-letter-y.webp` — Letter Y
-- `66-letter-z.webp` — Letter Z
+- `02-quest-book-overview.webp` — Group 6676 · quest book overview
+- `03-dog-dialogue-panel.webp` — Group 6703 · dog dialogue panel
+- `04-character-collection-screens.webp` — Group 6706 · character collection screens
+- `05-magic-book-item.webp` — Group 6714 · magic book item
+- `06-victory-and-defeat-states.webp` — Group 6739 · victory and defeat states
+- `07-challenge-panels.webp` — Group 6740 · challenge panels
+- `08-character-equipment-panels.webp` — Group 6746 · character equipment panels
