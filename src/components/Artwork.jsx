@@ -7,6 +7,7 @@ export default function Artwork({
   image,
   alt,
   eager = false,
+  style,
 }) {
   if (image)
     return (
@@ -16,6 +17,7 @@ export default function Artwork({
         alt={alt || project.coverAlt || `${project.title} concept`}
         loading={eager ? "eager" : "lazy"}
         decoding="async"
+        style={style}
       />
     );
   if (variant === "palette")

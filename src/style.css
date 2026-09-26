@@ -3044,6 +3044,112 @@ figure {
   }
 }
 
+/* An image lightbox is a contained canvas: controls and the caption stay outside the pan area. */
+.lightbox-image-viewport {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: fit-content;
+  max-width: calc(93vw - 44px);
+  max-height: 70vh;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.lightbox-image-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.lightbox-image-viewport > .project-image {
+  box-sizing: border-box;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(93vw - 44px);
+  max-height: 70vh;
+  object-fit: contain;
+  padding: 16px;
+  border: 1px solid rgba(234, 196, 110, 0.48);
+  border-radius: 10px;
+  background: #172449;
+  transform-origin: center;
+  transition: none !important;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox.wardrobe .lightbox-image-viewport {
+  max-width: calc(93vw - 76px);
+}
+
+.lightbox.wardrobe .lightbox-image-viewport > .project-image {
+  max-width: calc(93vw - 76px);
+  max-height: 70vh;
+  border-color: rgba(234, 196, 110, 0.48);
+}
+
+.lightbox-zoom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px auto 0;
+  color: #bfc2cf;
+  font-size: 12px;
+}
+
+.lightbox-zoom-controls button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid rgb(220 232 255 / 24%);
+  border-radius: 999px;
+  background: rgb(0 0 0 / 36%);
+  color: #40e5ee;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lightbox-zoom-controls button:hover:not(:disabled),
+.lightbox-zoom-controls button:focus-visible {
+  border-color: #40e5ee;
+  box-shadow: 0 0 18px rgb(0 240 255 / 20%);
+  outline: none;
+}
+
+.lightbox-zoom-controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.lightbox-zoom-controls output {
+  min-width: 46px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+  .lightbox-image-viewport,
+  .lightbox-image-viewport > .project-image {
+    max-width: calc(100vw - 40px);
+    max-height: 68vh;
+  }
+
+  .lightbox.wardrobe .lightbox-image-viewport,
+  .lightbox.wardrobe .lightbox-image-viewport > .project-image {
+    max-width: calc(100vw - 72px);
+  }
+
+  .lightbox-zoom-controls {
+    gap: 6px;
+  }
+}
+
 /* Letter Island character design chapter */
 .letter-showcase {
   position: relative;

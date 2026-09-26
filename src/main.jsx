@@ -414,6 +414,78 @@ function Home() {
 }
 function Lightbox({ item, project, onClose }) {
   const ref = useRef(null);
+  const imageViewportRef = useRef(null);
+  const dragRef = useRef(null);
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const clampOffset = (next, scale = zoom) => {
+    const viewport = imageViewportRef.current;
+    if (!viewport) return next;
+    const bounds = viewport.getBoundingClientRect();
+    const maxX = (bounds.width * (scale - 1)) / 2;
+    const maxY = (bounds.height * (scale - 1)) / 2;
+    return {
+      x: Math.max(-maxX, Math.min(maxX, next.x)),
+      y: Math.max(-maxY, Math.min(maxY, next.y)),
+    };
+  };
+  const setZoomAt = (nextZoom, point) => {
+    const next = Math.max(1, Math.min(5, nextZoom));
+    if (point && imageViewportRef.current) {
+      const bounds = imageViewportRef.current.getBoundingClientRect();
+      const x = point.x - bounds.left - bounds.width / 2;
+      const y = point.y - bounds.top - bounds.height / 2;
+      const ratio = next / zoom;
+      setOffset(clampOffset({
+        x: x + (offset.x - x) * ratio,
+        y: y + (offset.y - y) * ratio,
+      }, next));
+    } else {
+      setOffset(clampOffset({ x: offset.x * (next / zoom), y: offset.y * (next / zoom) }, next));
+    }
+    setZoom(next);
+  };
+  const resetZoom = () => {
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  };
+  const handleWheel = (event) => {
+    event.preventDefault();
+    const factor = Math.exp(-event.deltaY * 0.0015);
+    setZoomAt(zoom * factor, { x: event.clientX, y: event.clientY });
+  };
+  const handlePointerDown = (event) => {
+    if (event.button !== 0 || zoom <= 1) return;
+    event.preventDefault();
+    dragRef.current = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      offsetX: offset.x,
+      offsetY: offset.y,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setIsDragging(true);
+  };
+  const handlePointerMove = (event) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    setOffset(clampOffset({
+      x: drag.offsetX + event.clientX - drag.x,
+      y: drag.offsetY + event.clientY - drag.y,
+    }));
+  };
+  const handlePointerUp = (event) => {
+    if (dragRef.current?.pointerId !== event.pointerId) return;
+    dragRef.current = null;
+    setIsDragging(false);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+  };
+  useEffect(() => {
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  }, [item.src]);
   useEffect(() => {
     ref.current.showModal();
     const old = document.body.style.overflow;
@@ -439,12 +511,37 @@ function Lightbox({ item, project, onClose }) {
       >
         <Icon name="close" />
       </button>
-      <Artwork
-        project={project}
-        variant={item.variant}
-        image={item.src}
-        alt={item.alt}
-      />
+      {item.src ? (
+        <div
+          ref={imageViewportRef}
+          className={`lightbox-image-viewport${isDragging ? " is-dragging" : ""}`}
+          onWheel={handleWheel}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onLostPointerCapture={() => { dragRef.current = null; setIsDragging(false); }}
+          aria-label="Image viewer. Use the mouse wheel to zoom and drag to pan."
+        >
+          <Artwork
+            project={project}
+            variant={item.variant}
+            image={item.src}
+            alt={item.alt}
+            style={{ transform: `translate3d(${offset.x}px, ${offset.y}px, 0) scale(${zoom})` }}
+          />
+        </div>
+      ) : (
+        <Artwork project={project} variant={item.variant} image={item.src} alt={item.alt} />
+      )}
+      {item.src && (
+        <div className="lightbox-zoom-controls" aria-label="Image zoom controls">
+          <button type="button" onClick={() => setZoomAt(zoom / 1.25)} aria-label="Zoom out" disabled={zoom <= 1}>−</button>
+          <output aria-live="polite">{Math.round(zoom * 100)}%</output>
+          <button type="button" onClick={() => setZoomAt(zoom * 1.25)} aria-label="Zoom in" disabled={zoom >= 5}>+</button>
+          <button type="button" onClick={resetZoom} aria-label="Reset zoom" disabled={zoom === 1}>Reset</button>
+        </div>
+      )}
       <p>{item.title}</p>
     </dialog>
   );
