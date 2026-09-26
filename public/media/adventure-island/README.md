@@ -1,16 +1,5 @@
-# Adventure Island portfolio assets
+# Adventure Island assets
 
-Images are grouped into numbered category folders. File names start with the display order inside their category.
+The portfolio library is arranged in two folders: `maps/` and `elements/`. Filenames are numbered in the same order as their category viewer. The project cover is `adventure-island-cover.webp` in this folder.
 
-To add an image, place it in the appropriate category folder using the next available number. Then add its title, alt text, and path to the matching category in `src/data.js` so it appears in the website viewer. Keep the source Figma file unchanged.
-
-## Categories
-
-- `00-cover/` — 1 images
-- `01-world-levels/` — 17 images
-- `02-book-game-screens/` — 11 images
-- `03-dialogue-feedback/` — 4 images
-- `04-panels-controls/` — 16 images
-- `05-items-states/` — 0 images
-- `06-panel-atlas/` — 1 images
-- `07-letter-characters/` — 27 images
+To add an image, use the next number in the correct folder, update `ASSET-INDEX.md`, then add its title, alt text, and file path to the matching category in `src/data.js`. Original full-resolution PNGs are preserved under `source-assets/adventure-island/New assets`; `dist/` is generated output and is cleared during builds.
