@@ -796,11 +796,126 @@ function Project() {
             </div>
           </div>
         </section>
+        <FadeContent>
+          <section className="case-video">
+            <div className="section-title">
+              <h2>
+                A little closer
+                <br />
+                <em>to the story.</em>
+              </h2>
+              <span className="eyebrow">02 / IN MOTION</span>
+            </div>
+            {project.video ? (
+              <video
+                key={project.slug}
+                controls
+                playsInline
+                preload="metadata"
+                poster={project.cover}
+                aria-label={project.video.label || `${project.title} project film`}
+              >
+                <source
+                  src={project.video.src}
+                  type={project.video.type || "video/mp4"}
+                />
+                {project.video.captions && (
+                  <track
+                    kind="captions"
+                    src={project.video.captions}
+                    srcLang="en"
+                    label="English"
+                    default
+                  />
+                )}
+                Your browser does not support this video.
+              </video>
+            ) : (
+              <div className="video-placeholder">
+                <Spark />
+                <h3>The next chapter is in the making.</h3>
+                <p>A project film will live here once it’s ready.</p>
+                <span className="eyebrow">PROJECT FILM / COMING SOON</span>
+              </div>
+            )}
+          </section>
+        </FadeContent>
+        <section className="case-gallery">
+          <div className="section-title">
+            <h2>
+              {project.assetShowcase ? (
+                <>
+                  A world in
+                  <br />
+                  <em>every layer.</em>
+                </>
+              ) : (
+                <>
+                  There’s a story
+                  <br />
+                  <em>in every detail.</em>
+                </>
+              )}
+            </h2>
+            <span className="eyebrow">
+              {project.assetShowcase ? (project.title === "Adventure Island" ? "03 / WORLD & INTERFACE EXPLORER" : "03 / ASSET EXPLORER") : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
+            </span>
+          </div>
+          {project.assetShowcase ? (
+            <AssetShowcase
+              categories={project.assetShowcase.categories}
+              project={project}
+              onOpen={setSelected}
+            />
+          ) : (
+          <>
+          {assetCategories.length > 1 && (
+            <div className="asset-category-tabs" aria-label="English Kingdom asset categories">
+              {assetCategories.map((category) => (
+                <button
+                  key={category.title}
+                  type="button"
+                  aria-pressed={currentAssetCategory?.title === category.title}
+                  className={currentAssetCategory?.title === category.title ? "active" : ""}
+                  onClick={() => setActiveAssetCategory(category.title)}
+                >
+                  {category.title}
+                  <span>{String(category.gallery.length).padStart(2, "0")}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          <div className="gallery-grid">
+            {galleryItems.map((item) => (
+              <FadeContent key={item.title}>
+                <figure>
+                  <button
+                    onClick={() => setSelected(item)}
+                    aria-label={`Enlarge ${item.title}`}
+                  >
+                    <Artwork
+                      project={project}
+                      variant={item.variant}
+                      image={item.src}
+                      alt={item.alt}
+                    />
+                    <span className="enlarge">
+                      <Icon name="diagonal" />
+                    </span>
+                  </button>
+                  <figcaption>{item.title}</figcaption>
+                </figure>
+              </FadeContent>
+            ))}
+          </div>
+          </>
+          )}
+        </section>
         {project.letterShowcase && (
           <section className="letter-showcase" aria-labelledby="letter-showcase-title">
             <div className="letter-showcase-heading">
               <div>
-                <span className="eyebrow">02 / CHARACTER DESIGN</span>
+                <span className="eyebrow">04 / CHARACTER DESIGN</span>
                 <h2 id="letter-showcase-title">
                   Meet the letters
                   <br />
@@ -866,121 +981,6 @@ function Project() {
             </div>
           </section>
         )}
-        <FadeContent>
-          <section className="case-video">
-            <div className="section-title">
-              <h2>
-                A little closer
-                <br />
-                <em>to the story.</em>
-              </h2>
-              <span className="eyebrow">{project.letterShowcase ? "03 / IN MOTION" : "02 / IN MOTION"}</span>
-            </div>
-            {project.video ? (
-              <video
-                key={project.slug}
-                controls
-                playsInline
-                preload="metadata"
-                poster={project.cover}
-                aria-label={project.video.label || `${project.title} project film`}
-              >
-                <source
-                  src={project.video.src}
-                  type={project.video.type || "video/mp4"}
-                />
-                {project.video.captions && (
-                  <track
-                    kind="captions"
-                    src={project.video.captions}
-                    srcLang="en"
-                    label="English"
-                    default
-                  />
-                )}
-                Your browser does not support this video.
-              </video>
-            ) : (
-              <div className="video-placeholder">
-                <Spark />
-                <h3>The next chapter is in the making.</h3>
-                <p>A project film will live here once it’s ready.</p>
-                <span className="eyebrow">PROJECT FILM / COMING SOON</span>
-              </div>
-            )}
-          </section>
-        </FadeContent>
-        <section className="case-gallery">
-          <div className="section-title">
-            <h2>
-              {project.assetShowcase ? (
-                <>
-                  A world in
-                  <br />
-                  <em>every layer.</em>
-                </>
-              ) : (
-                <>
-                  There’s a story
-                  <br />
-                  <em>in every detail.</em>
-                </>
-              )}
-            </h2>
-            <span className="eyebrow">
-              {project.assetShowcase ? (project.title === "Adventure Island" ? "04 / WORLD & INTERFACE EXPLORER" : "03 / ASSET EXPLORER") : project.letterShowcase ? "04 / GALLERY & ASSETS" : assetCategories.length ? "03 / ASSET LIBRARY" : "03 / GALLERY & ASSETS"}
-            </span>
-          </div>
-          {project.assetShowcase ? (
-            <AssetShowcase
-              categories={project.assetShowcase.categories}
-              project={project}
-              onOpen={setSelected}
-            />
-          ) : (
-          <>
-          {assetCategories.length > 1 && (
-            <div className="asset-category-tabs" aria-label="English Kingdom asset categories">
-              {assetCategories.map((category) => (
-                <button
-                  key={category.title}
-                  type="button"
-                  aria-pressed={currentAssetCategory?.title === category.title}
-                  className={currentAssetCategory?.title === category.title ? "active" : ""}
-                  onClick={() => setActiveAssetCategory(category.title)}
-                >
-                  {category.title}
-                  <span>{String(category.gallery.length).padStart(2, "0")}</span>
-                </button>
-              ))}
-            </div>
-          )}
-          <div className="gallery-grid">
-            {galleryItems.map((item) => (
-              <FadeContent key={item.title}>
-                <figure>
-                  <button
-                    onClick={() => setSelected(item)}
-                    aria-label={`Enlarge ${item.title}`}
-                  >
-                    <Artwork
-                      project={project}
-                      variant={item.variant}
-                      image={item.src}
-                      alt={item.alt}
-                    />
-                    <span className="enlarge">
-                      <Icon name="diagonal" />
-                    </span>
-                  </button>
-                  <figcaption>{item.title}</figcaption>
-                </figure>
-              </FadeContent>
-            ))}
-          </div>
-          </>
-          )}
-        </section>
         <section className="case-intro">
           <span className="eyebrow">{project.letterShowcase ? "05 / THE DIRECTION" : "04 / THE DIRECTION"}</span>
           <h2>{project.outcome}</h2>

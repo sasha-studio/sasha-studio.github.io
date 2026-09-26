@@ -265,11 +265,11 @@ export const projects = [
       { src: "/media/adventure-island/maps/03-map-assets-overview.webp", title: "03 / Map assets", alt: "Adventure Island map assets and environment pieces" },
     ],
     assetShowcase: {
-      intro: "Browse the newly added maps, game screens, and visual elements one image at a time.",
+      intro: "Browse the island maps, game screens, and visual elements one image at a time.",
       categories: [
         {
           title: "Maps",
-          description: "New island map artwork",
+          description: "Island maps, environment studies, and level artwork",
           gallery: [
             { src: "/media/adventure-island/maps/01-parchment-map.webp", title: "Parchment map presentation", alt: "Adventure Island map presented on a parchment scroll" },
             { src: "/media/adventure-island/maps/02-island-map-variation.webp", title: "Island map variation", alt: "Alternate illustrated Adventure Island map" },
@@ -278,6 +278,10 @@ export const projects = [
             { src: "/media/adventure-island/maps/05-forest-background-result.webp", title: "Forest background results", alt: "Forest environment and gameplay background variations" },
             { src: "/media/adventure-island/maps/06-desert-background-result.webp", title: "Desert background results", alt: "Desert environment and gameplay background variations" },
             { src: "/media/adventure-island/maps/07-volcano-background-continuation.webp", title: "Volcano background continuation", alt: "Volcano environment and gameplay background variations" },
+            { src: "/media/adventure-island/maps/08-forest-and-snow-levels.webp", title: "Forest and snow level artwork", alt: "Forest and snowy level environments with modular game assets" },
+            { src: "/media/adventure-island/maps/09-coastal-region-map.webp", title: "Coastal region map", alt: "Coastal island region with beach props and modular shoreline assets" },
+            { src: "/media/adventure-island/maps/10-desert-region-map.webp", title: "Desert region map", alt: "Desert island region with cactus, rock, and warm sky assets" },
+            { src: "/media/adventure-island/maps/11-seasonal-level-environments.webp", title: "Seasonal level environments", alt: "Forest, snowy, and coastal gameplay level variations" },
           ],
         },
         {
@@ -292,13 +296,14 @@ export const projects = [
         },
         {
           title: "Elements",
-          description: "New title art, rewards, character panels, and interface atlas",
+          description: "Title art, rewards, character panels, and environment assets",
           gallery: [
             { src: "/media/adventure-island/elements/01-adventure-island-title-logo.webp", title: "Adventure Island title logo", alt: "Adventure Island title logo artwork" },
             { src: "/media/adventure-island/elements/02-victory-and-defeat-states.webp", title: "Victory and defeat states", alt: "Game victory and defeat result screen variations" },
             { src: "/media/adventure-island/elements/03-challenge-panels.webp", title: "Challenge panels", alt: "Challenge and collectible reward interface panels" },
             { src: "/media/adventure-island/elements/04-character-equipment-panels.webp", title: "Character equipment panels", alt: "Character equipment and wardrobe interface panel variations" },
             { src: "/media/adventure-island/elements/05-game-interface-panels.webp", title: "Game interface panels", alt: "Game interface panels, inventory frames, and controls" },
+            { src: "/media/adventure-island/elements/06-forest-environment-assets.webp", title: "Forest environment assets", alt: "Modular forest props including mountains, rocks, trees, bushes, and houses" },
           ],
         },
       ],

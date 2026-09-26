@@ -7,3 +7,4 @@ New standalone title art, rewards, character panels, and interface atlas, in vie
 - `03-challenge-panels.webp` — Group 6740 · challenge panels
 - `04-character-equipment-panels.webp` — Group 6746 · character equipment panels
 - `05-game-interface-panels.webp` — Group 6752 · game interface panels
+- `06-forest-environment-assets.webp` — Group 6758 · modular forest props and scenery
