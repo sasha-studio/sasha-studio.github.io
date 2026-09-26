@@ -16,3 +16,9 @@ Original full-resolution PNGs supplied for this update. Optimized WebP versions 
 - `Group 6739.png` → `public/media/adventure-island/elements/06-victory-and-defeat-states.webp`
 - `Group 6740.png` → `public/media/adventure-island/elements/07-challenge-panels.webp`
 - `Group 6746.png` → `public/media/adventure-island/elements/08-character-equipment-panels.webp`
+- `2.V of the background-Continue_Volcano.png` → `public/media/adventure-island/maps/07-volcano-background-continuation.webp`
+- `Asset 207@4x 1.png` → `public/media/adventure-island/letters/20-letter-t.webp` (replaces letter T)
+- `Environment Background Redesign.png` → `public/media/adventure-island/maps/04-environment-background-redesign.webp`
+- `Group 6752.png` → `public/media/adventure-island/elements/09-game-interface-panels.webp`
+- `Version 2 - Forest Background Result.png` → `public/media/adventure-island/maps/05-forest-background-result.webp`
+- `Version 2 - Result of a desert background.png` → `public/media/adventure-island/maps/06-desert-background-result.webp`

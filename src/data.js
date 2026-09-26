@@ -274,6 +274,10 @@ export const projects = [
             { src: "/media/adventure-island/maps/01-parchment-map.webp", title: "Parchment map presentation", alt: "Adventure Island map presented on a parchment scroll" },
             { src: "/media/adventure-island/maps/02-island-map-variation.webp", title: "Island map variation", alt: "Alternate illustrated Adventure Island map" },
             { src: "/media/adventure-island/maps/03-map-assets-overview.webp", title: "Map assets overview", alt: "Adventure Island map assets and environment pieces" },
+            { src: "/media/adventure-island/maps/04-environment-background-redesign.webp", title: "Environment background redesign", alt: "Ten Adventure Island environment background variations" },
+            { src: "/media/adventure-island/maps/05-forest-background-result.webp", title: "Forest background results", alt: "Forest environment and gameplay background variations" },
+            { src: "/media/adventure-island/maps/06-desert-background-result.webp", title: "Desert background results", alt: "Desert environment and gameplay background variations" },
+            { src: "/media/adventure-island/maps/07-volcano-background-continuation.webp", title: "Volcano background continuation", alt: "Volcano environment and gameplay background variations" },
           ],
         },
         {
@@ -288,6 +292,7 @@ export const projects = [
             { src: "/media/adventure-island/elements/06-victory-and-defeat-states.webp", title: "Victory and defeat states", alt: "Game victory and defeat result screen variations" },
             { src: "/media/adventure-island/elements/07-challenge-panels.webp", title: "Challenge panels", alt: "Challenge and collectible reward interface panels" },
             { src: "/media/adventure-island/elements/08-character-equipment-panels.webp", title: "Character equipment panels", alt: "Character equipment and wardrobe interface panel variations" },
+            { src: "/media/adventure-island/elements/09-game-interface-panels.webp", title: "Game interface panels", alt: "Game interface panels, inventory frames, and controls" },
           ],
         },
       ],
