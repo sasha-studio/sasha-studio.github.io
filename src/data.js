@@ -247,7 +247,7 @@ export const projects = [
         { letter: "Q", src: "/media/adventure-island/letters/17-letter-q.webp", alt: "Colourful illustrated letter Q character" },
         { letter: "R", src: "/media/adventure-island/letters/18-letter-r.webp", alt: "Colourful illustrated letter R character" },
         { letter: "S", src: "/media/adventure-island/letters/19-letter-s.webp", alt: "Colourful illustrated letter S character" },
-        { letter: "T", src: "/media/adventure-island/letters/20-letter-t.webp", alt: "Colourful illustrated letter T character" },
+        { letter: "T", src: "/media/adventure-island/letters/20-letter-t-new.webp", alt: "Illustrated letter T teacher character holding an ABC chalkboard" },
         { letter: "U", src: "/media/adventure-island/letters/21-letter-u.webp", alt: "Colourful illustrated letter U character" },
         { letter: "V", src: "/media/adventure-island/letters/22-letter-v.webp", alt: "Colourful illustrated letter V character" },
         { letter: "W", src: "/media/adventure-island/letters/23-letter-w.webp", alt: "Colourful illustrated letter W character" },
@@ -265,7 +265,7 @@ export const projects = [
       { src: "/media/adventure-island/maps/03-map-assets-overview.webp", title: "03 / Map assets", alt: "Adventure Island map assets and environment pieces" },
     ],
     assetShowcase: {
-      intro: "Browse only the new artwork added to the project, grouped into maps and visual elements.",
+      intro: "Browse the newly added maps, game screens, and visual elements one image at a time.",
       categories: [
         {
           title: "Maps",
@@ -281,18 +281,24 @@ export const projects = [
           ],
         },
         {
+          title: "Game UI",
+          description: "Quest book, dialogue, collection, and item screens",
+          gallery: [
+            { src: "/media/adventure-island/game-ui/01-quest-book-overview.webp", title: "Quest book overview", alt: "Quest book interface showing characters and active quests" },
+            { src: "/media/adventure-island/game-ui/02-dog-dialogue-panel.webp", title: "Dog dialogue panel", alt: "Dialogue panel with the dog guide character" },
+            { src: "/media/adventure-island/game-ui/03-character-collection-screens.webp", title: "Character collection screens", alt: "Character profile and collectible item book screens" },
+            { src: "/media/adventure-island/game-ui/04-magic-book-item.webp", title: "Magic book item", alt: "Decorative game book collectible with a blue jewel" },
+          ],
+        },
+        {
           title: "Elements",
-          description: "New interface and game element artwork",
+          description: "New title art, rewards, character panels, and interface atlas",
           gallery: [
             { src: "/media/adventure-island/elements/01-adventure-island-title-logo.webp", title: "Adventure Island title logo", alt: "Adventure Island title logo artwork" },
-            { src: "/media/adventure-island/elements/02-quest-book-overview.webp", title: "Quest book overview", alt: "Quest book interface showing characters and active quests" },
-            { src: "/media/adventure-island/elements/03-dog-dialogue-panel.webp", title: "Dog dialogue panel", alt: "Dialogue panel with the dog guide character" },
-            { src: "/media/adventure-island/elements/04-character-collection-screens.webp", title: "Character collection screens", alt: "Character profile and collectible item book screens" },
-            { src: "/media/adventure-island/elements/05-magic-book-item.webp", title: "Magic book item", alt: "Decorative game book collectible with a blue jewel" },
-            { src: "/media/adventure-island/elements/06-victory-and-defeat-states.webp", title: "Victory and defeat states", alt: "Game victory and defeat result screen variations" },
-            { src: "/media/adventure-island/elements/07-challenge-panels.webp", title: "Challenge panels", alt: "Challenge and collectible reward interface panels" },
-            { src: "/media/adventure-island/elements/08-character-equipment-panels.webp", title: "Character equipment panels", alt: "Character equipment and wardrobe interface panel variations" },
-            { src: "/media/adventure-island/elements/09-game-interface-panels.webp", title: "Game interface panels", alt: "Game interface panels, inventory frames, and controls" },
+            { src: "/media/adventure-island/elements/02-victory-and-defeat-states.webp", title: "Victory and defeat states", alt: "Game victory and defeat result screen variations" },
+            { src: "/media/adventure-island/elements/03-challenge-panels.webp", title: "Challenge panels", alt: "Challenge and collectible reward interface panels" },
+            { src: "/media/adventure-island/elements/04-character-equipment-panels.webp", title: "Character equipment panels", alt: "Character equipment and wardrobe interface panel variations" },
+            { src: "/media/adventure-island/elements/05-game-interface-panels.webp", title: "Game interface panels", alt: "Game interface panels, inventory frames, and controls" },
           ],
         },
       ],
