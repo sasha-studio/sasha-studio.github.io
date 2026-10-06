@@ -1,6 +1,13 @@
 # Sasha Makarov — Design Portfolio
 
-English-language game art and visual design portfolio. A cinematic storybook direction combines midnight indigo, warm gold, cream, and lavender. React + Vite, with adapted React Bits motion components.
+English-language Game Visual Designer portfolio built with React + Vite.
+The current website uses a dark space aesthetic, cyan/magenta accents,
+Orbitron/Rajdhani typography, an animated constellation background and aurora.
+Adventure Island and English Kingdom lead the portfolio; smaller studies follow.
+
+See [the current restructuring and asset handoff](docs/portfolio-restructure.md)
+for the implemented case-study structure, optional media slots and outstanding
+source artwork. The older design notes below describe the initial concept build.
 
 ## Local development
 

@@ -2,3 +2,10 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# Local showreel cache, previews, and generated exports
+/videos/adventure-island-showreel/.hyperframes/
+/videos/adventure-island-showreel/.media/
+/videos/adventure-island-showreel/.thumbnails/
+/videos/adventure-island-showreel/snapshots/
+/videos/adventure-island-showreel/renders/

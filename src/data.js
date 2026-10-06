@@ -2,20 +2,21 @@
 export const profile = {
   name: "Sasha Makarov",
   studio: "Sasha Makarov",
-  role: "Game artist & visual designer",
+  role: "Game Visual Designer",
   email: "sasha.mak3d@gmail.com",
   linkedin: "https://www.linkedin.com/in/sasha-makarov-8bb655140/",
   resume: "",
   intro:
-    "I design expressive characters, enchanting game worlds, and thoughtful visual experiences. A little imagination in every detail.",
+    "I turn early-stage ideas into complete visual game experiences, from worlds and environments to characters, UI and production-ready assets.",
   about:
-    "I’m Sasha, a designer drawn to the magic of animated worlds. My visual direction brings together expressive shapes, cinematic colour, and the small details that give a story its heart.",
+    "I’m Sasha, a Game Visual Designer. I create worlds, environments, characters, game UI and illustrations, taking visual ideas through to production assets. I work independently and collaborate closely with developers to bring those designs into the game.",
 };
 export const categories = [
   "All work",
   "Game worlds",
   "Characters",
   "Game UI",
+  "2D Animation",
   "Graphic design",
 ];
 const babyGameAssetPaths = {
@@ -152,16 +153,16 @@ export const projects = [
   {
     slug: "english-kingdom-wardrobe",
     title: "English Kingdom",
-    subtitle: "A growing visual library for a story-led game world.",
+    subtitle: "Game UI & visual redesign for an educational game world.",
     category: "Game UI",
-    year: "Production asset study",
+    year: "Game UI & visual redesign",
     theme: "wardrobe",
     cover: "/media/english-kingdom/03-project-overview/01-english-kingdom-project-overview.webp",
     coverAlt:
       "English Kingdom gameplay in a bright medieval town, featuring its character, equipment interface, and minimap.",
     featured: false,
     mediaDisclosure: "Production UI artwork from the English Kingdom project",
-    services: ["Character design", "Costume systems", "Monster drops", "Game UI assets"],
+    services: ["Game UI", "Visual redesign", "UI systems", "Production assets"],
     description:
       "A collection of production artwork for English Kingdom, spanning character customisation and collectible monster drops.",
     challenge:
@@ -207,16 +208,16 @@ export const projects = [
   {
     slug: "adventure-island",
     title: "Adventure Island",
-    subtitle: "A colourful world map for a story-led learning adventure.",
+    subtitle: "A colorful educational adventure world built around exploration, learning and visual storytelling.",
     category: "Game worlds",
-    year: "World-building study",
+    year: "World building & visual development",
     theme: "adventure-island",
     cover: "/media/adventure-island/adventure-island-cover.webp",
     coverAlt:
       "Adventure Island cover art featuring a colourful multi-region map, wooden signposts, and a guide owl.",
     featured: false,
     mediaDisclosure: "Portfolio artwork supplied by Sasha Makarov",
-    services: ["World building", "Environment design", "Level flow"],
+    services: ["World Building", "Environment Design", "2D Game Art", "Character Design", "Game UI", "Visual Development"],
     description:
       "Adventure Island is a playful visual system for a learning journey across distinct regions, from sunlit beaches to dense forests and a glowing volcanic finale.",
     challenge:

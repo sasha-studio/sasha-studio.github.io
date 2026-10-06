@@ -6,12 +6,13 @@ import {
   Route,
   Routes,
   useLocation,
-  useNavigate,
   useParams,
 } from "react-router";
 import { MotionConfig } from "motion/react";
 import { profile, projects, categories } from "./data";
 import Artwork from "./components/Artwork";
+import CaseNarrative, { PersonalDevelopment, StorySection, StoryImage } from "./components/CaseNarrative";
+import { caseStudies, animationStudy } from "./caseStudies";
 import { Spark, Icon } from "./components/Icons";
 import BlurText from "./components/react-bits/BlurText";
 import BorderGlow from "./components/react-bits/BorderGlow";
@@ -20,6 +21,7 @@ import TiltedCard from "./components/react-bits/TiltedCard";
 import GameBackground from "./components/GameBackground";
 import HeroAurora from "./components/HeroAurora";
 import "./style.css";
+import "./case-studies.css";
 
 function Navigation() {
   const { pathname, hash } = useLocation();
@@ -55,17 +57,8 @@ function Navigation() {
 }
 function ScrollManager() {
   const { pathname, hash } = useLocation();
-  const navigate = useNavigate();
-  const firstLocation = useRef(true);
   useLayoutEffect(() => {
     const frame = requestAnimationFrame(() => {
-      const first = firstLocation.current;
-      firstLocation.current = false;
-      if (first && pathname === "/") {
-        if (hash) navigate("/", { replace: true });
-        window.scrollTo({ top: 0, behavior: "instant" });
-        return;
-      }
       if (hash) document.getElementById(hash.slice(1))?.scrollIntoView();
       else {
         window.scrollTo({ top: 0, behavior: "instant" });
@@ -73,7 +66,7 @@ function ScrollManager() {
       }
     });
     return () => cancelAnimationFrame(frame);
-  }, [pathname, hash, navigate]);
+  }, [pathname, hash]);
   return null;
 }
 function Contact() {
@@ -118,19 +111,14 @@ function Contact() {
             Download Resume <Icon name="down" />
           </a>
         ) : (
-          <button
-            className="button magenta resume-download-unavailable"
-            type="button"
-            disabled
-            title="Add Sasha’s resume PDF to enable this download."
-          >
-            Download Resume <Icon name="down" />
-          </button>
+          <a className="button magenta" href={`mailto:${profile.email}?subject=Resume%20request`}>
+            Request Resume <Icon name="diagonal" />
+          </a>
         )}
       </div>
       <footer>
         <Link to="/" className="footer-name">
-          Sasha Makarov<span>Game art & visual design</span>
+          Sasha Makarov<span>Game Visual Designer</span>
         </Link>
         <span>© {new Date().getFullYear()} Sasha Makarov</span>
         <a
@@ -205,19 +193,15 @@ function ProjectCard({
 function Home() {
   const [filter, setFilter] = useState("All work");
   useEffect(() => {
-    document.title = "Sasha Makarov — Game Art & Visual Design";
+    document.title = "Sasha Makarov | Game Visual Designer";
   }, []);
   const letterIsland = projects.find((p) => p.slug === "adventure-island");
   const englishKingdom = projects.find(
     (p) => p.slug === "english-kingdom-wardrobe",
   );
   const featuredSlugs = new Set([letterIsland.slug, englishKingdom.slug]);
-  const visible = projects.filter((p) => {
-    if (filter === "All work") {
-      return p.category !== "Graphic design" && !featuredSlugs.has(p.slug);
-    }
-    return p.category === filter;
-  });
+  const secondaryProjects = projects.filter(p => !featuredSlugs.has(p.slug));
+  const visible = secondaryProjects.filter(p => filter === "All work" ? p.category !== "Graphic design" : p.category === filter);
   const paper = projects.find((p) => p.category === "Graphic design");
   return (
     <>
@@ -259,7 +243,7 @@ function Home() {
         <FadeContent>
           <p className="eyebrow selected-work-title">SELECTED WORK</p>
         </FadeContent>
-        {filter === "All work" && (
+        {(
           <div className="featured-work" aria-label="Featured projects">
             <ProjectCard
               project={letterIsland}
@@ -267,20 +251,21 @@ function Home() {
               displayTitle="Adventure Island"
               cover="/media/adventure-island/adventure-island-cover.webp"
               coverAlt="Adventure Island cover art with a colourful map, signposts, and a guide owl."
-              captionEyebrow="ADVENTURE ISLAND / WORLD DESIGN"
-              captionText="World building · Environments · Level flow"
+              captionEyebrow="01 / WORLD BUILDING & VISUAL DEVELOPMENT"
+              captionText="From a world map to environments, characters and game UI"
             />
             <ProjectCard
               project={englishKingdom}
               featured="secondary"
               displayTitle="English Kingdom"
-              captionEyebrow="GAMEPLAY & VISUAL DESIGN / ENGLISH KINGDOM"
-              captionText="World design · Character systems · Game UI"
+              captionEyebrow="02 / GAME UI & VISUAL REDESIGN"
+              captionText="A cohesive visual language for interfaces and game assets"
             />
           </div>
         )}
-        <div className="work-collection-heading">
-          <p className="eyebrow">SELECTED ART &amp; MOTION</p>
+        <div className="work-collection-heading" id="art-motion">
+          <h2 className="eyebrow">SELECTED ART &amp; MOTION</h2>
+          <p>Smaller studies in characters, interfaces, motion and graphic design.</p>
         </div>
         <div className="filters" aria-label="Filter projects">
           {categories.map((f) => (
@@ -292,7 +277,7 @@ function Home() {
             >
               {f}
               {f === "All work" && (
-                <span>{String(projects.length).padStart(2, "0")}</span>
+                <span>{String(secondaryProjects.length).padStart(2, "0")}</span>
               )}
             </button>
           ))}
@@ -309,7 +294,14 @@ function Home() {
             />
           ))}
         </div>
-        {filter === "All work" && (
+        {(filter === "All work" || filter === "2D Animation") && (
+          <section className="motion-practice" aria-labelledby="motion-practice-title">
+            <div><span className="eyebrow">ADDITIONAL PRACTICE</span><h3 id="motion-practice-title">{animationStudy.title}</h3><p>{animationStudy.description}</p></div>
+            {animationStudy.video && <video controls playsInline preload="metadata" aria-label="Spine animation"><source src={animationStudy.video.src} type={animationStudy.video.type || "video/mp4"} /></video>}
+            {[animationStudy.character, animationStudy.rig, animationStudy.result].filter(Boolean).map(item => <figure key={item.src}><img src={item.src} alt={item.alt} loading="lazy" /><figcaption>{item.title}</figcaption></figure>)}
+          </section>
+        )}
+        {filter === "All work" && paper && (
           <FadeContent>
             <Link className="paper-feature" to={`/projects/${paper.slug}`}>
               <div className="paper-preview">
@@ -334,8 +326,7 @@ function Home() {
           </FadeContent>
         )}
         <p className="concept-note">
-          <Spark /> Presentation concepts and supplied project artwork, gathered
-          into a growing visual library.
+          <Spark /> Smaller studies include illustrative concepts and AI-generated sample artwork. Professional game projects are presented separately above.
         </p>
       </section>
       <section className="about-section" id="about">
@@ -346,10 +337,10 @@ function Home() {
               <div className="sketch-card">
                 <img
                   src="/media/woodland-friends.webp"
-                  alt="Illustrative woodland characters on a warm sketchbook page"
+                  alt="AI-generated woodland character concept illustration"
                   loading="lazy"
                 />
-                <span>THE SKETCHBOOK / A LITTLE EXPLORATION</span>
+                <span>ILLUSTRATIVE CONCEPT / AI-GENERATED SAMPLE</span>
               </div>
               <div className="about-seal">
                 <Spark />
@@ -368,16 +359,12 @@ function Home() {
             <div className="about-copy">
               <p className="eyebrow">THE ARTIST BEHIND THE WORLDS</p>
               <h2>
-                A curious mind.
+                From an idea
                 <br />
-                <em>A storyteller’s heart.</em>
+                <em>to a game world.</em>
               </h2>
               <p>{profile.about}</p>
-              <p>
-                From an adventurous little character to a beautifully paced
-                presentation, I care about how a design feels as much as how it
-                looks.
-              </p>
+
               <div className="services">
                 <div>
                   <Icon name="palette" />
@@ -388,19 +375,20 @@ function Home() {
                 <div>
                   <Icon name="book" />
                   <span>
-                    Interfaces & stories
-                    <small>Games, presentations, print</small>
+                    Game UI & production
+                    <small>Reusable assets, developer collaboration</small>
                   </span>
                 </div>
               </div>
               <div className="toolkit">
                 <p className="eyebrow">TOOLS &amp; PRACTICE</p>
                 <ul className="toolkit-list">
-                  {["Digital Illustration", "Illustrator", "Photoshop", "Figma", "Procreate", "Spine", "AI-Assisted Workflow"].map((tool) => (
+                  {["Digital Illustration", "Illustrator", "Photoshop", "Figma", "Procreate", "Nomad Sculpt", "Spine", "AI Creative Tools"].map((tool) => (
                     <li key={tool}>{tool}</li>
                   ))}
                 </ul>
               </div>
+              <a className="text-link resume-request" href={`mailto:${profile.email}?subject=Resume%20request`}>Request resume <Icon name="diagonal" /></a>
               <Link to="/#contact" className="text-link">
                 Let’s imagine something together <Icon name="diagonal" />
               </Link>
@@ -707,9 +695,10 @@ function Project() {
         </Link>
       </section>
     );
-  const projectIndex = projects.indexOf(project);
-  const previous = projects[(projectIndex - 1 + projects.length) % projects.length];
-  const next = projects[(projectIndex + 1) % projects.length];
+  const orderedProjects = [...projects.filter(p => p.slug === "adventure-island"), ...projects.filter(p => p.slug === "english-kingdom-wardrobe"), ...projects.filter(p => !caseStudies[p.slug])];
+  const projectIndex = orderedProjects.indexOf(project);
+  const previous = orderedProjects[(projectIndex - 1 + orderedProjects.length) % orderedProjects.length];
+  const next = orderedProjects[(projectIndex + 1) % orderedProjects.length];
   const assetCategories = project.assetCategories || [];
   const currentAssetCategory =
     assetCategories.find((category) => category.title === activeAssetCategory) ||
@@ -780,6 +769,7 @@ function Project() {
               ? "Illustrative presentation concept · AI-generated sample artwork"
               : "Original interface and layout study")}
         </p>
+        {caseStudies[project.slug] ? <CaseNarrative project={project} onOpen={setSelected} /> : <>
         <section className="case-intro">
           <span className="eyebrow">01 / THE STORY</span>
           <div>
@@ -911,11 +901,12 @@ function Project() {
           </>
           )}
         </section>
+        </>}
         {project.letterShowcase && (
-          <section className="letter-showcase" aria-labelledby="letter-showcase-title">
+          <section className="letter-showcase" id="characters" aria-labelledby="letter-showcase-title">
             <div className="letter-showcase-heading">
               <div>
-                <span className="eyebrow">04 / CHARACTER DESIGN</span>
+                <span className="eyebrow">07 / CHARACTER DESIGN</span>
                 <h2 id="letter-showcase-title">
                   Meet the letters
                   <br />
@@ -981,10 +972,17 @@ function Project() {
             </div>
           </section>
         )}
-        <section className="case-intro">
+        {caseStudies[project.slug] && <>
+          <PersonalDevelopment project={project} onOpen={setSelected} />
+          {project.slug === "adventure-island" && <StorySection id="adventure-ui" number="09 / GAME UI" title="The world continues into the interface" description="Quest books, dialogue and collection screens carry the illustrated world into everyday gameplay.">
+            <div className="story-image-grid">{project.assetShowcase.categories[1].gallery.slice(0, 3).map(item => <StoryImage key={item.src} item={item} onOpen={setSelected} />)}</div>
+          </StorySection>}
+          <details className="story-details complete-asset-library"><summary>Explore the complete {project.title} asset library</summary><AssetShowcase categories={project.assetShowcase.categories} project={project} onOpen={setSelected} /></details>
+        </>}
+        {!caseStudies[project.slug] && <section className="case-intro">
           <span className="eyebrow">{project.letterShowcase ? "05 / THE DIRECTION" : "04 / THE DIRECTION"}</span>
           <h2>{project.outcome}</h2>
-        </section>
+        </section>}
         <nav className="project-pagination" aria-label="Browse projects">
           <Link
             className="project-pagination-link previous-project"
